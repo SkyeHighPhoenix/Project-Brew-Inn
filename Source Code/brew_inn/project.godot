@@ -1,0 +1,26 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Brew_Inn"
+run/main_scene="res://dayNightCycle test.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://icon.svg"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "purple"
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
