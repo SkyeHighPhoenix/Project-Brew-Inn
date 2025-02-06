@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://dayNightCycle.gd" id="2_mncx0"]
 [ext_resource type="Texture2D" uid="uid://djwafrmxxa0fj" path="res://Assets/dayNightCycle/daynightcycle-gradient-texture.tres" id="3_m8633"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g76f4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5dce"]
 texture = ExtResource("1_co084")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
@@ -1042,7 +1042,7 @@ texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSet" id="TileSet_sp2n4"]
 tile_size = Vector2i(128, 128)
-sources/0 = SubResource("TileSetAtlasSource_g76f4")
+sources/0 = SubResource("TileSetAtlasSource_p5dce")
 
 [node name="Node2D" type="Node2D"]
 
