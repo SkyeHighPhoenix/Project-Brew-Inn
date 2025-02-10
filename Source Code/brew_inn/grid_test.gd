@@ -1,11 +1,42 @@
 extends Node2D
 
+const tileTypeDict = {"Distillery":Vector2i(1,0), "House":Vector2i(0,0), "test":Vector2i(2,1)}
+var currentlyPlacing = true
+var placingTile = "Distillery"
+var NodeScale = 0.555
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Camera2D.zoom = $Camera2D.zoom*NodeScale
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	pass
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		setPlacingTexture(checkCoords(event.position)[0], placingTile)
+	if event is InputEventMouseButton:
+		if event.button_index == 1 and event.pressed == false:
+			placeTexture(event.position, placingTile)
+		
+
+func checkCoords(mousePosition:Vector2):
+	var mapCoords = $TileMap/Layer1.local_to_map(mousePosition/NodeScale)
+	var globalCoords = $TileMap/Layer1.map_to_local(mapCoords)
+	return [mapCoords,globalCoords]
+	pass
+
+func setPlacingTexture(Coords:Vector2i, Placing:String):
+	$PlacingObject.setCoords(Coords,0,tileTypeDict[Placing],0)
+	pass
+
+func placeTexture(Coords:Vector2i,Placing:String):
+	var mapIndex = checkCoords(Coords)[0]
+	$TileMap/ObejctLayer.set_cell(mapIndex,0,tileTypeDict[Placing],0)
+	pass
+
+func changePlacing(placing:String):
 	pass
