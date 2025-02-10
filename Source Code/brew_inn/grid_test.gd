@@ -2,6 +2,8 @@ extends Node2D
 
 const tileTypeDict = {"Distillery":Vector2i(1,0), "House":Vector2i(0,0), "test":Vector2i(2,1)}
 var currentlyPlacing = true
+var dictionaryOfTiles = {} # for each populated tile in the ObjectLayer, format {mapIndex Vector2i():Building String}
+# need a way of referring to the actual object, maybe populate the dict with objects instead?
 var placingTile = "Distillery"
 var NodeScale = 0.555
 
@@ -36,6 +38,7 @@ func setPlacingTexture(Coords:Vector2i, Placing:String):
 func placeTexture(Coords:Vector2i,Placing:String):
 	var mapIndex = checkCoords(Coords)[0]
 	$TileMap/ObejctLayer.set_cell(mapIndex,0,tileTypeDict[Placing],0)
+	dictionaryOfTiles[mapIndex] = Placing
 	pass
 
 func changePlacing(placing:String):
