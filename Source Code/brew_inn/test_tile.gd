@@ -5,6 +5,10 @@ var type = ""
 var globalIrrigation = false
 var masterTile = null
 var isMaster = false
+var inputLocations = [] # list of lists containing [tile vector, "NSEW"]
+var outputLocations = []
+
+var connections = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,3 +18,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func createBuilding(buildingType:String, coordinates:Vector2i):
+	type = buildingType
+	tilePosition = coordinates
+	pass
+
+func checkOutputs(coordsIn):
+	# take block
+	# check if it matches an input or output on my one
+	# add to inputs and outputs respectively
+	pass
+	

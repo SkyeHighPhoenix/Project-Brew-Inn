@@ -1,12 +1,12 @@
 extends Node2D
 
-const tileTypeDict = {"Distillery":Vector2i(1,0), "House":Vector2i(0,0), "test":Vector2i(2,1)}
+const tileTypeDict = {"Distillery":[Vector2i(1,0),Vector2i(1,1)], "House":[Vector2i(0,0), Vector2i(1,1)], "test":[Vector2i(2,0)]}
 var currentlyPlacing = true
 var dictionaryOfTiles = {} # for each populated tile in the ObjectLayer, format {mapIndex Vector2i():Building String}
 var dictionaryOfIrrigation = {} # each tile will have a number value, representing how many irrigation pipes are irrigating it
 # need to have a bool in all farm tiles that tells when it's globally irrigated
 # need a way of referring to the actual object, maybe populate the dict with objects instead?
-var placingTile = "Distillery"
+var placingTile = "test"
 var NodeScale = 0.555
 
 # Called when the node enters the scene tree for the first time.
@@ -34,12 +34,17 @@ func checkCoords(mousePosition:Vector2):
 	pass
 
 func setPlacingTexture(Coords:Vector2i, Placing:String):
-	$PlacingObject.setCoords(Coords,0,tileTypeDict[Placing],0)
+	$PlacingObject.setCoords(Coords,0,tileTypeDict[Placing][0],0)
+	
+	pass
+
+func placeTile():
 	pass
 
 func placeTexture(Coords:Vector2i,Placing:String):
 	var mapIndex = checkCoords(Coords)[0]
-	$TileMap/ObejctLayer.set_cell(mapIndex,0,tileTypeDict[Placing],0)
+	$TileMap/ObejctLayer.set_cell(mapIndex,0,tileTypeDict[Placing][0],0)
+	$PlacingObject.getTileSize(Vector2i(2,1))
 	dictionaryOfTiles[mapIndex] = Placing
 	if Vector2i(2,2) in dictionaryOfTiles:
 		print("Whee")
