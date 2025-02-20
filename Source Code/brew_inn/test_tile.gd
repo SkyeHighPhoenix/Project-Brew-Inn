@@ -3,10 +3,7 @@ var tilePosition = Vector2i() # liles main tile position
 var tileSize = Vector2i() # 0,0 is a 1 by 1
 var type = ""
 var globalIrrigation = false
-var masterTile = null
-var isMaster = false
-var inputLocations = [] # list of lists containing [tile vector, "NSEW"]
-var outputLocations = []
+var storageBox = null
 
 var connections = []
 
@@ -19,7 +16,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func createBuilding(buildingType:String, coordinates:Vector2i):
+func createBuilding(buildingType:String, coordinates:Vector2i, tileSize:Vector2i):
 	type = buildingType
 	tilePosition = coordinates
 	pass
