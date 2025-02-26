@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/global_tick.gd" id="1_xp0j0"]
 
-[node name="GlobalTick" type="Node2D" groups=["Ticks"]]
+[node name="GlobalTick" type="Node2D"]
 script = ExtResource("1_xp0j0")
 
 [node name="Timer" type="Timer" parent="."]
