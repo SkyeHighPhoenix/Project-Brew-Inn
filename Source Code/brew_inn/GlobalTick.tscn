@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm8nx54e8efll"]
+
+[ext_resource type="Script" path="res://Scripts/global_tick.gd" id="1_xp0j0"]
+
+[node name="GlobalTick" type="Node2D" groups=["Ticks"]]
+script = ExtResource("1_xp0j0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

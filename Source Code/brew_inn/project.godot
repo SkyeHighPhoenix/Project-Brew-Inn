@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Brew_Inn"
-run/main_scene="res://grid_test.tscn"
+run/main_scene="res://baseFarm.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Will/icon.svg"
+
+[autoload]
+
+GlobalTick="*res://GlobalTick.tscn"
 
 [display]
 
@@ -24,6 +28,10 @@ window/stretch/mode="canvas_items"
 folder_colors={
 "res://Assets/": "purple"
 }
+
+[global_group]
+
+Ticks="Things that need to know when a tick occurs"
 
 [rendering]
 
