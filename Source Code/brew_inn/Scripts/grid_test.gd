@@ -8,7 +8,7 @@ var dictionaryOfIrrigation = {} # each tile will have a number value, representi
 # need a way of referring to the actual object, maybe populate the dict with objects instead?
 var isPlacing = true
 var placingTile = "test"
-var placingTileType = "Farm"
+var placingTileType = "farm"
 var NodeScale = 0.555
 
 # Called when the node enters the scene tree for the first time.
@@ -49,21 +49,34 @@ func setPlacingTexture(Coords:Vector2i, Placing:String):
 
 func placeTile(coordinates):
 	var mapIndex = checkCoords(coordinates)[0]
-	if mapIndex not in dictionaryOfTiles:
+	if checkTileValid(mapIndex):
 		placeTexture(mapIndex, placingTile)
-		if placingTileType == "Farm":
-			var tileToPlace = load("res://test_tile.tscn")
-			var tileInstance = tileToPlace.instantiate()
-			var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
-			tileInstance.createBuilding(placingTile, mapIndex, tileSize)
-			dictionaryOfTiles[mapIndex] = tileInstance
-			print(dictionaryOfTiles)
+		match placingTileType:
+			"farm":
+				var tileToPlace = load("res://farm_tile.tscn")
+				var tileInstance = tileToPlace.instantiate()
+				var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
+				var irrigated = false if mapIndex not in dictionaryOfIrrigation else true
+				tileInstance.createBuilding(placingTile, mapIndex, tileSize, irrigated)
+				for i in range(tileSize.x):
+					for j in range(tileSize.y):
+						dictionaryOfTiles[mapIndex + Vector2i(i,j)] = tileInstance
+				print(dictionaryOfTiles)
+			
 	pass
 
 func placeTexture(Coords:Vector2i,Placing:String):
 	
 	$TileMap/ObejctLayer.set_cell(Coords,0,tileTypeDict[Placing][0],0)
 	$PlacingObject.getTileSize(Vector2i(2,1))
+	pass
+
+func checkTileValid(coordinates):
+	var isValid = true
+	if coordinates in dictionaryOfTiles:
+		isValid = false
+	print(isValid)
+	return isValid
 	pass
 
 func changePlacing(placing:String):
