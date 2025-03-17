@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Brew_Inn"
-run/main_scene="res://dayNightCycle test.tscn"
+run/main_scene="res://grid_test.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Assets/Will/icon.svg"
 
@@ -27,6 +27,19 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://Assets/": "purple"
+}
+
+[input]
+
+ScrollDown={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(163, 28),"global_position":Vector2(172, 74),"factor":1.0,"button_index":5,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+ScrollUp={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(197, 8),"global_position":Vector2(206, 54),"factor":1.0,"button_index":4,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
 }
 
 [rendering]

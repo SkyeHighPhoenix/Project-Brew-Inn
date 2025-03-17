@@ -1,19 +1,26 @@
 extends Node2D
 
-const tileTypeDict = {"Distillery":[Vector2i(1,0)], "House":[Vector2i(0,0)], "test":[Vector2i(2,0)]}
+const tileTypeDict = {"Distillery":[Vector2i(1,0)], "House":[Vector2i(0,0)], "storage":[Vector2i(2,0)]}
 var currentlyPlacing = true
 var dictionaryOfTiles = {} # for each populated tile in the ObjectLayer, format {mapIndex Vector2i():Building String}
 var dictionaryOfIrrigation = {} # each tile will have a number value, representing how many irrigation pipes are irrigating it
 # need to have a bool in all farm tiles that tells when it's globally irrigated
 # need a way of referring to the actual object, maybe populate the dict with objects instead?
+#//order in which the tiles will be checked to connect nodes
+const checkOrder = [Vector2i(1,1),Vector2i(1,0),Vector2i(1,-1),Vector2i(0,-1), 
+Vector2i(-1,-1),Vector2i(-1,0),Vector2i(-1,1), Vector2i(0,1)] 
+#//
 var isPlacing = true
-var placingTile = "test"
-var placingTileType = "farm"
-var NodeScale = 0.555
+var placingTile = "storage"
+var placingTileType = "storage"
+var NodeScale =1# 0.555
+var viewportSize = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Camera2D.zoom = $Camera2D.zoom*NodeScale
+	viewportSize = get_viewport().size
+	$Camera2D.zoom *= $Camera2D.zoom*NodeScale
+	
 	pass # Replace with function body.
 
 
@@ -21,10 +28,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func getMouseToCoords(eventCoords): #something appears to be off with where the tilemap thinks the mouse is
+	var newcoords = Vector2(eventCoords)-Vector2(viewportSize/2)
+	newcoords *= Vector2(1/$Camera2D.zoom.x,1/$Camera2D.zoom.y)
+	newcoords += Vector2($Camera2D.position)
+	return Vector2i(newcoords)
+	
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and isPlacing:
 		if placingTile != null:
-			setPlacingTexture(checkCoords(event.position)[0], placingTile)
+			setPlacingTexture(checkCoords(getMouseToCoords(event.position))[0], placingTile)
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.pressed == false:
 			if placingTile != null:
@@ -51,17 +65,28 @@ func placeTile(coordinates):
 	var mapIndex = checkCoords(coordinates)[0]
 	if checkTileValid(mapIndex):
 		placeTexture(mapIndex, placingTile)
+		var connectedTiles = checkConnected(mapIndex)
+		print(connectedTiles)
 		match placingTileType:
 			"farm":
-				var tileToPlace = load("res://farm_tile.tscn")
+				var tileToPlace = load("res://TileScenes/farm_tile.tscn")
 				var tileInstance = tileToPlace.instantiate()
 				var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
-				var irrigated = false if mapIndex not in dictionaryOfIrrigation else true
-				tileInstance.createBuilding(placingTile, mapIndex, tileSize, irrigated)
+				var irrigated = false if mapIndex not in dictionaryOfIrrigation else true # need to adjust for larger tiles
+				tileInstance.createBuilding(placingTile, mapIndex, tileSize, irrigated,connectedTiles)
 				for i in range(tileSize.x):
 					for j in range(tileSize.y):
 						dictionaryOfTiles[mapIndex + Vector2i(i,j)] = tileInstance
 				print(dictionaryOfTiles)
+			"storage":
+				var tileToPlace = load("res://TileScenes/storageTile.tscn")
+				var tileInstance = tileToPlace.instantiate()
+				var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
+				tileInstance.createBuilding(placingTile, mapIndex, tileSize,connectedTiles)
+				for i in range(tileSize.x):
+					for j in range(tileSize.y):
+						dictionaryOfTiles[mapIndex + Vector2i(i,j)] = tileInstance
+				pass
 			
 	pass
 
@@ -77,7 +102,14 @@ func checkTileValid(coordinates):
 		isValid = false
 	print(isValid)
 	return isValid
-	pass
 
 func changePlacing(placing:String):
 	pass
+
+func checkConnected(coordinates:Vector2i):
+	var tileConnectionList = []
+	for i in checkOrder:
+		var thisTile = coordinates + i
+		if thisTile in dictionaryOfTiles:
+			tileConnectionList.append(dictionaryOfTiles[thisTile])
+	return tileConnectionList

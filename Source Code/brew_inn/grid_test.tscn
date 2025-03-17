@@ -1,12 +1,14 @@
-[gd_scene load_steps=18 format=4 uid="uid://bh3ksvxjojdyn"]
+[gd_scene load_steps=20 format=4 uid="uid://bh3ksvxjojdyn"]
 
 [ext_resource type="Script" path="res://Scripts/grid_test.gd" id="1_1loiy"]
+[ext_resource type="Script" path="res://enviromap.gd" id="2_edvfu"]
 [ext_resource type="Texture2D" uid="uid://chsuop6ybxhtc" path="res://Assets/Tilemaps/grass tiles-Sheet.png" id="2_kvgql"]
 [ext_resource type="Texture2D" uid="uid://dvjjpptvui2q0" path="res://Assets/Tilemaps/dirt sprite revamp.png" id="2_xe40p"]
 [ext_resource type="Texture2D" uid="uid://d24k2cd3qdua7" path="res://Assets/Tilemaps/GrassWCorners.png" id="4_khc6q"]
 [ext_resource type="Texture2D" uid="uid://qba10a7r0c2q" path="res://Assets/Tilemaps/TestObjectTilesCorrected.png" id="5_5xa0x"]
 [ext_resource type="Script" path="res://Scripts/placing_object.gd" id="5_gp0ai"]
 [ext_resource type="Texture2D" uid="uid://cdp4evcrvpigo" path="res://Assets/Tilemaps/orchard_experiment.png" id="6_p3vsv"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="9_lk0xb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0vyo1"]
 texture = ExtResource("2_xe40p")
@@ -1241,6 +1243,7 @@ sources/0 = SubResource("TileSetAtlasSource_vvaqy")
 script = ExtResource("1_1loiy")
 
 [node name="TileMap" type="Node2D" parent="."]
+script = ExtResource("2_edvfu")
 
 [node name="Layer0" type="TileMapLayer" parent="TileMap"]
 tile_map_data = PackedByteArray("AAALAAMAAAAAAAAAAAAMAAMAAAAAAAAAAAANAAMAAAAAAAAAAAANAAQAAAABAAAAAAAMAAUAAAACAAEAAAAMAAQAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAANAAUAAAAAAAIAAAANAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAIAAYAAAACAAIAAAAHAAYAAAACAAIAAAAHAAcAAAACAAIAAAAIAAcAAAACAAIAAAACAAIAAAAAAAIAAAABAAIAAAABAAAAAAABAAMAAAABAAAAAAABAAEAAAABAAAAAAACAAEAAAAAAAEAAAADAAEAAAABAAEAAAADAAIAAAABAAEAAAACAAMAAAAAAAIAAAA=")
@@ -1261,4 +1264,4 @@ script = ExtResource("5_gp0ai")
 tile_set = SubResource("TileSet_48jck")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
+script = ExtResource("9_lk0xb")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm0wouib65mrp"]
+
+[ext_resource type="Script" path="res://Scripts/farm_tile.gd" id="1_hrok8"]
+
+[node name="TestTile" type="Node2D"]
+script = ExtResource("1_hrok8")
