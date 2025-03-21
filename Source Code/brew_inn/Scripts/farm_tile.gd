@@ -46,10 +46,11 @@ func increaseResources():
 		else:
 			storageBox.addResources(resourcesOnHarvest)
 
-func createBuilding(buildingType:String, coordinates:Vector2i, tileSize:Vector2i, irrigationStatus:bool, connectedTiles:Array):
+func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, irrigationStatus:bool, connectedTiles:Array):
 	Irrigated = irrigationStatus
 	tileType = buildingType
 	tilePosition = coordinates
+	tileSize = size
 	match tileType:
 		"cropPlot":
 			checkConnections(connectedTiles)

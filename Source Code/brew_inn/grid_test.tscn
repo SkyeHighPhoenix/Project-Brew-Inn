@@ -1169,7 +1169,6 @@ texture_region_size = Vector2i(128, 128)
 13:3/0 = 0
 14:3/0 = 0
 15:3/0 = 0
-2:4/0 = 0
 6:4/0 = 0
 8:4/0 = 0
 9:4/0 = 0
@@ -1243,9 +1242,6 @@ texture_region_size = Vector2i(128, 128)
 2:0/0/texture_origin = Vector2i(0, 64)
 1:0/0 = 0
 0:0/0 = 0
-0:2/size_in_atlas = Vector2i(3, 3)
-0:2/0 = 0
-0:2/0/texture_origin = Vector2i(128, 128)
 0:5/size_in_atlas = Vector2i(3, 1)
 0:5/0 = 0
 0:5/0/texture_origin = Vector2i(128, 0)
@@ -1270,6 +1266,9 @@ texture_region_size = Vector2i(128, 128)
 6:3/0 = 0
 1:1/0 = 0
 0:1/0 = 0
+0:2/size_in_atlas = Vector2i(3, 3)
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(128, 128)
 
 [sub_resource type="TileSet" id="TileSet_48jck"]
 tile_size = Vector2i(128, 128)
