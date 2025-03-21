@@ -70,9 +70,12 @@ func checkOutputs(coordsIn):
 
 func checkConnections(tiles):
 	for i in tiles:
+		print(i.tileType)
 		if i.tileType == "cropPlot":
 			connections.append(i)
 			i.addConnection(self)
+		elif i.tileType == "storage" and storageBox == null:
+			newStorage(0,i)
 	
 func checkForStorage(): 
 	# checks for any available storage boxes to connect to when a crop plot
@@ -87,13 +90,11 @@ func checkForStorage():
 	if currentSelection != null and currentSelection.storageBox.getAvailable() >0:
 		plotsToStorage = currentSelection.plotsToStorage + 1
 		storageBox = currentSelection.storageBox
-		storageBox.addNode(tilePosition)
+		storageBox.addNode(self)
 		for i in connections:
 			if i.storageBox != storageBox:
 				if (i.plotsToStorage == null) or (i.plotsToStorage > plotsToStorage + 1):
 					i.checkForStorage()
-	if storageBox:
-		print(storageBox.assignedCoords)
 		
 func addConnection(toConnect):
 	connections.append(toConnect)
@@ -103,7 +104,7 @@ func newStorage(distance, settingStorage): # crop plot exclusive
 	if plotsToStorage == null:
 		plotsToStorage = distance + 1
 	if distance < plotsToStorage:
-		settingStorage.addNode(tilePosition)
+		settingStorage.addNode(self)
 		storageBox = settingStorage
 		return connections
 	else:
@@ -113,7 +114,7 @@ func setStorage(settingStorage, checkedTiles = []):
 	# messy tree traversal alghorythm, idrc so long as it works
 	for i in connections:
 		if i.storageBox == null and settingStorage.getAvailable > 0:
-			settingStorage.addNode(i.tilePosition)
+			settingStorage.addNode(i)
 			i.storageBox = settingStorage
 	for i in connections:
 		if i.storageBox == settingStorage and settingStorage.getAvailable > 0 and i not in checkedTiles:

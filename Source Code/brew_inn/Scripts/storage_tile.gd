@@ -2,11 +2,11 @@ extends Node2D
 const maxTiles = 6
 const startCapacity = 100
 const validTypes = ['cropPlot']
-const tileType = "storageBox"
+const tileType = "storage"
 var storageCapacity = 0
 var itemCount:int = 0
 var itemCounts = {}
-var assignedCoords = []
+var assignedNodes = []
 var tilePosition
 
 
@@ -50,12 +50,13 @@ func connectPlots(connections):
 				plotsToCheck.append(i)
 		distance += 1
 		pass
-	print(assignedCoords)
+	print(assignedNodes)
 
-func addNode(nodeCoords:Vector2i):
-	if nodeCoords not in assignedCoords:
-		assignedCoords.append(nodeCoords)
+func addNode(node):
+	if node not in assignedNodes:
+		assignedNodes.append(node)
+		print(assignedNodes)
 	pass
 
 func getAvailable():
-	return maxTiles - len(assignedCoords)
+	return maxTiles - len(assignedNodes)

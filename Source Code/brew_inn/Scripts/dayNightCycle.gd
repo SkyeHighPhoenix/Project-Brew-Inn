@@ -1,6 +1,6 @@
 extends CanvasModulate
-
-var tick = 3000
+const startHour =0
+var tick = startHour*1200
 @export var gradient:GradientTexture1D
 
 func _ready() -> void:
