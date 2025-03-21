@@ -1,11 +1,14 @@
 extends Node2D
 var tick = 0
-var ticksToGrow = 100
-var resourcesOnHarvest = 25
-var localStorage = true
-var storageCap = 500
-var resourceType = "wheat"
-var storedResources = 0
+var ticksToRefine = 100
+var ticksUntilAutostart = ticksToRefine * 0.2
+var resourcesOnRefine = 25
+var inputStorageCap = 500
+var outputStorageCap = 500
+var storedUnrefinedResources = 0
+var storedRefinedResources = 0
+var forceFullBatch = false
+var validRecipiesDict = {"wheat":"flour", "milk":"cream", ["cream", "salt"]:"butter"}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,15 +16,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if storedResources > storageCap:
-		storedResources = storageCap
+	return
 
 func increaseResources():
-	if tick % ticksToGrow == 0:
-		if localStorage == true:
-			storedResources += resourcesOnHarvest
-			print(storedResources)
+	if tick == ticksToRefine:
+		storedRefinedResources += resourcesOnRefine
+		print(storedRefinedResources)
+		tick = 0
 
 func tickIncrease():
 	tick += 1
 	increaseResources()
+	
