@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _input(event: InputEvent):
-	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
 		position -= event.relative/zoom
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed('ScrollUp'):

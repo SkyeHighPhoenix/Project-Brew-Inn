@@ -1,14 +1,16 @@
-[gd_scene load_steps=20 format=4 uid="uid://bh3ksvxjojdyn"]
+[gd_scene load_steps=22 format=4 uid="uid://bh3ksvxjojdyn"]
 
 [ext_resource type="Script" path="res://Scripts/grid_test.gd" id="1_1loiy"]
 [ext_resource type="Script" path="res://enviromap.gd" id="2_edvfu"]
 [ext_resource type="Texture2D" uid="uid://chsuop6ybxhtc" path="res://Assets/Tilemaps/grass tiles-Sheet.png" id="2_kvgql"]
 [ext_resource type="Texture2D" uid="uid://dvjjpptvui2q0" path="res://Assets/Tilemaps/dirt sprite revamp.png" id="2_xe40p"]
 [ext_resource type="Texture2D" uid="uid://d24k2cd3qdua7" path="res://Assets/Tilemaps/GrassWCorners.png" id="4_khc6q"]
-[ext_resource type="Texture2D" uid="uid://qba10a7r0c2q" path="res://Assets/Tilemaps/TestObjectTilesCorrected.png" id="5_5xa0x"]
 [ext_resource type="Script" path="res://Scripts/placing_object.gd" id="5_gp0ai"]
 [ext_resource type="Texture2D" uid="uid://cdp4evcrvpigo" path="res://Assets/Tilemaps/orchard_experiment.png" id="6_p3vsv"]
+[ext_resource type="Texture2D" uid="uid://dbtvulxxc01c" path="res://Assets/Tilemaps/newTestingTilesheet.png" id="6_x3qlc"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="9_lk0xb"]
+[ext_resource type="Script" path="res://Scripts/dayNightCycle.gd" id="10_bonyg"]
+[ext_resource type="Texture2D" uid="uid://djwafrmxxa0fj" path="res://Assets/dayNightCycle/daynightcycle-gradient-texture.tres" id="11_p5wyo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0vyo1"]
 texture = ExtResource("2_xe40p")
@@ -1092,13 +1094,40 @@ sources/0 = SubResource("TileSetAtlasSource_tao2u")
 sources/1 = SubResource("TileSetAtlasSource_5vs5u")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4t3y1"]
-texture = ExtResource("5_5xa0x")
+texture = ExtResource("6_x3qlc")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 1:0/0 = 0
 2:0/size_in_atlas = Vector2i(1, 2)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(0, 64)
+0:1/0 = 0
+1:1/0 = 0
+0:2/size_in_atlas = Vector2i(3, 3)
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(128, 128)
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+6:1/0 = 0
+5:1/0 = 0
+4:1/0 = 0
+3:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+6:3/0 = 0
+5:3/0 = 0
+4:3/0 = 0
+3:3/0 = 0
+0:5/size_in_atlas = Vector2i(3, 1)
+0:5/0 = 0
+0:5/0/texture_origin = Vector2i(128, 0)
+3:4/size_in_atlas = Vector2i(3, 2)
+3:4/0 = 0
+3:4/0/texture_origin = Vector2i(128, 64)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h64wa"]
 texture = ExtResource("6_p3vsv")
@@ -1113,13 +1142,9 @@ sources/0 = SubResource("TileSetAtlasSource_4t3y1")
 sources/1 = SubResource("TileSetAtlasSource_h64wa")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vvaqy"]
-texture = ExtResource("5_5xa0x")
+texture = ExtResource("6_x3qlc")
 texture_region_size = Vector2i(128, 128)
-4:0/0 = 0
 20:0/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
 11:1/0 = 0
 12:1/0 = 0
 13:1/0 = 0
@@ -1129,9 +1154,6 @@ texture_region_size = Vector2i(128, 128)
 19:1/0 = 0
 20:1/0 = 0
 21:1/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
 10:2/0 = 0
 11:2/0 = 0
 12:2/0 = 0
@@ -1140,9 +1162,6 @@ texture_region_size = Vector2i(128, 128)
 15:2/0 = 0
 20:2/0 = 0
 21:2/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
 9:3/0 = 0
 10:3/0 = 0
 11:3/0 = 0
@@ -1150,11 +1169,7 @@ texture_region_size = Vector2i(128, 128)
 13:3/0 = 0
 14:3/0 = 0
 15:3/0 = 0
-1:4/0 = 0
 2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
 6:4/0 = 0
 8:4/0 = 0
 9:4/0 = 0
@@ -1167,12 +1182,6 @@ texture_region_size = Vector2i(128, 128)
 18:4/0 = 0
 19:4/0 = 0
 20:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
 8:5/0 = 0
 9:5/0 = 0
 10:5/0 = 0
@@ -1234,6 +1243,33 @@ texture_region_size = Vector2i(128, 128)
 2:0/0/texture_origin = Vector2i(0, 64)
 1:0/0 = 0
 0:0/0 = 0
+0:2/size_in_atlas = Vector2i(3, 3)
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(128, 128)
+0:5/size_in_atlas = Vector2i(3, 1)
+0:5/0 = 0
+0:5/0/texture_origin = Vector2i(128, 0)
+3:4/size_in_atlas = Vector2i(3, 2)
+3:4/0 = 0
+3:4/0/texture_origin = Vector2i(128, 64)
+3:3/0 = 0
+3:2/0 = 0
+3:1/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+4:1/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+5:2/0 = 0
+5:1/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+6:1/0 = 0
+6:2/0 = 0
+6:3/0 = 0
+1:1/0 = 0
+0:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_48jck"]
 tile_size = Vector2i(128, 128)
@@ -1265,3 +1301,8 @@ tile_set = SubResource("TileSet_48jck")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("9_lk0xb")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.25191, 0.374138, 0.78056, 1)
+script = ExtResource("10_bonyg")
+gradient = ExtResource("11_p5wyo")

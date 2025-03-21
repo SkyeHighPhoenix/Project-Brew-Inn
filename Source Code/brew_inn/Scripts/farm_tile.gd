@@ -2,23 +2,27 @@ extends Node2D
 # when tile is deleted you must remove all instances of this tile 
 # from connected tiles and storage
 
+var ticksToGrow = 100
+var resourcesOnHarvest = 25
+var storageCap = 500
 
 var tilePosition = Vector2i() # liles main tile position
 var tileSize = Vector2i() # 0,0 is a 1 by 1
 var tileType = ""
 var plantGrowing = ""
 var Irrigated = false
-var storageBox = null
+
 var growthStage = 0
 var connections = []
 
-# variables from will 
-var tick = 0
-var ticksToGrow = 100
-var resourcesOnHarvest = 25
-var localStorage = true
-var storageCap = 500
 var storedResources = 0
+var localStorage = true
+var storageBox = null
+var plotsToStorage = null
+
+
+var tick = 0
+
 
 
 
@@ -48,7 +52,8 @@ func createBuilding(buildingType:String, coordinates:Vector2i, tileSize:Vector2i
 	tilePosition = coordinates
 	match tileType:
 		"cropPlot":
-			checkForStorage(connectedTiles)
+			checkConnections(connectedTiles)
+			checkForStorage()
 			localStorage = false
 	pass
 
@@ -61,37 +66,48 @@ func checkOutputs(coordsIn):
 	# check if it matches an input or output on my one
 	# add to inputs and outputs respectively
 	pass
-	
-func checkForStorage(tiles): 
-	# checks for any available storage boxes to connect to when a crop plot
-	var currentPriority = null
-	var currentPriorityType = null
-	for i in tiles:
-		var discoveredTileType = i.tileType
-		var discoveredStorage = null
-		match discoveredTileType:
-			"cropPlot":
-				if i not in connections:
-					connections.append(i)
-					i.addConnection(self)
-				if i.storageBox != null and i.storageBox.getAvailable() > 0:
-					discoveredStorage = i.storageBox
-		match currentPriorityType:
-			null:
-				currentPriority = discoveredStorage
-				currentPriorityType = discoveredTileType
-			"cropPlot":
-				if discoveredTileType == "storage":
-					currentPriority = discoveredStorage
-					currentPriorityType = discoveredTileType
-	storageBox = currentPriority
-				
-	pass
 
+func checkConnections(tiles):
+	for i in tiles:
+		if i.tileType == "cropPlot":
+			connections.append(i)
+			i.addConnection(self)
+	
+func checkForStorage(): 
+	# checks for any available storage boxes to connect to when a crop plot
+	var currentSelection = null
+	for i in connections:
+		print(i)
+		if i.plotsToStorage != null:
+			if currentSelection == null:
+				currentSelection = i
+			if i.plotsToStorage < currentSelection.plotsToStorage:
+				currentSelection = i
+	if currentSelection != null and currentSelection.storageBox.getAvailable() >0:
+		plotsToStorage = currentSelection.plotsToStorage + 1
+		storageBox = currentSelection.storageBox
+		storageBox.addNode(tilePosition)
+		for i in connections:
+			if i.storageBox != storageBox:
+				if (i.plotsToStorage == null) or (i.plotsToStorage > plotsToStorage + 1):
+					i.checkForStorage()
+	if storageBox:
+		print(storageBox.assignedCoords)
+		
 func addConnection(toConnect):
 	connections.append(toConnect)
 	pass
 
+func newStorage(distance, settingStorage): # crop plot exclusive
+	if plotsToStorage == null:
+		plotsToStorage = distance + 1
+	if distance < plotsToStorage:
+		settingStorage.addNode(tilePosition)
+		storageBox = settingStorage
+		return connections
+	else:
+		return []
+		
 func setStorage(settingStorage, checkedTiles = []):
 	# messy tree traversal alghorythm, idrc so long as it works
 	for i in connections:

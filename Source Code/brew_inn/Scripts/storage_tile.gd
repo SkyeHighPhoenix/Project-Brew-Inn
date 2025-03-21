@@ -30,13 +30,31 @@ func addResources(count:int):
 	
 func createBuilding(buildingType:String, coordinates:Vector2i, tileSize:Vector2i,connectedTiles:Array):
 	tilePosition = coordinates
-	for i in connectedTiles:
-		if i.tileType == 'cropPlot' and getAvailable() > 0:
-			i.setStorage(self)
-	pass
+	connectPlots(connectedTiles)
+
+func connectPlots(connections):
+	var checkedPlots = []
+	var plotsToCheck = connections
+	var distance = 0
+	while plotsToCheck != [] and getAvailable() > 0:
+		var newChecklist = []
+		for i in plotsToCheck:
+			print("plotCheck ", distance, " ", i)
+			if i.tileType == 'cropPlot' and getAvailable() > 0:
+				var plotList = i.newStorage(distance, self)
+				for plot in plotList:
+					newChecklist.append(plot)
+		plotsToCheck = []
+		for i in newChecklist:
+			if i not in checkedPlots:
+				plotsToCheck.append(i)
+		distance += 1
+		pass
+	print(assignedCoords)
 
 func addNode(nodeCoords:Vector2i):
-	assignedCoords.append(nodeCoords)
+	if nodeCoords not in assignedCoords:
+		assignedCoords.append(nodeCoords)
 	pass
 
 func getAvailable():

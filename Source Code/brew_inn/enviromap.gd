@@ -1,4 +1,5 @@
 extends Node2D
+
 # will allow for the creation and expansion of the visual layer of the world map
 
 # Called when the node enters the scene tree for the first time.

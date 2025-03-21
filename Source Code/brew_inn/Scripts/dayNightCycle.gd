@@ -8,8 +8,6 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	var value = (sin((tick*(2*PI)/(24*1200))-0.5*PI) + 1.0) / 2.0
-	print(tick)
-	print(value)
 	self.color = gradient.gradient.sample(value)
 	
 func tickIncrease():
