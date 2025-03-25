@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://tjp5gvw7cwsv"]
+
+[ext_resource type="PackedScene" uid="uid://cm0wouib65mrp" path="res://TileScenes/farm_tile.tscn" id="1_r6wdy"]
+[ext_resource type="Script" path="res://Scripts/herb_garden.gd" id="2_4hlh4"]
+
+[node name="TestTile" instance=ExtResource("1_r6wdy")]
+script = ExtResource("2_4hlh4")

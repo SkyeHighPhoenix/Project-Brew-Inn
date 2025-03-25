@@ -7,8 +7,7 @@ var dictionaryOfIrrigation = {} # each tile will have a number value, representi
 # need to have a bool in all farm tiles that tells when it's globally irrigated
 # need a way of referring to the actual object, maybe populate the dict with objects instead?
 #//order in which the tiles will be checked to connect nodes
-const checkOrder = [Vector2i(1,1),Vector2i(1,0),Vector2i(1,-1),Vector2i(0,-1), 
-Vector2i(-1,-1),Vector2i(-1,0),Vector2i(-1,1), Vector2i(0,1)] 
+const checkOrder = [Vector2i(1,0),Vector2i(0,-1),Vector2i(-1,0), Vector2i(0,1)] 
 #//
 var isPlacing = true
 var placingTile = "House"
@@ -72,17 +71,22 @@ func placeTile(coordinates):
 	if checkTileValid(mapIndex):
 		placeTexture(mapIndex, placingTile)
 		var connectedTiles = checkConnected(mapIndex)
-		print(connectedTiles)
 		match placingTileType:
-			"farm":
-				var tileToPlace = load("res://TileScenes/farm_tile.tscn")
+			"cropPlot":
+				var tileToPlace = load("res://TileScenes/crop_plots.tscn")
 				var tileInstance = tileToPlace.instantiate()
 				var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
 				var irrigated = false if mapIndex not in dictionaryOfIrrigation else true # need to adjust for larger tiles
-				tileInstance.createBuilding(placingTile, mapIndex, tileSize, irrigated,connectedTiles)
 				for i in range(tileSize.x):
 					for j in range(tileSize.y):
 						dictionaryOfTiles[mapIndex - Vector2i(i,j)] = tileInstance
+						if mapIndex - Vector2i(i,j) in dictionaryOfIrrigation:
+							irrigated = true
+				tileInstance.createBuilding(placingTile, mapIndex, tileSize, irrigated,connectedTiles)
+				tileInstance.setTileAt.connect(setTileAt.bind())
+				tileInstance.emit()
+				
+				
 			"storage":
 				var tileToPlace = load("res://TileScenes/storageTile.tscn")
 				var tileInstance = tileToPlace.instantiate()
@@ -93,6 +97,9 @@ func placeTile(coordinates):
 						dictionaryOfTiles[mapIndex - Vector2i(i,j)] = tileInstance
 				pass
 			
+	pass
+func setTileAt():
+	print("activated")
 	pass
 
 func placeTexture(Coords:Vector2i,Placing:String):

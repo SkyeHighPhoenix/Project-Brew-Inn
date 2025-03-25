@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://Scripts/farm_tile.gd" id="1_hrok8"]
 
-[node name="TestTile" type="Node2D"]
+[node name="baseFarm" type="Node2D"]
 script = ExtResource("1_hrok8")

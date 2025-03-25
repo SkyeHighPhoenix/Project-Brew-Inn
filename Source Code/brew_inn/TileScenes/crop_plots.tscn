@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://tjevw42n4pni"]
+
+[ext_resource type="PackedScene" uid="uid://cm0wouib65mrp" path="res://TileScenes/farm_tile.tscn" id="1_t58oi"]
+[ext_resource type="Script" path="res://crop_plots.gd" id="2_eh5t8"]
+
+[node name="baseFarm" instance=ExtResource("1_t58oi")]
+script = ExtResource("2_eh5t8")

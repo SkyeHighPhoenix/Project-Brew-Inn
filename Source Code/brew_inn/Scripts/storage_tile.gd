@@ -50,12 +50,12 @@ func connectPlots(connections):
 				plotsToCheck.append(i)
 		distance += 1
 		pass
-	print(assignedNodes)
+	print(assignedNodes, "connectPLots")
 
 func addNode(node):
 	if node not in assignedNodes:
 		assignedNodes.append(node)
-		print(assignedNodes)
+		print(assignedNodes, "AddNode")
 	pass
 
 func getAvailable():

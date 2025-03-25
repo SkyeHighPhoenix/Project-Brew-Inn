@@ -18,9 +18,6 @@ func _input(event: InputEvent) -> void:
 			KEY_1:
 				print("1")
 				setTile.emit("storage", "storage")
-			KEY_2:
-				print("2")
-				setTile.emit("House", "farm")
 			KEY_3:
 				print("3")
-				setTile.emit("cropPlot", "farm")
+				setTile.emit("cropPlot", "cropPlot")
