@@ -23,6 +23,3 @@ func getTileSize(coords:Vector2i):
 func clearPlacing():
 	$PlacingLayer.set_cell(previousCoords, -1, Vector2i(-1,-1),-1)
 	previousCoords = Vector2i.ZERO
-
-func changeTile():
-	pass

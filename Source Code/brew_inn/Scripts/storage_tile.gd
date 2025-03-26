@@ -5,10 +5,10 @@ const validTypes = ['cropPlot']
 const tileType = "storage"
 var storageCapacity = 0
 var itemCount:int = 0
-var itemCounts = {}
+var cropActive = null
 var assignedNodes = []
 var tilePosition
-
+signal setTile(onSet, onMap)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,6 +31,7 @@ func addResources(count:int):
 func createBuilding(buildingType:String, coordinates:Vector2i, tileSize:Vector2i,connectedTiles:Array):
 	tilePosition = coordinates
 	connectPlots(connectedTiles)
+	setTile.emit(Vector2i(1,1), tilePosition)
 
 func connectPlots(connections):
 	var checkedPlots = []
@@ -52,9 +53,16 @@ func connectPlots(connections):
 		pass
 	print(assignedNodes, "connectPLots")
 
+func changeCrop(newCrop):
+	cropActive = newCrop
+	for i in assignedNodes:
+		i.updateCropType(newCrop)
+	pass
+
 func addNode(node):
 	if node not in assignedNodes:
 		assignedNodes.append(node)
+		node.updateCropType(cropActive)
 		print(assignedNodes, "AddNode")
 	pass
 
