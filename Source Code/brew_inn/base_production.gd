@@ -11,7 +11,7 @@ var forceFullBatch = true
 var validRecipesDict = {["wheat"]:["flour", "salt"], ["milk"]:["cream"], ["cream", "salt"]:["butter"]}	
 var active = false
 var activeRecipe
-var batchSize = 20 #DESIGNERS: must be a multiple of the length of ALL recipe lists i.e. if there are recipes with 2 inputs and 3 outputs then batch size must be a multiple of 2 and 3
+var maxBatchSize = 20 #DESIGNERS: must be a multiple of the length of ALL recipe lists i.e. if there are recipes with 2 inputs and 3 outputs then batch size must be a multiple of 2 and 3
 var minSize
 
 # Called when the node enters the scene tree for the first time.
@@ -66,14 +66,14 @@ func verify():
 	if emptySpace < minSize:
 		return []
 	if forceFullBatch:
-		if batchSize > emptySpace:
+		if maxBatchSize > emptySpace:
 			return []
 	keys = validRecipesDict.keys()
 	for i in range(len(keys)):
 		valid = true
 		for j in range(len(keys[i])):
 			if forceFullBatch:
-				if storedUnrefinedResources[keys[i][j]] < batchSize:
+				if storedUnrefinedResources[keys[i][j]] < maxBatchSize:
 					valid = false
 			else:
 				if storedUnrefinedResources[keys[i][j]] < len(validRecipesDict[keys[i]]):
@@ -83,6 +83,9 @@ func verify():
 	return []
 		
 func completeRecipe(recipe):
+	var batchSize
+	batchSize = 
+	
 	if len(recipe)/len(validRecipesDict[recipe]) >= 1:
 		for i in range(len(recipe)):
 			storedUnrefinedResources[recipe[i]]-=1
