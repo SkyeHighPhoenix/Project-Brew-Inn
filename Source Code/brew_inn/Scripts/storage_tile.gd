@@ -3,7 +3,7 @@ const maxTiles = 6
 const startCapacity = 100
 const validTypes = ['cropPlot']
 const tileType = "storage"
-var storageCapacity = 0
+var storageCapacity = 100
 var itemCount:int = 0
 var cropActive = null
 var assignedNodes = []
@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func addResources(count:int):
+	print(itemCount)
 	itemCount += count
 	if itemCount > storageCapacity:
 		itemCount = storageCapacity

@@ -3,6 +3,7 @@ extends "res://Scripts/farm_tile.gd"
 
 # Called when the node enters the scene tree for the first time.
 func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, irrigationStatus:bool, connectedTiles:Array):
+	GlobalTick.tickIncreased.connect(tickIncrease)
 	Irrigated = irrigationStatus
 	tileType = buildingType
 	tilePosition = coordinates

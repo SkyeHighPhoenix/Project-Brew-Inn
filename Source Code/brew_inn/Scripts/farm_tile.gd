@@ -8,6 +8,7 @@ var ticksToGrow = 100
 var resourcesOnHarvest = 25
 var storageCap = 500
 var tilemapLocations = {}
+var delayTicks = 0
 
 var tilePosition = Vector2i() # liles main tile position
 var tileSize = Vector2i() # 0,0 is a 1 by 1
@@ -27,7 +28,7 @@ var tick = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GlobalTick.tickIncrease.connect(tickIncrease)
+	
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,6 +43,7 @@ func increaseResources():
 				storedResources = storageCap
 
 func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, irrigationStatus:bool, connectedTiles:Array):
+	GlobalTick.tickIncreased.connect(tickIncrease)
 	Irrigated = irrigationStatus
 	tileType = buildingType
 	tilePosition = coordinates
