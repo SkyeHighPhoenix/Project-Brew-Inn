@@ -18,6 +18,13 @@ func _input(event: InputEvent) -> void:
 			KEY_1:
 				print("1")
 				setTile.emit("storage", "storage")
+			KEY_2:
+				print("2")
+				setTile.emit("orchardLemon","standardFarm")
+			
 			KEY_3:
 				print("3")
 				setTile.emit("cropPlot", "cropPlot")
+			KEY_4:
+				print("4")
+				setTile.emit("herbGarden", "herbGarden")

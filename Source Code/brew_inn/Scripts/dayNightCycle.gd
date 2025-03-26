@@ -1,5 +1,5 @@
 extends CanvasModulate
-const startHour =0
+const startHour =10
 var tick = startHour*1200
 @export var gradient:GradientTexture1D
 

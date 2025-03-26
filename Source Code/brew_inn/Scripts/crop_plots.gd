@@ -1,15 +1,25 @@
 extends "res://Scripts/farm_tile.gd"
 
+
 var plotsToStorage = null
+var connections = []
+var storageBox = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	
+
+func increaseResources():
+	if tick % ticksToGrow == 0:
+		if storageBox!=null:
+			storageBox.addResources(resourcesOnHarvest)
+
 func checkConnections(tiles):
 	var tempStorage = null
 	for i in tiles:
@@ -23,8 +33,6 @@ func checkConnections(tiles):
 		newStorage(0,tempStorage)
 			
 
-func emit():
-	emit_signal("setTileAt")
 
 func checkForStorage(): 
 	# checks for any available storage boxes to connect to when a crop plot
@@ -46,8 +54,6 @@ func checkForStorage():
 					i.checkForStorage()
 					
 func setStorage(settingStorage, checkedTiles = []):
-	emit_signal("setTileAt")
-	print("emitted")
 	# messy tree traversal alghorythm, idrc so long as it works
 	for i in connections:
 		print(i.tileType, "Raaa")
@@ -66,12 +72,20 @@ func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, ir
 	tileType = buildingType
 	tilePosition = coordinates
 	tileSize = size
+	tilemapLocations = {"cropPlot":Vector2i(0,1)}
 	checkConnections(connectedTiles)
 	checkForStorage()
+	setTileAt.emit(tilemapLocations["cropPlot"], tilePosition)
 
 func addConnection(toConnect):
 	connections.append(toConnect)
 	pass
+
+func updateCropType(crop):
+	plantGrowing = crop
+	# apply visual changes
+	pass
+		
 
 func newStorage(distance, settingStorage): # crop plot exclusive
 	if plotsToStorage == null:

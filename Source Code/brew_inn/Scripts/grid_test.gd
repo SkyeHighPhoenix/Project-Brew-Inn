@@ -1,6 +1,7 @@
 extends Node2D
 
-const tileTypeDict = {"Distillery":[Vector2i(1,0)], "House":[Vector2i(0,0)], "storage":[Vector2i(1,1)], "cropPlot":[Vector2i(0,1)]}
+const tileTypeDict = {"storage":[Vector2i(1,1)], "cropPlot":[Vector2i(0,1)],"greenhouse":Vector2i(0,2),
+"orchardLemon":[Vector2i(3,4)], "berryBushes":[Vector2i(0,5)], "herbGarden":[Vector2i(2,0)]}
 var currentlyPlacing = true
 var dictionaryOfTiles = {} # for each populated tile in the ObjectLayer, format {mapIndex Vector2i():Building String}
 var dictionaryOfIrrigation = {} # each tile will have a number value, representing how many irrigation pipes are irrigating it
@@ -8,10 +9,10 @@ var dictionaryOfIrrigation = {} # each tile will have a number value, representi
 # need a way of referring to the actual object, maybe populate the dict with objects instead?
 #//order in which the tiles will be checked to connect nodes
 const checkOrder = [Vector2i(1,0),Vector2i(0,-1),Vector2i(-1,0), Vector2i(0,1)] 
-#//
+
 var isPlacing = true
-var placingTile = "House"
-var placingTileType = "farm"
+var placingTile = "storage"
+var placingTileType = "storage"
 var NodeScale =0.555
 var viewportSize = null
 
@@ -69,46 +70,49 @@ func setPlacingTexture(Coords:Vector2i, Placing:String):
 func placeTile(coordinates):
 	var mapIndex = checkCoords(coordinates)[0]
 	if checkTileValid(mapIndex):
-		placeTexture(mapIndex, placingTile)
 		var connectedTiles = checkConnected(mapIndex)
 		match placingTileType:
-			"cropPlot":
-				var tileToPlace = load("res://TileScenes/crop_plots.tscn")
-				var tileInstance = tileToPlace.instantiate()
-				var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
-				var irrigated = false if mapIndex not in dictionaryOfIrrigation else true # need to adjust for larger tiles
-				for i in range(tileSize.x):
-					for j in range(tileSize.y):
-						dictionaryOfTiles[mapIndex - Vector2i(i,j)] = tileInstance
-						if mapIndex - Vector2i(i,j) in dictionaryOfIrrigation:
-							irrigated = true
-				tileInstance.createBuilding(placingTile, mapIndex, tileSize, irrigated,connectedTiles)
-				tileInstance.setTileAt.connect(setTileAt.bind())
-				tileInstance.emit()
-				
-				
+			
 			"storage":
 				var tileToPlace = load("res://TileScenes/storageTile.tscn")
 				var tileInstance = tileToPlace.instantiate()
 				var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
+				tileInstance.setTile.connect(setTileAt.bind())
 				tileInstance.createBuilding(placingTile, mapIndex, tileSize,connectedTiles)
 				for i in range(tileSize.x):
 					for j in range(tileSize.y):
 						dictionaryOfTiles[mapIndex - Vector2i(i,j)] = tileInstance
 				pass
+				
+			"standardFarm":
+				placeTypeFarm(mapIndex,connectedTiles,"res://TileScenes/standard_farm.tscn")
+				
+			"herbGarden":
+				placeTypeFarm(mapIndex,connectedTiles,"res://TileScenes/herb_garden.tscn")
+				
+			"cropPlot":
+				placeTypeFarm(mapIndex,connectedTiles,"res://TileScenes/crop_plots.tscn")
 			
 	pass
-func setTileAt():
-	print("activated")
+
+func placeTypeFarm(mapIndex:Vector2i, connectedTiles:Array, placing:String):
+	var tileToPlace = load(placing)
+	var tileInstance = tileToPlace.instantiate()
+	var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
+	var irrigated = false if mapIndex not in dictionaryOfIrrigation else true # need to adjust for larger tiles
+	for i in range(tileSize.x):
+		for j in range(tileSize.y):
+			dictionaryOfTiles[mapIndex - Vector2i(i,j)] = tileInstance
+			if mapIndex - Vector2i(i,j) in dictionaryOfIrrigation:
+				irrigated = true
+	tileInstance.setTileAt.connect(setTileAt.bind())
+	tileInstance.createBuilding(placingTile, mapIndex, tileSize, irrigated,connectedTiles)
+
+func setTileAt(onSet, onMap): # linked to signals
+	$TileMap/ObejctLayer.set_cell(onMap,0,onSet,0)
 	pass
 
-func placeTexture(Coords:Vector2i,Placing:String):
-	
-	$TileMap/ObejctLayer.set_cell(Coords,0,tileTypeDict[Placing][0],0)
-	$PlacingObject.getTileSize(Vector2i(2,1))
-	pass
-
-func checkTileValid(coordinates):
+func checkTileValid(coordinates): # checks if a tile has been placed in region
 	var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
 	var isValid = true
 	for x in range(tileSize.x):
@@ -118,10 +122,7 @@ func checkTileValid(coordinates):
 	print(isValid)
 	return isValid
 
-func changePlacing(placing:String):
-	pass
-
-func checkConnected(coordinates:Vector2i):
+func checkConnected(coordinates:Vector2i): # checks what tiles are placed relative to the placing tile
 	var tileConnectionList = []
 	for i in checkOrder:
 		var thisTile = coordinates + i

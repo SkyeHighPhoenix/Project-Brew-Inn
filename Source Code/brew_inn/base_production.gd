@@ -84,7 +84,7 @@ func verify():
 		
 func completeRecipe(recipe):
 	var batchSize
-	batchSize = 
+	batchSize =
 	
 	if len(recipe)/len(validRecipesDict[recipe]) >= 1:
 		for i in range(len(recipe)):
