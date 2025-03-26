@@ -5,7 +5,7 @@ var ticksUntilAutostart = ticksToRefine * 0.2
 var resourcesOnRefine = 25
 var inputStorageCap = 500
 var outputStorageCap = 500
-var storedUnrefinedResources = {"wheat":20, "milk":2, "cream":2, "salt":2}
+var storedUnrefinedResources = {"wheat":19, "milk":2, "cream":2, "salt":2}
 var storedRefinedResources = {"flour":0,"cream":0, "butter":0, "salt":0}
 var forceFullBatch = true
 var validRecipesDict = {["wheat"]:["flour", "salt"], ["milk"]:["cream"], ["cream", "salt"]:["butter"]}	
@@ -61,41 +61,47 @@ func verify():
 	var valid = true
 	var emptySpace = outputStorageCap
 	var keys = storedRefinedResources.keys()
+	var chosenRecipe
+	var batchSizeMultiple
 	for i in range(len(keys)):
 		emptySpace -= storedRefinedResources[keys[i]]
-	if emptySpace < minSize:
+	if forceFullBatch && maxBatchSize > emptySpace:
 		return []
-	if forceFullBatch:
-		if maxBatchSize > emptySpace:
-			return []
 	keys = validRecipesDict.keys()
 	for i in range(len(keys)):
 		valid = true
-		for j in range(len(keys[i])):
-			if forceFullBatch:
-				if storedUnrefinedResources[keys[i][j]] < maxBatchSize:
+		chosenRecipe = keys[i]
+		if valid && forceFullBatch:
+			if emptySpace < maxBatchSize:
+				valid = false
+			for j in range(len(chosenRecipe)):
+				if storedUnrefinedResources[chosenRecipe[j]]<maxBatchSize/len(chosenRecipe):
 					valid = false
-			else:
-				if storedUnrefinedResources[keys[i][j]] < len(validRecipesDict[keys[i]]):
+		elif valid && !forceFullBatch:
+			batchSizeMultiple = len(chosenRecipe)*len(validRecipesDict[chosenRecipe])
+			if emptySpace < batchSizeMultiple:
+				valid = false
+			for j in range(len(chosenRecipe)):
+				if storedUnrefinedResources[chosenRecipe[j]]<(1.0/len(chosenRecipe))*batchSizeMultiple:
 					valid = false
 		if valid:
-			return keys[i]
+			print("yippee")
+			return chosenRecipe
+	print("aww")
 	return []
 		
 func completeRecipe(recipe):
-	var batchSize
-	batchSize = 
+	var x = true
+	var unrefinedResources = []
+	var batchSizeMultiple = len(recipe)*len(validRecipesDict[recipe])
+#	for i in range(len(recipe)):
+#		unrefinedResources.append()
+#	while x == true:
+#		for i in range(len(recipe)):
+			
 	
-	if len(recipe)/len(validRecipesDict[recipe]) >= 1:
-		for i in range(len(recipe)):
-			storedUnrefinedResources[recipe[i]]-=1
-		for i in range(len(validRecipesDict[recipe])):
-			storedRefinedResources[validRecipesDict[recipe][i]]+=len(recipe)/len(validRecipesDict[recipe])
-	else:
-		for i in range(len(recipe)):
-			storedUnrefinedResources[recipe[i]]-=len(validRecipesDict[recipe])/len(recipe)
-		for i in range(len(validRecipesDict[recipe])):
-			storedRefinedResources[validRecipesDict[recipe][i]]+=1
+	
+	
 	print("recipe completed")
 	print(storedUnrefinedResources)
 	print(storedRefinedResources)
