@@ -5,20 +5,20 @@ var ticksUntilAutostart = ticksToRefine * 0.2
 var resourcesOnRefine = 25
 var inputStorageCap = 500
 var outputStorageCap = 500
-var storedUnrefinedResources = {"wheat":19, "milk":2, "cream":2, "salt":2}
+var storedUnrefinedResources = {"wheat":30, "milk":200, "cream":8, "salt":16}
 var storedRefinedResources = {"flour":0,"cream":0, "butter":0, "salt":0}
-var forceFullBatch = true
+var forceFullBatch = false
 var validRecipesDict = {["wheat"]:["flour", "salt"], ["milk"]:["cream"], ["cream", "salt"]:["butter"]}	
 var active = false
 var activeRecipe
-var maxBatchSize = 20 #DESIGNERS: must be a multiple of the length of ALL recipe lists i.e. if there are recipes with 2 inputs and 3 outputs then batch size must be a multiple of 2 and 3
+var maxBatchSize = 30 #DESIGNERS: must be a multiple of the length of ALL recipe lists i.e. if there are recipes with 2 inputs and 3 outputs then batch size must be a multiple of 2 and 3
 var minSize
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalTick.tickIncreased.connect(tickIncrease)
-	
 	var keys=validRecipesDict.keys()
+	
 	minSize = 0
 	for i in range(len(keys)):
 		if len(keys[i])>minSize:
@@ -34,14 +34,16 @@ func _process(delta: float) -> void:
 	return
 
 func increaseResources():
+	var emptySpace = outputStorageCap
+	
 	if active:
 		if tick == ticksToRefine:
-			completeRecipe(activeRecipe)
+			completeRecipe(activeRecipe, emptySpace)
 	else:
 		if tick == ticksUntilAutostart:
 			print("attempting to start production machine")
 			tick = 0
-			activeRecipe = verify()
+			activeRecipe = verify(emptySpace)
 			if activeRecipe != []:
 				print("Starting "+str(activeRecipe)+" recipe")
 				activate()
@@ -57,12 +59,12 @@ func tickIncrease():
 	tick += 1
 	increaseResources()
 	
-func verify():
+func verify(emptySpace):
 	var valid = true
-	var emptySpace = outputStorageCap
 	var keys = storedRefinedResources.keys()
 	var chosenRecipe
 	var batchSizeMultiple
+	
 	for i in range(len(keys)):
 		emptySpace -= storedRefinedResources[keys[i]]
 	if forceFullBatch && maxBatchSize > emptySpace:
@@ -85,22 +87,36 @@ func verify():
 				if storedUnrefinedResources[chosenRecipe[j]]<(1.0/len(chosenRecipe))*batchSizeMultiple:
 					valid = false
 		if valid:
-			print("yippee")
 			return chosenRecipe
-	print("aww")
 	return []
-		
-func completeRecipe(recipe):
-	var x = true
+	
+func completeRecipe(recipe, emptySpace):
+	var acceptableAmount = true
 	var unrefinedResources = []
-	var batchSizeMultiple = len(recipe)*len(validRecipesDict[recipe])
-#	for i in range(len(recipe)):
-#		unrefinedResources.append()
-#	while x == true:
-#		for i in range(len(recipe)):
-			
+	var numOfOutputs = len(validRecipesDict[recipe])
+	var numOfInputs = len(recipe)
+	var outputAmount = -numOfInputs
+	var inputAmount = -numOfOutputs
 	
-	
+	for i in range(numOfInputs):
+		unrefinedResources.append(storedUnrefinedResources[recipe[i]])
+	while acceptableAmount == true:
+		inputAmount += numOfOutputs
+		outputAmount += numOfInputs
+		for i in range(len(unrefinedResources)):
+			if unrefinedResources[i]<numOfOutputs:
+				acceptableAmount = false
+			else:
+				unrefinedResources[i] -= numOfOutputs
+				if (inputAmount + numOfOutputs) > emptySpace:
+					acceptableAmount = false
+				elif (inputAmount + numOfOutputs) > maxBatchSize:
+					acceptableAmount = false
+	print("inputamount = "+str(inputAmount)+", outputamount = "+str(outputAmount))
+	for i in range(numOfInputs):
+		storedUnrefinedResources[recipe[i]] -= inputAmount
+	for i in range(numOfOutputs):
+		storedRefinedResources[validRecipesDict[recipe][i]] += outputAmount
 	
 	print("recipe completed")
 	print(storedUnrefinedResources)
