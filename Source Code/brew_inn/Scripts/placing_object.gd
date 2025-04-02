@@ -10,8 +10,22 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func setCoords(coords:Vector2i, sourceId:int, atlasCoords:Vector2i, altTile:int):
-	$PlacingLayer.set_cell(coords,sourceId,atlasCoords,altTile)
+func getRotation(rotation):
+	var test = 0
+	match rotation:
+		1:
+			test |= $PlacingLayer.tile_set.get_source(0).TRANSFORM_FLIP_H
+			test |= $PlacingLayer.tile_set.get_source(0).TRANSFORM_TRANSPOSE
+		2: 
+			test |= $PlacingLayer.tile_set.get_source(0).TRANSFORM_FLIP_V
+		3: 
+			test |= $PlacingLayer.tile_set.get_source(0).TRANSFORM_TRANSPOSE
+	return test
+	
+
+func setCoords(coords:Vector2i, sourceId:int, atlasCoords:Vector2i, altTile:int=0):
+	var rotation = getRotation(altTile)
+	$PlacingLayer.set_cell(coords,sourceId,atlasCoords,rotation)
 	if previousCoords != null and coords != previousCoords:
 		$PlacingLayer.set_cell(previousCoords, -1, Vector2i(-1,-1),-1)
 	previousCoords = coords
@@ -21,5 +35,6 @@ func getTileSize(coords:Vector2i):
 	pass
 	
 func clearPlacing():
+	
 	$PlacingLayer.set_cell(previousCoords, -1, Vector2i(-1,-1),-1)
 	previousCoords = Vector2i.ZERO

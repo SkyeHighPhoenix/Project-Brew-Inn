@@ -36,7 +36,8 @@ func _process(delta: float) -> void:
 	pass
 	
 func increaseResources():
-	if tick % ticksToGrow == 0:
+	if tick % ticksToGrow == 0 and Irrigated == true:
+		print("StandardFarmIncrease ", storedResources)
 		if localStorage == true:
 			storedResources += resourcesOnHarvest
 			if storedResources > storageCap:

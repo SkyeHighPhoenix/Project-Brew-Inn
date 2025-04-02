@@ -1,7 +1,7 @@
 extends Node2D
 
 const tileTypeDict = {"storage":[Vector2i(1,1)], "cropPlot":[Vector2i(0,1)],"greenhouse":Vector2i(0,2),
-"orchardLemon":[Vector2i(3,4)], "berryBushes":[Vector2i(0,5)], "herbGarden":[Vector2i(2,0)]}
+"orchardLemon":[Vector2i(3,4)], "berryBushes":[Vector2i(0,5)], "herbGarden":[Vector2i(0,6)]}
 var currentlyPlacing = true
 var dictionaryOfTiles = {} # for each populated tile in the ObjectLayer, format {mapIndex Vector2i():Building String}
 var dictionaryOfIrrigation = {} # each tile will have a number value, representing how many irrigation pipes are irrigating it
@@ -13,6 +13,8 @@ const checkOrder = [Vector2i(1,0),Vector2i(0,-1),Vector2i(-1,0), Vector2i(0,1)]
 var isPlacing = true
 var placingTile = "storage"
 var placingTileType = "storage"
+var placingRotation = 0
+var rotationLocked = false
 var NodeScale =0.555
 var viewportSize = null
 
@@ -49,6 +51,19 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == 1 and event.pressed == false:
 			if placingTile != null:
 				placeTile(getMouseToCoords(event.position))
+	if event is InputEventKey:
+		print(rotationLocked)
+		if OS.get_keycode_string(event.keycode) == 'R':
+			if event.is_action_pressed:
+				if not rotationLocked:
+					if placingRotation != 3:
+						placingRotation +=1
+					else:
+						placingRotation = 0
+					setPlacingTexture(checkCoords(getMouseToCoords(get_viewport().get_mouse_position()))[0], placingTile)
+					rotationLocked = true
+				elif event.is_action_released:
+					rotationLocked = false
 
 func setPlacingTile(tile, tileType):
 	placingTile = tile
@@ -64,7 +79,7 @@ func checkCoords(mousePosition:Vector2):
 	pass
 
 func setPlacingTexture(Coords:Vector2i, Placing:String):
-	$PlacingObject.setCoords(Coords,0,tileTypeDict[Placing][0],0)
+	$PlacingObject.setCoords(Coords,0,tileTypeDict[Placing][0],placingRotation)
 	pass
 
 func placeTile(coordinates):
@@ -108,7 +123,7 @@ func placeTypeFarm(mapIndex:Vector2i, connectedTiles:Array, placing:String):
 	tileInstance.setTileAt.connect(setTileAt.bind())
 	tileInstance.createBuilding(placingTile, mapIndex, tileSize, irrigated,connectedTiles)
 
-func setTileAt(onSet, onMap): # linked to signals
+func setTileAt(onSet, onMap, rotation = 0): # linked to signals
 	$TileMap/ObejctLayer.set_cell(onMap,0,onSet,0)
 	pass
 
