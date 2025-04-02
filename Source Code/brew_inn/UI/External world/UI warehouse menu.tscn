@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b7bj7yxkrgdqf"]
+
+[node name="UiWarehouse" type="Node2D"]
+
+[node name="Warehouse label" type="Label" parent="."]
+offset_left = 220.0
+offset_top = 102.0
+offset_right = 314.0
+offset_bottom = 151.0
+text = "Warehouse"
+
+[node name="Back - Exit menu" type="Button" parent="."]
+offset_left = 220.0
+offset_top = 378.0
+offset_right = 309.0
+offset_bottom = 417.0
+text = "Back"

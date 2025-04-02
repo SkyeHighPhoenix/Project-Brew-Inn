@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://lwih5etvp110"]
+
+[node name="UiFarmingStructures" type="Node2D"]
+
+[node name="Structure name" type="Label" parent="."]
+offset_left = 220.0
+offset_top = 102.0
+offset_right = 328.0
+offset_bottom = 151.0
+text = "[name of 
+struct here]"
+
+[node name="Back - Exit menu" type="Button" parent="."]
+offset_left = 216.0
+offset_top = 378.0
+offset_right = 328.0
+offset_bottom = 417.0
+text = "Back"
+
+[node name="Manual harvest" type="Button" parent="."]
+offset_left = 216.0
+offset_top = 172.0
+offset_right = 328.0
+offset_bottom = 212.0
+text = "Harvest crop"
+
+[node name="Collect from storage" type="Button" parent="."]
+offset_left = 216.0
+offset_top = 219.0
+offset_right = 328.0
+offset_bottom = 256.0
+text = "Collect"
+
+[node name="Collect - hidden under icon" type="Button" parent="."]
+offset_left = 478.0
+offset_top = 170.0
+offset_right = 587.0
+offset_bottom = 248.0
+text = "Quick Collect"
+
+[node name="Output storage fill bar" type="TextureProgressBar" parent="."]
+offset_left = 480.0
+offset_top = 296.0
+offset_right = 810.0
+offset_bottom = 352.0
+
+[node name="Collect info 1" type="Label" parent="."]
+offset_left = 480.0
+offset_top = 256.0
+offset_right = 584.0
+offset_bottom = 279.0
+text = "Collect A info"

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://citkugy70ljus"]
+
+[node name="UiTest" type="Node2D"]
+
+[node name="Origin - move camera" type="Button" parent="."]
+offset_left = 45.0
+offset_top = 122.0
+offset_right = 127.0
+offset_bottom = 162.0
+
+[node name="Pause" type="Button" parent="."]
+offset_left = 1053.0
+offset_top = 26.0
+offset_right = 1097.0
+offset_bottom = 63.0
+
+[node name="EXP progress bar" type="TextureProgressBar" parent="."]
+offset_left = 100.0
+offset_top = 59.0
+offset_right = 293.0
+offset_bottom = 79.0

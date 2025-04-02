@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c2oq28vnyql2m"]
+
+[node name="UiPauseMenu" type="Node2D"]
+
+[node name="Back - Exit pause" type="Button" parent="."]
+offset_left = 182.0
+offset_top = 36.0
+offset_right = 430.0
+offset_bottom = 116.0
+text = "Back"
+
+[node name="Save" type="Button" parent="."]
+offset_left = 182.0
+offset_top = 131.0
+offset_right = 430.0
+offset_bottom = 208.0
+pivot_offset = Vector2(375, 65)
+text = "Save"
+
+[node name="Save and quit" type="Button" parent="."]
+offset_left = 182.0
+offset_top = 222.0
+offset_right = 430.0
+offset_bottom = 293.0
+text = "Save and quit"

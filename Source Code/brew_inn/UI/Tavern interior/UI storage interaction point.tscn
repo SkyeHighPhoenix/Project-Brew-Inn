@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dwtn1lsopeknw"]
+
+[node name="UiStorageInteractionPoint" type="Node2D"]
+
+[node name="Interaction point name" type="Label" parent="."]
+offset_left = 220.0
+offset_top = 102.0
+offset_right = 314.0
+offset_bottom = 151.0
+text = "[name of
+interaction
+point here]"
+
+[node name="Back - Exit menu" type="Button" parent="."]
+offset_left = 220.0
+offset_top = 378.0
+offset_right = 309.0
+offset_bottom = 417.0
+text = "Back"

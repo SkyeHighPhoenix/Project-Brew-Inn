@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://yx6knh7fwti7"]
+
+[node name="UiOverlayTavernInterior" type="Node2D"]
+
+[node name="Pause" type="Button" parent="."]
+offset_left = 1089.0
+offset_top = 16.0
+offset_right = 1123.0
+offset_bottom = 48.0
+
+[node name="EXP progress bar" type="TextureProgressBar" parent="."]
+offset_left = 101.0
+offset_top = 43.0
+offset_right = 294.0
+offset_bottom = 63.0
+
+[node name="Local inventory hand 1" type="TextureRect" parent="."]
+offset_left = 40.0
+offset_top = 138.0
+offset_right = 80.0
+offset_bottom = 178.0
+
+[node name="Local inventory hand 2" type="TextureRect" parent="."]
+offset_left = 40.0
+offset_top = 207.0
+offset_right = 80.0
+offset_bottom = 247.0
