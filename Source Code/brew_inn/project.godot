@@ -18,6 +18,7 @@ config/icon="res://Assets/Will/icon.svg"
 [autoload]
 
 GlobalTick="*res://GlobalTick.tscn"
+GlobalInventory="*res://global_inventory.gd"
 
 [display]
 
