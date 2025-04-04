@@ -6,10 +6,6 @@ var currency = 0
 var resourceCount = {"cherry":0, "beech":0, "willow":0, "hazel":0, "chocolate guinness cake":0, "carrot cake":0}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(resourceCount)
-	newResource("oak", ["wood"])
-	if addResource("balls", 99) == false:
-		newResource("balls", ["wood", "cake"], 99)
 	pass # Replace with function body.
 
 
