@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://yx6knh7fwti7"]
 
-[node name="UiOverlayTavernInterior" type="Node2D"]
+[node name="UiOverlayTavernInterior" type="Node3D"]
 
 [node name="Pause" type="Button" parent="."]
 offset_left = 1089.0

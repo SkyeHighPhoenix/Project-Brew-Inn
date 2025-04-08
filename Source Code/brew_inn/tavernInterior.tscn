@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfix66ksjvwt0"]
+[gd_scene load_steps=6 format=3 uid="uid://dfix66ksjvwt0"]
 
+[ext_resource type="PackedScene" uid="uid://yx6knh7fwti7" path="res://UI/Tavern interior/UI overlay tavern interior.tscn" id="1_ycoge"]
 [ext_resource type="PackedScene" uid="uid://da7cye1gfd64u" path="res://player.tscn" id="1_yoomx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cq7wy"]
@@ -13,6 +14,8 @@ material = SubResource("StandardMaterial3D_hgope")
 size = Vector3(60, 2, 60)
 
 [node name="TavernInterior" type="Node3D"]
+
+[node name="UiOverlayTavernInterior" parent="." instance=ExtResource("1_ycoge")]
 
 [node name="Player" parent="." instance=ExtResource("1_yoomx")]
 
