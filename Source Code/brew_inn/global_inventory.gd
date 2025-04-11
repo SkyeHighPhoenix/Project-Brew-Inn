@@ -5,17 +5,12 @@ var categories = {"wood":["oak", "cherry", "beech", "willow", "hazel"], "cake":[
 var currency = 0
 var resourceCount = {"cherry":0, "beech":0, "willow":0, "hazel":0, "chocolate guinness cake":0, "carrot cake":0}
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func addCurrency(amount):
 	currency+=amount
-	
+		
 func subtractCurrency(amount):
 	currency-=amount
 

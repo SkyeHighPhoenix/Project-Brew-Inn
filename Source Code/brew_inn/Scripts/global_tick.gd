@@ -1,5 +1,5 @@
 extends Node2D
-var tick = 0 #unneccissary?
+var tick = 0 #unneccissary? #I think it is neccissary, idk why it says that?
 var time = 0
 signal tickIncreased
 signal timeIncreased(time)
@@ -8,10 +8,6 @@ signal timeIncreased(time)
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	time 
 
 
 func _on_timer_timeout() -> void:
