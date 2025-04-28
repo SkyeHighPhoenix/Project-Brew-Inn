@@ -28,3 +28,6 @@ func _input(event: InputEvent) -> void:
 			KEY_4:
 				print("4")
 				setTile.emit("herbGarden", "herbGarden")
+			KEY_5:
+				print("5")
+				setTile.emit("irbend", "irrigation")

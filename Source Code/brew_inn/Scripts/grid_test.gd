@@ -1,7 +1,8 @@
 extends Node2D
 
 const tileTypeDict = {"storage":[Vector2i(1,1)], "cropPlot":[Vector2i(0,1)],"greenhouse":Vector2i(0,2),
-"orchardLemon":[Vector2i(3,4)], "berryBushes":[Vector2i(0,5)], "herbGarden":[Vector2i(0,6)]}
+"orchardLemon":[Vector2i(3,4)], "berryBushes":[Vector2i(0,5)], "herbGarden":[Vector2i(0,6)],
+"irwell":[Vector2i(6,3)],"irjunction":[Vector2i(4,3)], "irbend":[Vector2i(4,2)], "irstraight":[Vector2i(3,0)]}
 var currentlyPlacing = true
 var dictionaryOfTiles = {} # for each populated tile in the ObjectLayer, format {mapIndex Vector2i():Building String}
 var dictionaryOfIrrigation = {} # each tile will have a number value, representing how many irrigation pipes are irrigating it
@@ -9,6 +10,7 @@ var dictionaryOfIrrigation = {} # each tile will have a number value, representi
 # need a way of referring to the actual object, maybe populate the dict with objects instead?
 #//order in which the tiles will be checked to connect nodes
 const checkOrder = [Vector2i(1,0),Vector2i(0,-1),Vector2i(-1,0), Vector2i(0,1)] 
+const rotatableTiles = ["irrigation"]
 
 var isPlacing = true
 var placingTile = "storage"
@@ -53,7 +55,7 @@ func _input(event: InputEvent) -> void:
 				placeTile(getMouseToCoords(event.position))
 	if event is InputEventKey:
 		print(rotationLocked)
-		if OS.get_keycode_string(event.keycode) == 'R':
+		if OS.get_keycode_string(event.keycode) == 'R' and placingTileType in rotatableTiles:
 			if event.is_action_pressed:
 				if not rotationLocked:
 					if placingRotation != 3:
@@ -68,6 +70,7 @@ func _input(event: InputEvent) -> void:
 func setPlacingTile(tile, tileType):
 	placingTile = tile
 	placingTileType = tileType
+	placingRotation = 0
 	if tile == null:
 		$PlacingObject.clearPlacing()
 	setPlacingTexture(checkCoords(getMouseToCoords(get_viewport().get_mouse_position()))[0], placingTile)
@@ -108,6 +111,12 @@ func placeTile(coordinates):
 			"cropPlot":
 				placeTypeFarm(mapIndex,connectedTiles,"res://TileScenes/crop_plots.tscn")
 			
+			"irrigation":
+				var tileToPlace = load("res://TileScenes/Irrigation.tscn")
+				var tileInstance = tileToPlace.instantiate()
+				var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
+				tileInstance.setTile.connect(setTileAt.bind())
+				tileInstance.createBuilding(placingTile, mapIndex, tileSize,connectedTiles, placingRotation)
 	pass
 
 func placeTypeFarm(mapIndex:Vector2i, connectedTiles:Array, placing:String):
