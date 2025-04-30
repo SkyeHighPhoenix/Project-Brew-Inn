@@ -1,21 +1,106 @@
-[gd_scene format=3 uid="uid://citkugy70ljus"]
+[gd_scene load_steps=10 format=3 uid="uid://citkugy70ljus"]
+
+[ext_resource type="Texture2D" uid="uid://brrcrimvaltd3" path="res://UI/UI assets/HUD.png" id="1_fnry5"]
+[ext_resource type="Texture2D" uid="uid://m1348m0q4pdl" path="res://UI/UI assets/Coin.png" id="2_k3twl"]
+[ext_resource type="Texture2D" uid="uid://cinj8njhyee3m" path="res://UI/UI assets/Progressbarunder.png" id="3_egka6"]
+[ext_resource type="Texture2D" uid="uid://d08vh2pbnhmv" path="res://UI/UI assets/Progressbarbackground.png" id="4_scde1"]
+[ext_resource type="Texture2D" uid="uid://f7s1ds0klfpg" path="res://UI/UI assets/XP bar.png" id="5_jro86"]
+[ext_resource type="Texture2D" uid="uid://qmd7ngwoprcf" path="res://UI/UI assets/General button.png" id="6_t3mg3"]
+[ext_resource type="Texture2D" uid="uid://nl7m6s2rqdmt" path="res://UI/UI assets/Button highlighted.png" id="7_g08rs"]
+[ext_resource type="Texture2D" uid="uid://dmxvexme0h3a7" path="res://UI/UI assets/Pause button.png" id="8_xqy67"]
+[ext_resource type="Texture2D" uid="uid://cp3h4yci8p60a" path="res://UI/UI assets/Pause highlighted.png" id="9_5uwde"]
 
 [node name="UiTest" type="Node2D"]
 
-[node name="Origin - move camera" type="Button" parent="."]
-offset_left = 45.0
-offset_top = 122.0
-offset_right = 127.0
-offset_bottom = 162.0
+[node name="HUDFraming" type="TextureRect" parent="."]
+z_index = -10
+offset_right = 1194.0
+offset_bottom = 582.0
+texture = ExtResource("1_fnry5")
+expand_mode = 3
 
-[node name="Pause" type="Button" parent="."]
+[node name="currency icon" type="TextureRect" parent="HUDFraming"]
+offset_left = -258.0
+offset_top = -7.0
+offset_right = 1181.0
+offset_bottom = 653.0
+texture = ExtResource("2_k3twl")
+expand_mode = 1
+
+[node name="timeIndicator" type="TextureRect" parent="HUDFraming"]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 115.0
+offset_bottom = 96.0
+
+[node name="expBarFunctional" type="TextureProgressBar" parent="HUDFraming"]
+offset_left = 149.0
+offset_top = 65.0
+offset_right = 304.0
+offset_bottom = 88.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_egka6")
+texture_progress = ExtResource("4_scde1")
+
+[node name="expBarOutline" type="TextureRect" parent="HUDFraming"]
+offset_left = 11.0
+offset_top = 2.0
+offset_right = 1144.0
+offset_bottom = 570.0
+texture = ExtResource("5_jro86")
+expand_mode = 3
+
+[node name="currencyAmount" type="Label" parent="HUDFraming"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 6.0
+offset_right = 353.0
+offset_bottom = 29.0
+text = "[GOLD NUMBER HERE]"
+
+[node name="expLabel" type="Label" parent="HUDFraming"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 35.0
+offset_right = 225.0
+offset_bottom = 58.0
+text = "EXP LEVEL"
+
+[node name="expLevelNumberLabel" type="Label" parent="HUDFraming"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 35.0
+offset_right = 353.0
+offset_bottom = 58.0
+text = "[LEVEL NO HERE]"
+
+[node name="originButton" type="TextureButton" parent="."]
+offset_left = 5.0
+offset_top = 124.0
+offset_right = 141.0
+offset_bottom = 176.0
+texture_normal = ExtResource("6_t3mg3")
+texture_pressed = ExtResource("6_t3mg3")
+texture_hover = ExtResource("7_g08rs")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="originButtonLabel" type="Label" parent="originButton"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 121.0
+offset_bottom = 37.0
+text = "ORIGIN"
+horizontal_alignment = 1
+
+[node name="pauseButton" type="TextureButton" parent="."]
 offset_left = 1053.0
-offset_top = 26.0
-offset_right = 1097.0
-offset_bottom = 63.0
-
-[node name="EXP progress bar" type="TextureProgressBar" parent="."]
-offset_left = 100.0
-offset_top = 59.0
-offset_right = 293.0
-offset_bottom = 79.0
+offset_top = 10.0
+offset_right = 1135.0
+offset_bottom = 87.0
+texture_normal = ExtResource("8_xqy67")
+texture_pressed = ExtResource("8_xqy67")
+texture_hover = ExtResource("9_5uwde")
+ignore_texture_size = true
+stretch_mode = 0
