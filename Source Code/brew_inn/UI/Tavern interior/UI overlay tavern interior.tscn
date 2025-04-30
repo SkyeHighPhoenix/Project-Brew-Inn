@@ -1,27 +1,84 @@
-[gd_scene format=3 uid="uid://yx6knh7fwti7"]
+[gd_scene load_steps=8 format=3 uid="uid://yx6knh7fwti7"]
+
+[ext_resource type="Texture2D" uid="uid://brrcrimvaltd3" path="res://UI/UI assets/HUD.png" id="1_8pj2h"]
+[ext_resource type="Texture2D" uid="uid://m1348m0q4pdl" path="res://UI/UI assets/Coin.png" id="2_jcprj"]
+[ext_resource type="Texture2D" uid="uid://cinj8njhyee3m" path="res://UI/UI assets/Progressbarunder.png" id="3_5jov5"]
+[ext_resource type="Texture2D" uid="uid://d08vh2pbnhmv" path="res://UI/UI assets/Progressbarbackground.png" id="4_r3t3f"]
+[ext_resource type="Texture2D" uid="uid://f7s1ds0klfpg" path="res://UI/UI assets/XP bar.png" id="5_qn7oa"]
+[ext_resource type="Texture2D" uid="uid://dmxvexme0h3a7" path="res://UI/UI assets/Pause button.png" id="6_dvkm1"]
+[ext_resource type="Texture2D" uid="uid://cp3h4yci8p60a" path="res://UI/UI assets/Pause highlighted.png" id="7_ay3v7"]
 
 [node name="UiOverlayTavernInterior" type="Node3D"]
 
-[node name="Pause" type="Button" parent="."]
-offset_left = 1089.0
-offset_top = 16.0
-offset_right = 1123.0
-offset_bottom = 48.0
+[node name="HUDFraming" type="TextureRect" parent="."]
+z_index = -10
+offset_right = 1194.0
+offset_bottom = 582.0
+texture = ExtResource("1_8pj2h")
+expand_mode = 3
 
-[node name="EXP progress bar" type="TextureProgressBar" parent="."]
-offset_left = 101.0
-offset_top = 43.0
-offset_right = 294.0
-offset_bottom = 63.0
+[node name="currency icon" type="TextureRect" parent="HUDFraming"]
+offset_left = -258.0
+offset_top = -7.0
+offset_right = 1181.0
+offset_bottom = 653.0
+texture = ExtResource("2_jcprj")
+expand_mode = 1
 
-[node name="Local inventory hand 1" type="TextureRect" parent="."]
-offset_left = 40.0
-offset_top = 138.0
-offset_right = 80.0
-offset_bottom = 178.0
+[node name="timeIndicator" type="TextureRect" parent="HUDFraming"]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 115.0
+offset_bottom = 96.0
 
-[node name="Local inventory hand 2" type="TextureRect" parent="."]
-offset_left = 40.0
-offset_top = 207.0
-offset_right = 80.0
-offset_bottom = 247.0
+[node name="expBarFunctional" type="TextureProgressBar" parent="HUDFraming"]
+offset_left = 149.0
+offset_top = 65.0
+offset_right = 304.0
+offset_bottom = 88.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_5jov5")
+texture_progress = ExtResource("4_r3t3f")
+
+[node name="expBarOutline" type="TextureRect" parent="HUDFraming"]
+offset_left = 11.0
+offset_top = 2.0
+offset_right = 1144.0
+offset_bottom = 570.0
+texture = ExtResource("5_qn7oa")
+expand_mode = 3
+
+[node name="currencyAmount" type="Label" parent="HUDFraming"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 6.0
+offset_right = 353.0
+offset_bottom = 29.0
+text = "[GOLD NUMBER HERE]"
+
+[node name="expLabel" type="Label" parent="HUDFraming"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 35.0
+offset_right = 225.0
+offset_bottom = 58.0
+text = "EXP LEVEL"
+
+[node name="expLevelNumberLabel" type="Label" parent="HUDFraming"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 35.0
+offset_right = 353.0
+offset_bottom = 58.0
+text = "[LEVEL NO HERE]"
+
+[node name="pauseButton" type="TextureButton" parent="."]
+offset_left = 1053.0
+offset_top = 10.0
+offset_right = 1135.0
+offset_bottom = 87.0
+texture_normal = ExtResource("6_dvkm1")
+texture_pressed = ExtResource("6_dvkm1")
+texture_hover = ExtResource("7_ay3v7")
+ignore_texture_size = true
+stretch_mode = 0

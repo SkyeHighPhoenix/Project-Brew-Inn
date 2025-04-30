@@ -1,52 +1,221 @@
-[gd_scene format=3 uid="uid://lwih5etvp110"]
+[gd_scene load_steps=8 format=3 uid="uid://lwih5etvp110"]
+
+[ext_resource type="Texture2D" uid="uid://qmd7ngwoprcf" path="res://UI/UI assets/General button.png" id="1_ag6c4"]
+[ext_resource type="Texture2D" uid="uid://nl7m6s2rqdmt" path="res://UI/UI assets/Button highlighted.png" id="2_7cwx6"]
+[ext_resource type="Texture2D" uid="uid://5cpyqi47gvvv" path="res://UI/UI assets/Modular seperater vertical.png" id="3_wxil3"]
+[ext_resource type="Texture2D" uid="uid://cinj8njhyee3m" path="res://UI/UI assets/Progressbarunder.png" id="3_xh5g7"]
+[ext_resource type="Texture2D" uid="uid://cv0i7vsbcm2c6" path="res://UI/UI assets/Modular seperater horizontal.png" id="4_caayg"]
+[ext_resource type="Texture2D" uid="uid://cajnvvaqwvnri" path="res://UI/UI assets/farmingProgressBarBackground.png" id="4_gg70r"]
+[ext_resource type="Texture2D" uid="uid://f7s1ds0klfpg" path="res://UI/UI assets/XP bar.png" id="5_38qnv"]
 
 [node name="UiFarmingStructures" type="Node2D"]
 
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.646029, 0.646029, 0.646029, 1)
+offset_left = 32.0
+offset_top = 17.0
+offset_right = 1118.0
+offset_bottom = 614.0
+texture = ExtResource("1_ag6c4")
+expand_mode = 5
+
 [node name="Structure name" type="Label" parent="."]
-offset_left = 220.0
-offset_top = 102.0
-offset_right = 328.0
-offset_bottom = 151.0
-text = "[name of 
-struct here]"
+offset_left = 144.0
+offset_top = 130.0
+offset_right = 279.0
+offset_bottom = 179.0
+text = "[STRUCTURE
+NAME HERE]"
+horizontal_alignment = 1
 
-[node name="Back - Exit menu" type="Button" parent="."]
-offset_left = 216.0
-offset_top = 378.0
-offset_right = 328.0
-offset_bottom = 417.0
-text = "Back"
-
-[node name="Manual harvest" type="Button" parent="."]
-offset_left = 216.0
-offset_top = 172.0
-offset_right = 328.0
-offset_bottom = 212.0
-text = "Harvest crop"
-
-[node name="Collect from storage" type="Button" parent="."]
-offset_left = 216.0
+[node name="manualHarvestButton" type="TextureButton" parent="."]
+offset_left = 126.0
 offset_top = 219.0
-offset_right = 328.0
-offset_bottom = 256.0
-text = "Collect"
+offset_right = 290.0
+offset_bottom = 282.0
+texture_normal = ExtResource("1_ag6c4")
+texture_pressed = ExtResource("1_ag6c4")
+texture_hover = ExtResource("2_7cwx6")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Collect - hidden under icon" type="Button" parent="."]
-offset_left = 478.0
-offset_top = 170.0
-offset_right = 587.0
-offset_bottom = 248.0
+[node name="harvest label" type="Label" parent="manualHarvestButton"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 17.0
+offset_right = 144.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 20
+text = "Harvest"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="collectFromLocalStorageButton" type="TextureButton" parent="."]
+offset_left = 127.0
+offset_top = 280.0
+offset_right = 291.0
+offset_bottom = 343.0
+texture_normal = ExtResource("1_ag6c4")
+texture_pressed = ExtResource("1_ag6c4")
+texture_hover = ExtResource("2_7cwx6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="collectLabel" type="Label" parent="collectFromLocalStorageButton"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 15.0
+offset_right = 144.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 20
+text = "collect"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="backButton" type="TextureButton" parent="."]
+offset_left = 124.0
+offset_top = 438.0
+offset_right = 288.0
+offset_bottom = 501.0
+texture_normal = ExtResource("1_ag6c4")
+texture_pressed = ExtResource("1_ag6c4")
+texture_hover = ExtResource("2_7cwx6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="exitLabel" type="Label" parent="backButton"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 14.0
+offset_right = 144.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 25
+text = "exit"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Crop collection tab" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 364.0
+offset_top = 132.0
+offset_right = 985.0
+offset_bottom = 492.0
+
+[node name="Output storage fill bar" type="TextureProgressBar" parent="Crop collection tab"]
+layout_mode = 2
+offset_left = 76.0
+offset_top = 270.0
+offset_right = 546.0
+offset_bottom = 337.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_xh5g7")
+texture_progress = ExtResource("4_gg70r")
+
+[node name="storageCapacityBarOutline" type="TextureRect" parent="Crop collection tab/Output storage fill bar"]
+offset_left = -422.0
+offset_top = -186.0
+offset_right = 3027.0
+offset_bottom = 1485.0
+texture = ExtResource("5_38qnv")
+expand_mode = 3
+
+[node name="Collect - hidden under icon" type="Button" parent="Crop collection tab"]
+layout_mode = 2
+offset_left = 68.0
+offset_top = 37.0
+offset_right = 177.0
+offset_bottom = 115.0
 text = "Quick Collect"
 
-[node name="Output storage fill bar" type="TextureProgressBar" parent="."]
-offset_left = 480.0
-offset_top = 296.0
-offset_right = 810.0
-offset_bottom = 352.0
+[node name="cropAName" type="Label" parent="Crop collection tab"]
+layout_mode = 2
+offset_left = 187.0
+offset_top = 40.0
+offset_right = 341.0
+offset_bottom = 63.0
+text = "[Crop type a here]"
+uppercase = true
 
-[node name="Collect info 1" type="Label" parent="."]
-offset_left = 480.0
-offset_top = 256.0
-offset_right = 584.0
-offset_bottom = 279.0
-text = "Collect A info"
+[node name="currentlyStoredLabel" type="Label" parent="Crop collection tab"]
+layout_mode = 2
+offset_left = 187.0
+offset_top = 66.0
+offset_right = 349.0
+offset_bottom = 89.0
+text = "Currently stored:"
+uppercase = true
+
+[node name="numberOfCropA" type="Label" parent="Crop collection tab"]
+layout_mode = 2
+offset_left = 356.0
+offset_top = 66.0
+offset_right = 518.0
+offset_bottom = 89.0
+text = "[Number here]"
+uppercase = true
+
+[node name="cropBName" type="Label" parent="Crop collection tab"]
+layout_mode = 2
+offset_left = 187.0
+offset_top = 136.0
+offset_right = 341.0
+offset_bottom = 159.0
+text = "[Crop type b here]"
+uppercase = true
+
+[node name="currentlyStoredLabel2" type="Label" parent="Crop collection tab"]
+layout_mode = 2
+offset_left = 187.0
+offset_top = 162.0
+offset_right = 349.0
+offset_bottom = 185.0
+text = "Currently stored:"
+uppercase = true
+
+[node name="numberOfCropB" type="Label" parent="Crop collection tab"]
+layout_mode = 2
+offset_left = 356.0
+offset_top = 162.0
+offset_right = 518.0
+offset_bottom = 185.0
+text = "[Number here]"
+uppercase = true
+
+[node name="quickCollectCropA" type="TextureButton" parent="Crop collection tab"]
+layout_mode = 2
+offset_left = 59.0
+offset_top = 28.0
+offset_right = 182.0
+offset_bottom = 127.0
+texture_normal = ExtResource("1_ag6c4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="quickCollectCropB" type="TextureButton" parent="Crop collection tab"]
+layout_mode = 2
+offset_left = 59.0
+offset_top = 123.0
+offset_right = 182.0
+offset_bottom = 222.0
+texture_normal = ExtResource("1_ag6c4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Vertical divider" type="TextureRect" parent="."]
+modulate = Color(0.707967, 0.707966, 0.707967, 1)
+offset_left = 278.0
+offset_top = 84.0
+offset_right = 367.0
+offset_bottom = 562.0
+texture = ExtResource("3_wxil3")
+expand_mode = 3
+
+[node name="Horizontal divider" type="TextureRect" parent="."]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+offset_left = 121.0
+offset_top = 183.0
+offset_right = 306.0
+offset_bottom = 226.0
+texture = ExtResource("4_caayg")
+expand_mode = 5

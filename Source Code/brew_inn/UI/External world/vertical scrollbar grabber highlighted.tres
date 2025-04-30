@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bdm02q18bch88"]
+
+[ext_resource type="Texture2D" uid="uid://ixi5vxwmu8ki" path="res://UI/UI assets/Scroll button.png" id="1_qntvp"]
+
+[resource]
+resource_name = "Scrollbar"
+content_margin_bottom = 29.0
+texture = ExtResource("1_qntvp")
+region_rect = Rect2(105, 378, 165, 190)

@@ -1,17 +1,103 @@
-[gd_scene format=3 uid="uid://lh2iktcf4mmj"]
+[gd_scene load_steps=11 format=3 uid="uid://lh2iktcf4mmj"]
+
+[ext_resource type="Texture2D" uid="uid://qmd7ngwoprcf" path="res://UI/UI assets/General button.png" id="1_wlmrt"]
+[ext_resource type="Texture2D" uid="uid://brle7flb0x5sa" path="res://UI/UI assets/Scroll bar.png" id="1_xgxvl"]
+[ext_resource type="StyleBox" uid="uid://bdm02q18bch88" path="res://UI/External world/vertical scrollbar grabber highlighted.tres" id="2_eb8b5"]
+[ext_resource type="Texture2D" uid="uid://5cpyqi47gvvv" path="res://UI/UI assets/Modular seperater vertical.png" id="2_ix2p6"]
+[ext_resource type="StyleBox" uid="uid://dq0ipva3g3q1n" path="res://UI/External world/vertical scrollbar grabber.tres" id="3_00wu6"]
+[ext_resource type="Texture2D" uid="uid://cv0i7vsbcm2c6" path="res://UI/UI assets/Modular seperater horizontal.png" id="3_8dht8"]
+[ext_resource type="Texture2D" uid="uid://d2mltc37eku11" path="res://UI/UI assets/Scroll button highlighted.png" id="4_p5651"]
+[ext_resource type="Texture2D" uid="uid://nl7m6s2rqdmt" path="res://UI/UI assets/Button highlighted.png" id="8_yn2nk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1r612"]
+texture = ExtResource("1_xgxvl")
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+region_rect = Rect2(83.9002, 18.792, 209.376, 2469.63)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6x2hq"]
+resource_name = "Scrollbar"
+content_margin_bottom = 29.0
+texture = ExtResource("4_p5651")
+region_rect = Rect2(105, 378, 165, 190)
 
 [node name="UiShop" type="Node2D"]
 
-[node name="Shop label" type="Label" parent="."]
-offset_left = 220.0
-offset_top = 102.0
-offset_right = 314.0
-offset_bottom = 151.0
-text = "SHOP"
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.646029, 0.646029, 0.646029, 1)
+offset_left = 32.0
+offset_top = 17.0
+offset_right = 1118.0
+offset_bottom = 614.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 5
 
-[node name="Back - Exit menu" type="Button" parent="."]
-offset_left = 220.0
-offset_top = 378.0
-offset_right = 309.0
-offset_bottom = 417.0
-text = "Back"
+[node name="Vertical divider" type="TextureRect" parent="."]
+modulate = Color(0.707967, 0.707966, 0.707967, 1)
+offset_left = 278.0
+offset_top = 84.0
+offset_right = 367.0
+offset_bottom = 562.0
+texture = ExtResource("2_ix2p6")
+expand_mode = 3
+
+[node name="Horizontal divider" type="TextureRect" parent="."]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+offset_left = 121.0
+offset_top = 183.0
+offset_right = 306.0
+offset_bottom = 226.0
+texture = ExtResource("3_8dht8")
+expand_mode = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 346.0
+offset_top = 126.0
+offset_right = 959.0
+offset_bottom = 512.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="VScrollBar" type="VScrollBar" parent="."]
+offset_left = 976.0
+offset_top = 132.0
+offset_right = 1005.0
+offset_bottom = 507.0
+theme_override_styles/scroll = SubResource("StyleBoxTexture_1r612")
+theme_override_styles/grabber = ExtResource("2_eb8b5")
+theme_override_styles/grabber_highlight = ExtResource("3_00wu6")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_6x2hq")
+
+[node name="backButton" type="TextureButton" parent="."]
+offset_left = 124.0
+offset_top = 438.0
+offset_right = 288.0
+offset_bottom = 501.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="exitLabel" type="Label" parent="backButton"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 14.0
+offset_right = 144.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 25
+text = "exit"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Shop label" type="Label" parent="."]
+offset_left = 169.0
+offset_top = 134.0
+offset_right = 263.0
+offset_bottom = 183.0
+theme_override_font_sizes/font_size = 30
+text = "Shop"
+uppercase = true
