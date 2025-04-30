@@ -116,7 +116,12 @@ func placeTile(coordinates):
 				var tileInstance = tileToPlace.instantiate()
 				var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
 				tileInstance.setTile.connect(setTileAt.bind())
+				tileInstance.checkNeigbors.connect(neigbors.bind())
+				for i in range(tileSize.x):
+					for j in range(tileSize.y):
+						dictionaryOfTiles[mapIndex - Vector2i(i,j)] = tileInstance
 				tileInstance.createBuilding(placingTile, mapIndex, tileSize,connectedTiles, placingRotation)
+				
 	pass
 
 func placeTypeFarm(mapIndex:Vector2i, connectedTiles:Array, placing:String):
@@ -133,7 +138,8 @@ func placeTypeFarm(mapIndex:Vector2i, connectedTiles:Array, placing:String):
 	tileInstance.createBuilding(placingTile, mapIndex, tileSize, irrigated,connectedTiles)
 
 func setTileAt(onSet, onMap, rotation = 0): # linked to signals
-	$TileMap/ObejctLayer.set_cell(onMap,0,onSet,0)
+	var currentrotation = $PlacingObject.getRotation(placingRotation)
+	$TileMap/ObejctLayer.set_cell(onMap,0,onSet,currentrotation)
 	pass
 
 func checkTileValid(coordinates): # checks if a tile has been placed in region
@@ -145,6 +151,15 @@ func checkTileValid(coordinates): # checks if a tile has been placed in region
 				isValid = false
 	print(isValid)
 	return isValid
+
+func neigbors(tile):
+	var coordinates = tile.tilePosition
+	var tileConnectionList = []
+	for i in checkOrder:
+		var thisTile = coordinates + i
+		if thisTile in dictionaryOfTiles:
+			tileConnectionList.append(dictionaryOfTiles[thisTile])
+	tile.adjascentTiles = tileConnectionList
 
 func checkConnected(coordinates:Vector2i): # checks what tiles are placed relative to the placing tile
 	var tileConnectionList = []
