@@ -134,15 +134,6 @@ offset_bottom = 226.0
 texture = ExtResource("4_caayg")
 expand_mode = 5
 
-[node name="Horizontal divider2" type="TextureRect" parent="."]
-modulate = Color(0.709804, 0.709804, 0.709804, 1)
-offset_left = 321.0
-offset_top = 266.0
-offset_right = 1073.0
-offset_bottom = 363.0
-texture = ExtResource("4_caayg")
-expand_mode = 5
-
 [node name="Crop collection tab" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -209,9 +200,9 @@ uppercase = true
 [node name="cropBName" type="Label" parent="Crop collection tab"]
 layout_mode = 2
 offset_left = 187.0
-offset_top = 136.0
+offset_top = 137.0
 offset_right = 341.0
-offset_bottom = 159.0
+offset_bottom = 160.0
 text = "[Crop type b here]"
 uppercase = true
 
@@ -479,3 +470,12 @@ offset_top = 24.0
 offset_right = 72.0
 offset_bottom = 64.0
 expand_mode = 1
+
+[node name="Horizontal divider2" type="TextureRect" parent="Set crop"]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+offset_left = 321.0
+offset_top = 266.0
+offset_right = 1073.0
+offset_bottom = 363.032
+texture = ExtResource("4_caayg")
+expand_mode = 5
