@@ -41,16 +41,6 @@ offset_right = 309.0
 offset_bottom = 417.0
 text = "Back"
 
-[node name="VScrollBar" type="VScrollBar" parent="."]
-offset_left = 772.0
-offset_top = 110.0
-offset_right = 801.0
-offset_bottom = 346.0
-theme_override_styles/scroll = SubResource("StyleBoxTexture_5bx6b")
-theme_override_styles/grabber = ExtResource("2_g0y8n")
-theme_override_styles/grabber_highlight = ExtResource("3_s8w2v")
-theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_q3nei")
-
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
 offset_left = 32.0
@@ -61,10 +51,10 @@ texture = ExtResource("5_cydjt")
 expand_mode = 5
 
 [node name="backButton" type="TextureButton" parent="."]
-offset_left = 124.0
-offset_top = 438.0
-offset_right = 288.0
-offset_bottom = 501.0
+offset_left = 128.0
+offset_top = 440.0
+offset_right = 292.0
+offset_bottom = 503.0
 texture_normal = ExtResource("5_cydjt")
 texture_pressed = ExtResource("5_cydjt")
 texture_hover = ExtResource("6_5nlbb")
@@ -99,3 +89,13 @@ offset_right = 306.0
 offset_bottom = 226.0
 texture = ExtResource("8_ci8ue")
 expand_mode = 5
+
+[node name="VScrollBar" type="VScrollBar" parent="."]
+offset_left = 772.0
+offset_top = 110.0
+offset_right = 801.0
+offset_bottom = 346.0
+theme_override_styles/scroll = SubResource("StyleBoxTexture_5bx6b")
+theme_override_styles/grabber = ExtResource("2_g0y8n")
+theme_override_styles/grabber_highlight = ExtResource("3_s8w2v")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_q3nei")

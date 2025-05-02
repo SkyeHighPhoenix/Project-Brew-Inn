@@ -1,6 +1,49 @@
-[gd_scene format=3 uid="uid://c2v00pptc38iq"]
+[gd_scene load_steps=3 format=3 uid="uid://c2v00pptc38iq"]
+
+[ext_resource type="Texture2D" uid="uid://qmd7ngwoprcf" path="res://UI/UI assets/General button.png" id="1_l7rb1"]
+[ext_resource type="Texture2D" uid="uid://nl7m6s2rqdmt" path="res://UI/UI assets/Button highlighted.png" id="2_hsr4o"]
 
 [node name="UiProductionMachines" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.646029, 0.646029, 0.646029, 1)
+offset_left = 32.0
+offset_top = 17.0
+offset_right = 1118.0
+offset_bottom = 614.0
+texture = ExtResource("1_l7rb1")
+expand_mode = 5
+
+[node name="Structure name2" type="Label" parent="."]
+offset_left = 144.0
+offset_top = 130.0
+offset_right = 279.0
+offset_bottom = 179.0
+text = "[STRUCTURE
+NAME HERE]"
+horizontal_alignment = 1
+
+[node name="backButton" type="TextureButton" parent="."]
+offset_left = 124.0
+offset_top = 438.0
+offset_right = 288.0
+offset_bottom = 501.0
+texture_normal = ExtResource("1_l7rb1")
+texture_pressed = ExtResource("1_l7rb1")
+texture_hover = ExtResource("2_hsr4o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="exitLabel" type="Label" parent="backButton"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 14.0
+offset_right = 144.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 25
+text = "exit"
+horizontal_alignment = 1
+uppercase = true
 
 [node name="Structure name" type="Label" parent="."]
 offset_left = 88.0
