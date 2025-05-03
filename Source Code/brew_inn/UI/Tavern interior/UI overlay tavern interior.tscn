@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://yx6knh7fwti7"]
+[gd_scene load_steps=9 format=3 uid="uid://yx6knh7fwti7"]
 
 [ext_resource type="Texture2D" uid="uid://brrcrimvaltd3" path="res://UI/UI assets/HUD.png" id="1_8pj2h"]
 [ext_resource type="Texture2D" uid="uid://m1348m0q4pdl" path="res://UI/UI assets/Coin.png" id="2_jcprj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://f7s1ds0klfpg" path="res://UI/UI assets/XP bar.png" id="5_qn7oa"]
 [ext_resource type="Texture2D" uid="uid://dmxvexme0h3a7" path="res://UI/UI assets/Pause button.png" id="6_dvkm1"]
 [ext_resource type="Texture2D" uid="uid://cp3h4yci8p60a" path="res://UI/UI assets/Pause highlighted.png" id="7_ay3v7"]
+[ext_resource type="Texture2D" uid="uid://b8dxv6qi0ilx1" path="res://UI/UI assets/Morning icon.png" id="8_nv1t2"]
 
 [node name="UiOverlayTavernInterior" type="Node3D"]
 
@@ -18,6 +19,7 @@ texture = ExtResource("1_8pj2h")
 expand_mode = 3
 
 [node name="currency icon" type="TextureRect" parent="HUDFraming"]
+layout_mode = 0
 offset_left = -258.0
 offset_top = -7.0
 offset_right = 1181.0
@@ -26,12 +28,14 @@ texture = ExtResource("2_jcprj")
 expand_mode = 1
 
 [node name="timeIndicator" type="TextureRect" parent="HUDFraming"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 115.0
 offset_bottom = 96.0
 
 [node name="expBarFunctional" type="TextureProgressBar" parent="HUDFraming"]
+layout_mode = 0
 offset_left = 149.0
 offset_top = 65.0
 offset_right = 304.0
@@ -41,6 +45,7 @@ texture_under = ExtResource("3_5jov5")
 texture_progress = ExtResource("4_r3t3f")
 
 [node name="expBarOutline" type="TextureRect" parent="HUDFraming"]
+layout_mode = 0
 offset_left = 11.0
 offset_top = 2.0
 offset_right = 1144.0
@@ -82,3 +87,11 @@ texture_pressed = ExtResource("6_dvkm1")
 texture_hover = ExtResource("7_ay3v7")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="timeIndicator" type="TextureRect" parent="."]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 96.0
+texture = ExtResource("8_nv1t2")
+expand_mode = 1

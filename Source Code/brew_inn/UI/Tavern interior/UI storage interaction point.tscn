@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwtn1lsopeknw"]
+[gd_scene load_steps=12 format=3 uid="uid://dwtn1lsopeknw"]
 
 [ext_resource type="Texture2D" uid="uid://brle7flb0x5sa" path="res://UI/UI assets/Scroll bar.png" id="1_tylek"]
 [ext_resource type="StyleBox" uid="uid://bdm02q18bch88" path="res://UI/External world/vertical scrollbar grabber highlighted.tres" id="2_g0y8n"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://5cpyqi47gvvv" path="res://UI/UI assets/Modular seperater vertical.png" id="7_d6v5o"]
 [ext_resource type="Texture2D" uid="uid://cv0i7vsbcm2c6" path="res://UI/UI assets/Modular seperater horizontal.png" id="8_ci8ue"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5bx6b"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_33mnr"]
 texture = ExtResource("1_tylek")
 expand_margin_left = 5.0
 expand_margin_top = 10.0
@@ -17,29 +17,15 @@ expand_margin_right = 5.0
 expand_margin_bottom = 10.0
 region_rect = Rect2(83.9002, 18.792, 209.376, 2469.63)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q3nei"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s3we1"]
 resource_name = "Scrollbar"
 content_margin_bottom = 29.0
 texture = ExtResource("4_jsxey")
 region_rect = Rect2(105, 378, 165, 190)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_2mn2s"]
+
 [node name="UiStorageInteractionPoint" type="Node2D"]
-
-[node name="Interaction point name" type="Label" parent="."]
-offset_left = 220.0
-offset_top = 102.0
-offset_right = 314.0
-offset_bottom = 151.0
-text = "[name of
-interaction
-point here]"
-
-[node name="Back - Exit menu" type="Button" parent="."]
-offset_left = 220.0
-offset_top = 378.0
-offset_right = 309.0
-offset_bottom = 417.0
-text = "Back"
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
@@ -49,6 +35,46 @@ offset_right = 1118.0
 offset_bottom = 614.0
 texture = ExtResource("5_cydjt")
 expand_mode = 5
+
+[node name="Vertical divider" type="TextureRect" parent="."]
+modulate = Color(0.707967, 0.707966, 0.707967, 1)
+offset_left = 278.0
+offset_top = 84.0
+offset_right = 367.0
+offset_bottom = 562.0
+mouse_filter = 2
+texture = ExtResource("7_d6v5o")
+expand_mode = 3
+
+[node name="Vertical divider2" type="TextureRect" parent="."]
+modulate = Color(0.707967, 0.707966, 0.707967, 1)
+offset_left = 606.0
+offset_top = 84.0
+offset_right = 695.0
+offset_bottom = 562.0
+mouse_filter = 2
+texture = ExtResource("7_d6v5o")
+expand_mode = 3
+
+[node name="Horizontal divider" type="TextureRect" parent="."]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+offset_left = 121.0
+offset_top = 183.0
+offset_right = 306.0
+offset_bottom = 226.0
+mouse_filter = 2
+texture = ExtResource("8_ci8ue")
+expand_mode = 5
+
+[node name="Structure name" type="Label" parent="."]
+offset_left = 144.0
+offset_top = 130.0
+offset_right = 279.0
+offset_bottom = 179.0
+text = "[point
+NAME HERE]"
+horizontal_alignment = 1
+uppercase = true
 
 [node name="backButton" type="TextureButton" parent="."]
 offset_left = 128.0
@@ -72,30 +98,223 @@ text = "exit"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Vertical divider" type="TextureRect" parent="."]
-modulate = Color(0.707967, 0.707966, 0.707967, 1)
-offset_left = 278.0
-offset_top = 84.0
-offset_right = 367.0
-offset_bottom = 562.0
-texture = ExtResource("7_d6v5o")
-expand_mode = 3
+[node name="inventory" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 745.0
+offset_top = 121.0
+offset_right = 1025.0
+offset_bottom = 513.0
 
-[node name="Horizontal divider" type="TextureRect" parent="."]
-modulate = Color(0.709804, 0.709804, 0.709804, 1)
-offset_left = 121.0
-offset_top = 183.0
-offset_right = 306.0
-offset_bottom = 226.0
-texture = ExtResource("8_ci8ue")
-expand_mode = 5
+[node name="inventoryLabel" type="Label" parent="inventory"]
+offset_left = 10.0
+offset_top = 13.0
+offset_right = 212.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 20
+text = "Inventory section"
+uppercase = true
 
-[node name="VScrollBar" type="VScrollBar" parent="."]
-offset_left = 772.0
-offset_top = 110.0
-offset_right = 801.0
-offset_bottom = 346.0
-theme_override_styles/scroll = SubResource("StyleBoxTexture_5bx6b")
+[node name="VScrollBar" type="VScrollBar" parent="inventory"]
+offset_left = 256.0
+offset_top = 32.0
+offset_right = 277.0
+offset_bottom = 368.0
+theme_override_styles/scroll = SubResource("StyleBoxTexture_33mnr")
 theme_override_styles/grabber = ExtResource("2_g0y8n")
 theme_override_styles/grabber_highlight = ExtResource("3_s8w2v")
-theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_q3nei")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_s3we1")
+
+[node name="inventoryView" type="ScrollContainer" parent="inventory"]
+offset_left = -81.0
+offset_top = 40.0
+offset_right = 264.0
+offset_bottom = 392.0
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="inventoryContainer" type="HFlowContainer" parent="inventory/inventoryView"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Inventory item" type="Control" parent="inventory/inventoryView/inventoryContainer"]
+custom_minimum_size = Vector2(80, 100)
+layout_mode = 2
+
+[node name="inventorySlot" type="TextureButton" parent="inventory/inventoryView/inventoryContainer/Inventory item"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 72.0
+offset_bottom = 66.0
+texture_normal = ExtResource("5_cydjt")
+texture_pressed = ExtResource("5_cydjt")
+texture_hover = ExtResource("6_5nlbb")
+texture_disabled = SubResource("ViewportTexture_2mn2s")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="inventoryItemIcon" type="TextureRect" parent="inventory/inventoryView/inventoryContainer/Inventory item"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 65.0
+offset_bottom = 55.0
+mouse_filter = 2
+expand_mode = 1
+
+[node name="inventoryItemName" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item"]
+layout_mode = 0
+offset_top = 61.0
+offset_right = 80.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 13
+text = "Item name"
+horizontal_alignment = 1
+
+[node name="inventoryItemAmount" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 72.0
+offset_right = 72.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 13
+text = "Quantity"
+horizontal_alignment = 1
+
+[node name="Inventory item2" type="Control" parent="inventory/inventoryView/inventoryContainer"]
+custom_minimum_size = Vector2(80, 100)
+layout_mode = 2
+
+[node name="inventorySlot" type="TextureButton" parent="inventory/inventoryView/inventoryContainer/Inventory item2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 72.0
+offset_bottom = 66.0
+texture_normal = ExtResource("5_cydjt")
+texture_pressed = ExtResource("5_cydjt")
+texture_hover = ExtResource("6_5nlbb")
+texture_disabled = SubResource("ViewportTexture_2mn2s")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="inventoryItemIcon" type="TextureRect" parent="inventory/inventoryView/inventoryContainer/Inventory item2"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 65.0
+offset_bottom = 55.0
+mouse_filter = 2
+expand_mode = 1
+
+[node name="inventoryItemName" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item2"]
+layout_mode = 0
+offset_top = 61.0
+offset_right = 80.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 13
+text = "Item name"
+horizontal_alignment = 1
+
+[node name="inventoryItemAmount" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 72.0
+offset_right = 72.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 13
+text = "Quantity"
+horizontal_alignment = 1
+
+[node name="Inventory item3" type="Control" parent="inventory/inventoryView/inventoryContainer"]
+custom_minimum_size = Vector2(80, 100)
+layout_mode = 2
+
+[node name="inventorySlot" type="TextureButton" parent="inventory/inventoryView/inventoryContainer/Inventory item3"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 72.0
+offset_bottom = 66.0
+texture_normal = ExtResource("5_cydjt")
+texture_pressed = ExtResource("5_cydjt")
+texture_hover = ExtResource("6_5nlbb")
+texture_disabled = SubResource("ViewportTexture_2mn2s")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="inventoryItemIcon" type="TextureRect" parent="inventory/inventoryView/inventoryContainer/Inventory item3"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 65.0
+offset_bottom = 55.0
+mouse_filter = 2
+expand_mode = 1
+
+[node name="inventoryItemName" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item3"]
+layout_mode = 0
+offset_top = 61.0
+offset_right = 80.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 13
+text = "Item name"
+horizontal_alignment = 1
+
+[node name="inventoryItemAmount" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item3"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 72.0
+offset_right = 72.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 13
+text = "Quantity"
+horizontal_alignment = 1
+
+[node name="Inventory item4" type="Control" parent="inventory/inventoryView/inventoryContainer"]
+custom_minimum_size = Vector2(80, 100)
+layout_mode = 2
+
+[node name="inventorySlot" type="TextureButton" parent="inventory/inventoryView/inventoryContainer/Inventory item4"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 72.0
+offset_bottom = 66.0
+texture_normal = ExtResource("5_cydjt")
+texture_pressed = ExtResource("5_cydjt")
+texture_hover = ExtResource("6_5nlbb")
+texture_disabled = SubResource("ViewportTexture_2mn2s")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="inventoryItemIcon" type="TextureRect" parent="inventory/inventoryView/inventoryContainer/Inventory item4"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 65.0
+offset_bottom = 55.0
+mouse_filter = 2
+expand_mode = 1
+
+[node name="inventoryItemName" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item4"]
+layout_mode = 0
+offset_top = 61.0
+offset_right = 80.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 13
+text = "Item name"
+horizontal_alignment = 1
+
+[node name="inventoryItemAmount" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item4"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 72.0
+offset_right = 72.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 13
+text = "Quantity"
+horizontal_alignment = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://citkugy70ljus"]
+[gd_scene load_steps=11 format=3 uid="uid://citkugy70ljus"]
 
 [ext_resource type="Texture2D" uid="uid://brrcrimvaltd3" path="res://UI/UI assets/HUD.png" id="1_fnry5"]
 [ext_resource type="Texture2D" uid="uid://m1348m0q4pdl" path="res://UI/UI assets/Coin.png" id="2_k3twl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://nl7m6s2rqdmt" path="res://UI/UI assets/Button highlighted.png" id="7_g08rs"]
 [ext_resource type="Texture2D" uid="uid://dmxvexme0h3a7" path="res://UI/UI assets/Pause button.png" id="8_xqy67"]
 [ext_resource type="Texture2D" uid="uid://cp3h4yci8p60a" path="res://UI/UI assets/Pause highlighted.png" id="9_5uwde"]
+[ext_resource type="Texture2D" uid="uid://b8dxv6qi0ilx1" path="res://UI/UI assets/Morning icon.png" id="10_fhlpn"]
 
 [node name="UiTest" type="Node2D"]
 
@@ -20,6 +21,7 @@ texture = ExtResource("1_fnry5")
 expand_mode = 3
 
 [node name="currency icon" type="TextureRect" parent="HUDFraming"]
+layout_mode = 0
 offset_left = -258.0
 offset_top = -7.0
 offset_right = 1181.0
@@ -28,12 +30,14 @@ texture = ExtResource("2_k3twl")
 expand_mode = 1
 
 [node name="timeIndicator" type="TextureRect" parent="HUDFraming"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 115.0
 offset_bottom = 96.0
 
 [node name="expBarFunctional" type="TextureProgressBar" parent="HUDFraming"]
+layout_mode = 0
 offset_left = 149.0
 offset_top = 65.0
 offset_right = 304.0
@@ -43,10 +47,12 @@ texture_under = ExtResource("3_egka6")
 texture_progress = ExtResource("4_scde1")
 
 [node name="expBarOutline" type="TextureRect" parent="HUDFraming"]
+layout_mode = 0
 offset_left = 11.0
 offset_top = 2.0
 offset_right = 1144.0
 offset_bottom = 570.0
+mouse_filter = 2
 texture = ExtResource("5_jro86")
 expand_mode = 3
 
@@ -104,3 +110,11 @@ texture_pressed = ExtResource("8_xqy67")
 texture_hover = ExtResource("9_5uwde")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="timeIndicator" type="TextureRect" parent="."]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 96.0
+texture = ExtResource("10_fhlpn")
+expand_mode = 1

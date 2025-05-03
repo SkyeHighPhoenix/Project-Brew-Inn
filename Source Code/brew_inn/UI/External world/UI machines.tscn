@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2v00pptc38iq"]
+[gd_scene load_steps=15 format=3 uid="uid://c2v00pptc38iq"]
 
 [ext_resource type="Texture2D" uid="uid://qmd7ngwoprcf" path="res://UI/UI assets/General button.png" id="1_l7rb1"]
 [ext_resource type="Texture2D" uid="uid://nl7m6s2rqdmt" path="res://UI/UI assets/Button highlighted.png" id="2_hsr4o"]
@@ -26,9 +26,17 @@ content_margin_bottom = 29.0
 texture = ExtResource("11_sfu8h")
 region_rect = Rect2(105, 378, 165, 190)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_6ky2t"]
+
 [node name="UiProductionMachines" type="Node2D"]
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Base" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="Base"]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
 offset_left = 32.0
 offset_top = 17.0
@@ -37,59 +45,91 @@ offset_bottom = 614.0
 texture = ExtResource("1_l7rb1")
 expand_mode = 5
 
-[node name="outputStorageFillBar" type="TextureProgressBar" parent="."]
-offset_left = 393.0
-offset_top = 448.0
-offset_right = 636.0
-offset_bottom = 496.0
-nine_patch_stretch = true
-texture_under = ExtResource("2_mki4c")
-texture_progress = ExtResource("3_rfjq0")
-
-[node name="outputStorageBarOverlay" type="TextureRect" parent="outputStorageFillBar"]
-layout_mode = 0
-offset_left = -218.0
-offset_top = -112.0
-offset_right = 1566.0
-offset_bottom = 904.0
-texture = ExtResource("4_36fki")
+[node name="Vertical divider" type="TextureRect" parent="Base"]
+modulate = Color(0.707967, 0.707966, 0.707967, 1)
+offset_left = 278.0
+offset_top = 84.0
+offset_right = 367.0
+offset_bottom = 562.0
+mouse_filter = 2
+texture = ExtResource("5_yd78m")
 expand_mode = 3
 
-[node name="inputStorageFillBar" type="TextureProgressBar" parent="."]
-offset_left = 392.0
-offset_top = 248.0
-offset_right = 635.0
-offset_bottom = 296.0
+[node name="Vertical divider2" type="TextureRect" parent="Base"]
+modulate = Color(0.707967, 0.707966, 0.707967, 1)
+offset_left = 685.0
+offset_top = 84.0
+offset_right = 774.0
+offset_bottom = 562.0
+mouse_filter = 2
+texture = ExtResource("5_yd78m")
+expand_mode = 3
+
+[node name="Horizontal divider" type="TextureRect" parent="Base"]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+offset_left = 121.0
+offset_top = 183.0
+offset_right = 306.0
+offset_bottom = 226.0
+mouse_filter = 2
+texture = ExtResource("6_cbwb8")
+expand_mode = 5
+
+[node name="Horizontal divider2" type="TextureRect" parent="Base"]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+offset_left = 328.0
+offset_top = 318.0
+offset_right = 720.0
+offset_bottom = 398.0
+mouse_filter = 2
+texture = ExtResource("6_cbwb8")
+expand_mode = 5
+
+[node name="inputInfo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 336.0
+offset_top = 128.0
+offset_right = 704.0
+offset_bottom = 328.0
+
+[node name="inputStorageFillBar" type="TextureProgressBar" parent="inputInfo"]
+offset_left = 58.0
+offset_top = 140.0
+offset_right = 301.0
+offset_bottom = 188.0
 nine_patch_stretch = true
 texture_under = ExtResource("2_mki4c")
 texture_progress = ExtResource("3_rfjq0")
 
-[node name="inputStorageBarOverlay" type="TextureRect" parent="inputStorageFillBar"]
+[node name="inputStorageBarOverlay" type="TextureRect" parent="inputInfo/inputStorageFillBar"]
 layout_mode = 0
 offset_left = -218.0
 offset_top = -111.0
 offset_right = 1566.0
 offset_bottom = 905.0
+mouse_filter = 2
 texture = ExtResource("4_36fki")
 expand_mode = 3
 
-[node name="inputResource1" type="TextureRect" parent="."]
-offset_left = 342.0
-offset_top = 138.0
-offset_right = 430.0
-offset_bottom = 202.0
+[node name="inputResource1" type="TextureRect" parent="inputInfo"]
+offset_left = 8.0
+offset_top = 33.0
+offset_right = 96.0
+offset_bottom = 97.0
 texture = ExtResource("1_l7rb1")
 expand_mode = 1
 
-[node name="inputResourceIcon1" type="TextureRect" parent="inputResource1"]
+[node name="inputResourceIcon1" type="TextureRect" parent="inputInfo/inputResource1"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 12.0
 offset_right = 77.0
 offset_bottom = 52.0
+mouse_filter = 2
 expand_mode = 1
 
-[node name="inputResourceLabel1" type="Label" parent="inputResource1"]
+[node name="inputResourceLabel1" type="Label" parent="inputInfo/inputResource1"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 64.0
@@ -97,9 +137,10 @@ offset_right = 108.0
 offset_bottom = 87.0
 theme_override_font_sizes/font_size = 12
 text = "[Input 1 here]"
+vertical_alignment = 1
 uppercase = true
 
-[node name="inputResourceAmount1" type="Label" parent="inputResource1"]
+[node name="inputResourceAmount1" type="Label" parent="inputInfo/inputResource1"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 80.0
@@ -107,17 +148,18 @@ offset_right = 107.0
 offset_bottom = 103.0
 theme_override_font_sizes/font_size = 12
 text = "[Amount here]"
+vertical_alignment = 1
 uppercase = true
 
-[node name="inputResource2" type="TextureRect" parent="."]
-offset_left = 460.0
-offset_top = 138.0
-offset_right = 548.0
-offset_bottom = 202.0
+[node name="inputResource2" type="TextureRect" parent="inputInfo"]
+offset_left = 126.0
+offset_top = 33.0
+offset_right = 214.0
+offset_bottom = 97.0
 texture = ExtResource("1_l7rb1")
 expand_mode = 1
 
-[node name="inputResourceLabel2" type="Label" parent="inputResource2"]
+[node name="inputResourceLabel2" type="Label" parent="inputInfo/inputResource2"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 64.0
@@ -125,9 +167,10 @@ offset_right = 108.0
 offset_bottom = 87.0
 theme_override_font_sizes/font_size = 12
 text = "[Input 2 here]"
+vertical_alignment = 1
 uppercase = true
 
-[node name="inputResourceAmount2" type="Label" parent="inputResource2"]
+[node name="inputResourceAmount2" type="Label" parent="inputInfo/inputResource2"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 80.0
@@ -135,25 +178,27 @@ offset_right = 107.0
 offset_bottom = 103.0
 theme_override_font_sizes/font_size = 12
 text = "[Input amount ]"
+vertical_alignment = 1
 uppercase = true
 
-[node name="inputResourceIcon2" type="TextureRect" parent="inputResource2"]
+[node name="inputResourceIcon2" type="TextureRect" parent="inputInfo/inputResource2"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 12.0
 offset_right = 76.0
 offset_bottom = 52.0
+mouse_filter = 2
 expand_mode = 1
 
-[node name="inputResource3" type="TextureRect" parent="."]
-offset_left = 580.0
-offset_top = 138.0
-offset_right = 668.0
-offset_bottom = 202.0
+[node name="inputResource3" type="TextureRect" parent="inputInfo"]
+offset_left = 246.0
+offset_top = 33.0
+offset_right = 334.0
+offset_bottom = 97.0
 texture = ExtResource("1_l7rb1")
 expand_mode = 1
 
-[node name="inputResourceLabel3" type="Label" parent="inputResource3"]
+[node name="inputResourceLabel3" type="Label" parent="inputInfo/inputResource3"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 64.0
@@ -161,9 +206,10 @@ offset_right = 108.0
 offset_bottom = 87.0
 theme_override_font_sizes/font_size = 12
 text = "[Input 3 here]"
+vertical_alignment = 1
 uppercase = true
 
-[node name="inputResourceAmount3" type="Label" parent="inputResource3"]
+[node name="inputResourceAmount3" type="Label" parent="inputInfo/inputResource3"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 80.0
@@ -171,35 +217,75 @@ offset_right = 107.0
 offset_bottom = 103.0
 theme_override_font_sizes/font_size = 12
 text = "[Input amount ]"
+vertical_alignment = 1
 uppercase = true
 
-[node name="inputResourceIcon3" type="TextureRect" parent="inputResource3"]
+[node name="inputResourceIcon3" type="TextureRect" parent="inputInfo/inputResource3"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 12.0
 offset_right = 76.0
 offset_bottom = 52.0
+mouse_filter = 2
 expand_mode = 1
 
-[node name="outputResource" type="TextureRect" parent="."]
-offset_left = 388.0
-offset_top = 363.0
-offset_right = 476.0
-offset_bottom = 427.0
+[node name="Label" type="Label" parent="inputInfo"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 8.0
+offset_right = 304.0
+offset_bottom = 31.0
+text = "Input resources"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="outputInfo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 344.0
+offset_top = 360.0
+offset_right = 688.0
+offset_bottom = 512.0
+
+[node name="outputStorageFillBar" type="TextureProgressBar" parent="outputInfo"]
+offset_left = 49.0
+offset_top = 99.0
+offset_right = 292.0
+offset_bottom = 147.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_mki4c")
+texture_progress = ExtResource("3_rfjq0")
+
+[node name="outputStorageBarOverlay" type="TextureRect" parent="outputInfo/outputStorageFillBar"]
+layout_mode = 0
+offset_left = -218.0
+offset_top = -112.0
+offset_right = 1566.0
+offset_bottom = 904.0
+mouse_filter = 2
+texture = ExtResource("4_36fki")
+expand_mode = 3
+
+[node name="outputResource" type="TextureRect" parent="outputInfo"]
+offset_left = 44.0
+offset_top = 26.0
+offset_right = 132.0
+offset_bottom = 90.0
 texture = ExtResource("1_l7rb1")
 expand_mode = 1
 
-[node name="outputResourceLabel" type="Label" parent="outputResource"]
+[node name="outputResourceLabel" type="Label" parent="outputInfo/outputResource"]
 layout_mode = 0
 offset_left = 91.0
 offset_top = 5.0
 offset_right = 193.0
-offset_bottom = 28.0
+offset_bottom = 30.0
 theme_override_font_sizes/font_size = 12
 text = "[Output here]"
+vertical_alignment = 1
 uppercase = true
 
-[node name="outputResourceAmount" type="Label" parent="outputResource"]
+[node name="outputResourceAmount" type="Label" parent="outputInfo/outputResource"]
 layout_mode = 0
 offset_left = 91.0
 offset_top = 37.0
@@ -207,51 +293,26 @@ offset_right = 251.0
 offset_bottom = 60.0
 theme_override_font_sizes/font_size = 12
 text = "[Resource amount here]"
+vertical_alignment = 1
 uppercase = true
 
-[node name="outputResource Icon" type="TextureRect" parent="outputResource"]
+[node name="outputResource Icon" type="TextureRect" parent="outputInfo/outputResource"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 13.0
 offset_right = 76.0
 offset_bottom = 53.0
+mouse_filter = 2
 expand_mode = 1
 
-[node name="Vertical divider" type="TextureRect" parent="."]
-modulate = Color(0.707967, 0.707966, 0.707967, 1)
-offset_left = 278.0
-offset_top = 84.0
-offset_right = 367.0
-offset_bottom = 562.0
-texture = ExtResource("5_yd78m")
-expand_mode = 3
-
-[node name="Vertical divider2" type="TextureRect" parent="."]
-modulate = Color(0.707967, 0.707966, 0.707967, 1)
-offset_left = 685.0
-offset_top = 84.0
-offset_right = 774.0
-offset_bottom = 562.0
-texture = ExtResource("5_yd78m")
-expand_mode = 3
-
-[node name="Horizontal divider" type="TextureRect" parent="."]
-modulate = Color(0.709804, 0.709804, 0.709804, 1)
-offset_left = 121.0
-offset_top = 183.0
-offset_right = 306.0
-offset_bottom = 226.0
-texture = ExtResource("6_cbwb8")
-expand_mode = 5
-
-[node name="Horizontal divider2" type="TextureRect" parent="."]
-modulate = Color(0.709804, 0.709804, 0.709804, 1)
-offset_left = 328.0
-offset_top = 298.0
-offset_right = 720.0
-offset_bottom = 378.0
-texture = ExtResource("6_cbwb8")
-expand_mode = 5
+[node name="Label" type="Label" parent="outputInfo"]
+offset_left = 56.0
+offset_top = 6.0
+offset_right = 288.0
+offset_bottom = 29.0
+text = "Refined resources"
+horizontal_alignment = 1
+uppercase = true
 
 [node name="Structure name" type="Label" parent="."]
 offset_left = 144.0
@@ -267,6 +328,7 @@ offset_left = 127.0
 offset_top = 438.0
 offset_right = 291.0
 offset_bottom = 501.0
+tooltip_text = "Exit the menu."
 texture_normal = ExtResource("1_l7rb1")
 texture_pressed = ExtResource("1_l7rb1")
 texture_hover = ExtResource("2_hsr4o")
@@ -286,9 +348,10 @@ uppercase = true
 
 [node name="manualDepositButton" type="TextureButton" parent="."]
 offset_left = 126.0
-offset_top = 219.0
+offset_top = 278.0
 offset_right = 290.0
-offset_bottom = 282.0
+offset_bottom = 341.0
+tooltip_text = "Switches between the deposit and set modes when interacting with items in your inventory."
 texture_normal = ExtResource("1_l7rb1")
 texture_pressed = ExtResource("1_l7rb1")
 texture_hover = ExtResource("2_hsr4o")
@@ -298,19 +361,22 @@ stretch_mode = 0
 [node name="depositLabel" type="Label" parent="manualDepositButton"]
 layout_mode = 0
 offset_left = 22.0
-offset_top = 17.0
+offset_top = 15.0
 offset_right = 144.0
-offset_bottom = 52.0
-theme_override_font_sizes/font_size = 20
-text = "Deposit"
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 18
+text = "Deposit / set"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 uppercase = true
 
 [node name="collectFromLocalStorageButton" type="TextureButton" parent="."]
-offset_left = 127.0
-offset_top = 280.0
-offset_right = 291.0
-offset_bottom = 343.0
+offset_left = 126.0
+offset_top = 213.0
+offset_right = 290.0
+offset_bottom = 276.0
+tooltip_text = "Collect all the refined resources in the local storage and add them to your inventory."
 texture_normal = ExtResource("1_l7rb1")
 texture_pressed = ExtResource("1_l7rb1")
 texture_hover = ExtResource("2_hsr4o")
@@ -326,6 +392,7 @@ offset_bottom = 50.0
 theme_override_font_sizes/font_size = 20
 text = "collect"
 horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
 
 [node name="clearInputStorageButton" type="TextureButton" parent="."]
@@ -333,6 +400,7 @@ offset_left = 127.0
 offset_top = 342.0
 offset_right = 291.0
 offset_bottom = 405.0
+tooltip_text = "Clears the current input resources, returning all  locally stored to your inventory."
 texture_normal = ExtResource("1_l7rb1")
 texture_pressed = ExtResource("1_l7rb1")
 texture_hover = ExtResource("2_hsr4o")
@@ -350,30 +418,285 @@ text = "clear inputs"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="VScrollBar" type="VScrollBar" parent="."]
-offset_left = 1008.0
-offset_top = 152.0
-offset_right = 1029.0
-offset_bottom = 488.0
+[node name="inventory" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 752.0
+offset_top = 120.0
+offset_right = 1032.0
+offset_bottom = 512.0
+
+[node name="inventoryLabel" type="Label" parent="inventory"]
+offset_left = 69.0
+offset_top = 13.0
+offset_right = 182.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 20
+text = "Inventory"
+uppercase = true
+
+[node name="VScrollBar" type="VScrollBar" parent="inventory"]
+offset_left = 256.0
+offset_top = 48.0
+offset_right = 277.0
+offset_bottom = 368.0
 theme_override_styles/scroll = SubResource("StyleBoxTexture_t832h")
 theme_override_styles/grabber = ExtResource("9_5hflo")
 theme_override_styles/grabber_highlight = ExtResource("10_6x7b2")
 theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_qkgi3")
 
-[node name="inventoryView" type="ScrollContainer" parent="."]
-offset_left = 752.0
-offset_top = 128.0
-offset_right = 1016.0
-offset_bottom = 512.0
+[node name="inventoryView" type="ScrollContainer" parent="inventory"]
+offset_top = 40.0
+offset_right = 264.0
+offset_bottom = 392.0
 follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="FlowContainer" type="FlowContainer" parent="inventoryView"]
+[node name="inventoryContainer" type="HFlowContainer" parent="inventory/inventoryView"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Inventory item" type="Control" parent="inventory/inventoryView/inventoryContainer"]
+custom_minimum_size = Vector2(80, 100)
 layout_mode = 2
 
-[node name="Inventory Entry" type="MarginContainer" parent="inventoryView/FlowContainer"]
-layout_mode = 2
+[node name="inventorySlot" type="TextureButton" parent="inventory/inventoryView/inventoryContainer/Inventory item"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 72.0
+offset_bottom = 66.0
+texture_normal = ExtResource("1_l7rb1")
+texture_pressed = ExtResource("1_l7rb1")
+texture_hover = ExtResource("2_hsr4o")
+texture_disabled = SubResource("ViewportTexture_6ky2t")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="inventoryView/FlowContainer/Inventory Entry"]
+[node name="inventoryItemIcon" type="TextureRect" parent="inventory/inventoryView/inventoryContainer/Inventory item"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 65.0
+offset_bottom = 55.0
+mouse_filter = 2
+expand_mode = 1
+
+[node name="inventoryItemName" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item"]
+layout_mode = 0
+offset_top = 61.0
+offset_right = 80.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 13
+text = "Item name"
+horizontal_alignment = 1
+
+[node name="inventoryItemAmount" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 72.0
+offset_right = 72.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 13
+text = "Quantity"
+horizontal_alignment = 1
+
+[node name="setInputOverlay" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 752.0
+offset_top = 160.0
+offset_right = 1016.0
+offset_bottom = 512.0
+
+[node name="ColorRect" type="ColorRect" parent="setInputOverlay"]
+layout_mode = 0
+offset_right = 248.0
+offset_bottom = 352.0
+color = Color(0.372549, 0.345098, 0.333333, 0.811765)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="setInputOverlay/ColorRect"]
+layout_mode = 0
+offset_right = 248.0
+offset_bottom = 272.0
+
+[node name="setInput1" type="TextureButton" parent="setInputOverlay/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Switch the input material in slot 1 to the selected material."
+texture_normal = ExtResource("1_l7rb1")
+texture_pressed = ExtResource("1_l7rb1")
+texture_hover = ExtResource("2_hsr4o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="set1label" type="Label" parent="setInputOverlay/ColorRect/VBoxContainer/setInput1"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 25
+text = "Set 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="setInput2" type="TextureButton" parent="setInputOverlay/ColorRect/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Switch the input material in slot 2 to the selected material."
+texture_normal = ExtResource("1_l7rb1")
+texture_pressed = ExtResource("1_l7rb1")
+texture_hover = ExtResource("2_hsr4o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="set2label" type="Label" parent="setInputOverlay/ColorRect/VBoxContainer/setInput2"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 25
+text = "Set 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="setInput3" type="TextureButton" parent="setInputOverlay/ColorRect/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Switch the input material in slot 3 to the selected material."
+texture_normal = ExtResource("1_l7rb1")
+texture_pressed = ExtResource("1_l7rb1")
+texture_hover = ExtResource("2_hsr4o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="set3Label" type="Label" parent="setInputOverlay/ColorRect/VBoxContainer/setInput3"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 17.0
+offset_right = 176.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 25
+text = "Set 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TextureButton" type="TextureButton" parent="setInputOverlay/ColorRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 280.0
+offset_right = 224.0
+offset_bottom = 344.0
+tooltip_text = "Return to inventory"
+texture_normal = ExtResource("1_l7rb1")
+texture_pressed = ExtResource("1_l7rb1")
+texture_hover = ExtResource("2_hsr4o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="setInputOverlay/ColorRect/TextureButton"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 48.0
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="depositOverlay" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 744.0
+offset_top = 160.0
+offset_right = 1024.0
+offset_bottom = 520.0
+
+[node name="ColorRect" type="ColorRect" parent="depositOverlay"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 256.0
+offset_bottom = 352.0
+color = Color(0.372549, 0.345098, 0.333333, 0.811765)
+
+[node name="backToInventoryB" type="TextureButton" parent="depositOverlay/ColorRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 280.0
+offset_right = 224.0
+offset_bottom = 344.0
+tooltip_text = "Return to inventory"
+texture_normal = ExtResource("1_l7rb1")
+texture_pressed = ExtResource("1_l7rb1")
+texture_hover = ExtResource("2_hsr4o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="backToInventoryLabelB" type="Label" parent="depositOverlay/ColorRect/backToInventoryB"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 48.0
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="depositResourcesButton" type="TextureButton" parent="depositOverlay/ColorRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 184.0
+offset_right = 224.0
+offset_bottom = 232.0
+tooltip_text = "Add the set amount of the selected resource to this machine's input storage."
+texture_normal = ExtResource("1_l7rb1")
+texture_pressed = ExtResource("1_l7rb1")
+texture_hover = ExtResource("2_hsr4o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="depositLabel" type="Label" parent="depositOverlay/ColorRect/depositResourcesButton"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 176.0
+offset_bottom = 40.0
+text = "Deposit"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HSlider" type="HSlider" parent="depositOverlay/ColorRect"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 152.0
+offset_right = 216.0
+offset_bottom = 168.0
+
+[node name="Label" type="Label" parent="depositOverlay/ColorRect"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 88.0
+offset_right = 160.0
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 25
+text = "[Value]"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

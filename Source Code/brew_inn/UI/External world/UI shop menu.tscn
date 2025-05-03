@@ -40,6 +40,7 @@ offset_left = 278.0
 offset_top = 84.0
 offset_right = 367.0
 offset_bottom = 562.0
+mouse_filter = 2
 texture = ExtResource("2_ix2p6")
 expand_mode = 3
 
@@ -49,6 +50,7 @@ offset_left = 121.0
 offset_top = 183.0
 offset_right = 306.0
 offset_bottom = 226.0
+mouse_filter = 2
 texture = ExtResource("3_8dht8")
 expand_mode = 5
 
@@ -72,9 +74,9 @@ theme_override_styles/grabber_highlight = ExtResource("3_00wu6")
 theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_6x2hq")
 
 [node name="backButton" type="TextureButton" parent="."]
-offset_left = 124.0
+offset_left = 126.0
 offset_top = 438.0
-offset_right = 288.0
+offset_right = 290.0
 offset_bottom = 501.0
 texture_normal = ExtResource("1_wlmrt")
 texture_pressed = ExtResource("1_wlmrt")
