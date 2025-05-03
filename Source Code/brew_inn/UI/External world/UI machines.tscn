@@ -47,6 +47,7 @@ texture_under = ExtResource("2_mki4c")
 texture_progress = ExtResource("3_rfjq0")
 
 [node name="outputStorageBarOverlay" type="TextureRect" parent="outputStorageFillBar"]
+layout_mode = 0
 offset_left = -218.0
 offset_top = -112.0
 offset_right = 1566.0
@@ -64,6 +65,7 @@ texture_under = ExtResource("2_mki4c")
 texture_progress = ExtResource("3_rfjq0")
 
 [node name="inputStorageBarOverlay" type="TextureRect" parent="inputStorageFillBar"]
+layout_mode = 0
 offset_left = -218.0
 offset_top = -111.0
 offset_right = 1566.0
@@ -80,6 +82,7 @@ texture = ExtResource("1_l7rb1")
 expand_mode = 1
 
 [node name="inputResourceIcon1" type="TextureRect" parent="inputResource1"]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 12.0
 offset_right = 77.0
@@ -87,6 +90,7 @@ offset_bottom = 52.0
 expand_mode = 1
 
 [node name="inputResourceLabel1" type="Label" parent="inputResource1"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 64.0
 offset_right = 108.0
@@ -96,6 +100,7 @@ text = "[Input 1 here]"
 uppercase = true
 
 [node name="inputResourceAmount1" type="Label" parent="inputResource1"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 80.0
 offset_right = 107.0
@@ -113,6 +118,7 @@ texture = ExtResource("1_l7rb1")
 expand_mode = 1
 
 [node name="inputResourceLabel2" type="Label" parent="inputResource2"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 64.0
 offset_right = 108.0
@@ -122,6 +128,7 @@ text = "[Input 2 here]"
 uppercase = true
 
 [node name="inputResourceAmount2" type="Label" parent="inputResource2"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 80.0
 offset_right = 107.0
@@ -131,6 +138,7 @@ text = "[Input amount ]"
 uppercase = true
 
 [node name="inputResourceIcon2" type="TextureRect" parent="inputResource2"]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 12.0
 offset_right = 76.0
@@ -146,6 +154,7 @@ texture = ExtResource("1_l7rb1")
 expand_mode = 1
 
 [node name="inputResourceLabel3" type="Label" parent="inputResource3"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 64.0
 offset_right = 108.0
@@ -155,6 +164,7 @@ text = "[Input 3 here]"
 uppercase = true
 
 [node name="inputResourceAmount3" type="Label" parent="inputResource3"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 80.0
 offset_right = 107.0
@@ -164,6 +174,7 @@ text = "[Input amount ]"
 uppercase = true
 
 [node name="inputResourceIcon3" type="TextureRect" parent="inputResource3"]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 12.0
 offset_right = 76.0
@@ -179,6 +190,7 @@ texture = ExtResource("1_l7rb1")
 expand_mode = 1
 
 [node name="outputResourceLabel" type="Label" parent="outputResource"]
+layout_mode = 0
 offset_left = 91.0
 offset_top = 5.0
 offset_right = 193.0
@@ -188,6 +200,7 @@ text = "[Output here]"
 uppercase = true
 
 [node name="outputResourceAmount" type="Label" parent="outputResource"]
+layout_mode = 0
 offset_left = 91.0
 offset_top = 37.0
 offset_right = 251.0
@@ -352,9 +365,15 @@ offset_left = 752.0
 offset_top = 128.0
 offset_right = 1016.0
 offset_bottom = 512.0
-horizontal_scroll_mode = 3
+follow_focus = true
+horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="inventoryView"]
+[node name="FlowContainer" type="FlowContainer" parent="inventoryView"]
 layout_mode = 2
-columns = 3
+
+[node name="Inventory Entry" type="MarginContainer" parent="inventoryView/FlowContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="inventoryView/FlowContainer/Inventory Entry"]
+layout_mode = 2
