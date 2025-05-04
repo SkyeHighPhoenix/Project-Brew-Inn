@@ -27,6 +27,11 @@ region_rect = Rect2(105, 378, 165, 190)
 
 [node name="UiWarehouse" type="Node2D"]
 
+[node name="backgroundGreyOut" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.372549, 0.345098, 0.333333, 0.811765)
+
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
 offset_left = 32.0
@@ -98,6 +103,7 @@ offset_right = 1032.0
 offset_bottom = 512.0
 
 [node name="VScrollBar" type="VScrollBar" parent="inventory"]
+layout_mode = 0
 offset_left = 651.0
 offset_top = 38.0
 offset_right = 672.0
@@ -108,6 +114,7 @@ theme_override_styles/grabber_highlight = ExtResource("3_sp45i")
 theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_cc23p")
 
 [node name="inventoryView" type="ScrollContainer" parent="inventory"]
+layout_mode = 0
 offset_top = 5.0
 offset_right = 666.0
 offset_bottom = 392.0

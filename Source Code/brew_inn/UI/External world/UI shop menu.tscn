@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://lh2iktcf4mmj"]
+[gd_scene load_steps=12 format=3 uid="uid://lh2iktcf4mmj"]
 
 [ext_resource type="Texture2D" uid="uid://qmd7ngwoprcf" path="res://UI/UI assets/General button.png" id="1_wlmrt"]
 [ext_resource type="Texture2D" uid="uid://brle7flb0x5sa" path="res://UI/UI assets/Scroll bar.png" id="1_xgxvl"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://5cpyqi47gvvv" path="res://UI/UI assets/Modular seperater vertical.png" id="2_ix2p6"]
 [ext_resource type="StyleBox" uid="uid://dq0ipva3g3q1n" path="res://UI/External world/vertical scrollbar grabber.tres" id="3_00wu6"]
 [ext_resource type="Texture2D" uid="uid://cv0i7vsbcm2c6" path="res://UI/UI assets/Modular seperater horizontal.png" id="3_8dht8"]
+[ext_resource type="Texture2D" uid="uid://m1348m0q4pdl" path="res://UI/UI assets/Coin.png" id="4_3dpcs"]
 [ext_resource type="Texture2D" uid="uid://d2mltc37eku11" path="res://UI/UI assets/Scroll button highlighted.png" id="4_p5651"]
 [ext_resource type="Texture2D" uid="uid://nl7m6s2rqdmt" path="res://UI/UI assets/Button highlighted.png" id="8_yn2nk"]
 
@@ -24,6 +25,11 @@ texture = ExtResource("4_p5651")
 region_rect = Rect2(105, 378, 165, 190)
 
 [node name="UiShop" type="Node2D"]
+
+[node name="backgroundGreyOut" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.372549, 0.345098, 0.333333, 0.811765)
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
@@ -54,14 +60,545 @@ mouse_filter = 2
 texture = ExtResource("3_8dht8")
 expand_mode = 5
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-offset_left = 346.0
-offset_top = 126.0
-offset_right = 959.0
+[node name="farmingTab" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 352.0
+offset_top = 136.0
+offset_right = 960.0
 offset_bottom = 512.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="shopScrollableFarmingTab" type="ScrollContainer" parent="farmingTab"]
+offset_left = -6.0
+offset_top = -10.0
+offset_right = 607.0
+offset_bottom = 376.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+
+[node name="farmingItemList" type="VBoxContainer" parent="farmingTab/shopScrollableFarmingTab"]
 layout_mode = 2
+
+[node name="shopItem" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "[Item name here]"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonF1" type="TextureButton" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem/purchaseButtonF1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="machinesTab" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 352.0
+offset_top = 136.0
+offset_right = 960.0
+offset_bottom = 512.0
+
+[node name="shopScrollableMachinesTab" type="ScrollContainer" parent="machinesTab"]
+offset_left = -6.0
+offset_top = -10.0
+offset_right = 607.0
+offset_bottom = 376.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+
+[node name="machinesItemList" type="VBoxContainer" parent="machinesTab/shopScrollableMachinesTab"]
+layout_mode = 2
+
+[node name="shopItem" type="Control" parent="machinesTab/shopScrollableMachinesTab/machinesItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "[Item name here]"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonM1" type="TextureButton" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem/purchaseButtonM1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="licensesTab" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 352.0
+offset_top = 136.0
+offset_right = 960.0
+offset_bottom = 512.0
+
+[node name="shopScrollableLicensesTab" type="ScrollContainer" parent="licensesTab"]
+offset_left = -6.0
+offset_top = -10.0
+offset_right = 607.0
+offset_bottom = 376.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+
+[node name="licensesItemList" type="VBoxContainer" parent="licensesTab/shopScrollableLicensesTab"]
+layout_mode = 2
+
+[node name="shopItem" type="Control" parent="licensesTab/shopScrollableLicensesTab/licensesItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="licensesTab/shopScrollableLicensesTab/licensesItemList/shopItem"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="licensesTab/shopScrollableLicensesTab/licensesItemList/shopItem"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="licensesTab/shopScrollableLicensesTab/licensesItemList/shopItem"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="licensesTab/shopScrollableLicensesTab/licensesItemList/shopItem"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "[Item name here]"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="licensesTab/shopScrollableLicensesTab/licensesItemList/shopItem"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="licensesTab/shopScrollableLicensesTab/licensesItemList/shopItem"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="licensesTab/shopScrollableLicensesTab/licensesItemList/shopItem"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonL1" type="TextureButton" parent="licensesTab/shopScrollableLicensesTab/licensesItemList/shopItem"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="licensesTab/shopScrollableLicensesTab/licensesItemList/shopItem/purchaseButtonL1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="workersTab" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 352.0
+offset_top = 136.0
+offset_right = 960.0
+offset_bottom = 512.0
+
+[node name="shopScrollableWorkersTab2" type="ScrollContainer" parent="workersTab"]
+offset_left = -6.0
+offset_top = -10.0
+offset_right = 607.0
+offset_bottom = 376.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+
+[node name="workersItemList" type="VBoxContainer" parent="workersTab/shopScrollableWorkersTab2"]
+layout_mode = 2
+
+[node name="standardWorker" type="Control" parent="workersTab/shopScrollableWorkersTab2/workersItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="workersTab/shopScrollableWorkersTab2/workersItemList/standardWorker"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="workersTab/shopScrollableWorkersTab2/workersItemList/standardWorker"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="workersTab/shopScrollableWorkersTab2/workersItemList/standardWorker"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="workerType" type="Label" parent="workersTab/shopScrollableWorkersTab2/workersItemList/standardWorker"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "Standard Worker"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="workersTab/shopScrollableWorkersTab2/workersItemList/standardWorker"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="workersTab/shopScrollableWorkersTab2/workersItemList/standardWorker"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="workersTab/shopScrollableWorkersTab2/workersItemList/standardWorker"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "80"
+uppercase = true
+
+[node name="hireButton" type="TextureButton" parent="workersTab/shopScrollableWorkersTab2/workersItemList/standardWorker"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="hireLabel" type="Label" parent="workersTab/shopScrollableWorkersTab2/workersItemList/standardWorker/hireButton"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Hire"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="periodLabel" type="Label" parent="workersTab/shopScrollableWorkersTab2/workersItemList/standardWorker"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 74.0
+offset_right = 206.0
+offset_bottom = 97.0
+text = "Cost is incurred every 3 days"
+
+[node name="specialistWorker" type="Control" parent="workersTab/shopScrollableWorkersTab2/workersItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="workersTab/shopScrollableWorkersTab2/workersItemList/specialistWorker"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="workersTab/shopScrollableWorkersTab2/workersItemList/specialistWorker"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="workersTab/shopScrollableWorkersTab2/workersItemList/specialistWorker"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="workerType" type="Label" parent="workersTab/shopScrollableWorkersTab2/workersItemList/specialistWorker"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "Specialist Worker"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="workersTab/shopScrollableWorkersTab2/workersItemList/specialistWorker"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="workersTab/shopScrollableWorkersTab2/workersItemList/specialistWorker"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="workersTab/shopScrollableWorkersTab2/workersItemList/specialistWorker"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "100"
+uppercase = true
+
+[node name="hireButton2" type="TextureButton" parent="workersTab/shopScrollableWorkersTab2/workersItemList/specialistWorker"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Hire" type="Label" parent="workersTab/shopScrollableWorkersTab2/workersItemList/specialistWorker/hireButton2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Hire"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="periodLabel" type="Label" parent="workersTab/shopScrollableWorkersTab2/workersItemList/specialistWorker"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 74.0
+offset_right = 206.0
+offset_bottom = 97.0
+text = "Cost is incurred every 2 days"
 
 [node name="VScrollBar" type="VScrollBar" parent="."]
 offset_left = 976.0
@@ -102,4 +639,101 @@ offset_right = 263.0
 offset_bottom = 183.0
 theme_override_font_sizes/font_size = 30
 text = "Shop"
+uppercase = true
+
+[node name="machinesTabButton" type="TextureButton" parent="."]
+offset_left = 126.0
+offset_top = 268.0
+offset_right = 290.0
+offset_bottom = 325.0
+tooltip_text = "Switches between the deposit and set modes when interacting with items in your inventory."
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="machinesLabel" type="Label" parent="machinesTabButton"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 9.0
+offset_right = 144.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 20
+text = "Machines"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[node name="farmingTabLabel" type="TextureButton" parent="."]
+offset_left = 126.0
+offset_top = 213.0
+offset_right = 290.0
+offset_bottom = 272.0
+tooltip_text = "Collect all the refined resources in the local storage and add them to your inventory."
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="farmingLabel" type="Label" parent="farmingTabLabel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 11.0
+offset_right = 144.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 20
+text = "Farming"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="licensesTabButton" type="TextureButton" parent="."]
+offset_left = 127.0
+offset_top = 324.0
+offset_right = 291.0
+offset_bottom = 378.0
+tooltip_text = "Clears the current input resources, returning all  locally stored to your inventory."
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="licensesLabel" type="Label" parent="licensesTabButton"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 153.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 20
+text = "Licenses"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="workerTabButton" type="TextureButton" parent="."]
+offset_left = 128.0
+offset_top = 375.0
+offset_right = 292.0
+offset_bottom = 429.0
+tooltip_text = "Clears the current input resources, returning all  locally stored to your inventory."
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="workerLabel" type="Label" parent="workerTabButton"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 152.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 20
+text = "Workers"
+horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true

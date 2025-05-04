@@ -11,6 +11,11 @@
 
 [node name="UiFarmingStructures" type="Node2D"]
 
+[node name="backgroundGreyOut" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.372549, 0.345098, 0.333333, 0.811765)
+
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
 offset_left = 32.0
@@ -223,6 +228,15 @@ offset_bottom = 179.0
 texture = ExtResource("8_8fjku")
 expand_mode = 1
 
+[node name="cropAIcon" type="TextureRect" parent="Crop collection tab/quickCollectCropA"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 24.0
+offset_right = 105.0
+offset_bottom = 80.0
+mouse_filter = 2
+expand_mode = 1
+
 [node name="quickCollectCropB" type="TextureButton" parent="Crop collection tab"]
 layout_mode = 2
 offset_left = 59.0
@@ -269,6 +283,15 @@ offset_bottom = -12.0
 texture = ExtResource("8_8fjku")
 expand_mode = 1
 
+[node name="cropBIcon" type="TextureRect" parent="Crop collection tab/quickCollectCropB"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 25.0
+offset_right = 105.0
+offset_bottom = 81.0
+mouse_filter = 2
+expand_mode = 1
+
 [node name="Set crop" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -310,6 +333,7 @@ offset_left = 24.0
 offset_top = 24.0
 offset_right = 96.0
 offset_bottom = 80.0
+mouse_filter = 2
 expand_mode = 1
 
 [node name="Crop 2" type="TextureButton" parent="Set crop"]
@@ -348,6 +372,7 @@ offset_left = 16.0
 offset_top = 24.0
 offset_right = 72.0
 offset_bottom = 64.0
+mouse_filter = 2
 expand_mode = 1
 
 [node name="Crop 3" type="TextureButton" parent="Set crop"]
@@ -386,6 +411,7 @@ offset_left = 16.0
 offset_top = 24.0
 offset_right = 72.0
 offset_bottom = 64.0
+mouse_filter = 2
 expand_mode = 1
 
 [node name="Crop 4" type="TextureButton" parent="Set crop"]
@@ -424,6 +450,7 @@ offset_left = 16.0
 offset_top = 24.0
 offset_right = 72.0
 offset_bottom = 64.0
+mouse_filter = 2
 expand_mode = 1
 
 [node name="Crop 5" type="TextureButton" parent="Set crop"]
@@ -462,6 +489,7 @@ offset_left = 16.0
 offset_top = 24.0
 offset_right = 72.0
 offset_bottom = 64.0
+mouse_filter = 2
 expand_mode = 1
 
 [node name="Crop 6" type="TextureButton" parent="Set crop"]
@@ -500,6 +528,7 @@ offset_left = 16.0
 offset_top = 24.0
 offset_right = 72.0
 offset_bottom = 64.0
+mouse_filter = 2
 expand_mode = 1
 
 [node name="Horizontal divider2" type="TextureRect" parent="Set crop"]

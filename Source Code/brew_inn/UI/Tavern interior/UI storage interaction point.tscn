@@ -27,6 +27,11 @@ region_rect = Rect2(105, 378, 165, 190)
 
 [node name="UiStorageInteractionPoint" type="Node2D"]
 
+[node name="backgroundGreyOut" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.372549, 0.345098, 0.333333, 0.811765)
+
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
 offset_left = 32.0
@@ -98,6 +103,94 @@ text = "exit"
 horizontal_alignment = 1
 uppercase = true
 
+[node name="hand 1" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 352.0
+offset_top = 224.0
+offset_right = 608.0
+offset_bottom = 304.0
+
+[node name="hand1Button" type="TextureButton" parent="hand 1"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 88.0
+offset_bottom = 80.0
+tooltip_text = "If the item held in this slot can be stored here, removes the item from this slot returning it to the inventory."
+texture_normal = ExtResource("5_cydjt")
+texture_pressed = ExtResource("5_cydjt")
+texture_hover = ExtResource("6_5nlbb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="hand1ItemIcon" type="TextureRect" parent="hand 1"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 80.0
+offset_bottom = 64.0
+expand_mode = 1
+
+[node name="Label" type="Label" parent="hand 1"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 31.0
+text = "Hand 1:"
+
+[node name="Label2" type="Label" parent="hand 1"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 35.0
+offset_right = 160.0
+offset_bottom = 58.0
+text = "[Item info here]"
+
+[node name="hand 2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 352.0
+offset_top = 333.0
+offset_right = 608.0
+offset_bottom = 413.0
+
+[node name="hand1Button" type="TextureButton" parent="hand 2"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 88.0
+offset_bottom = 80.0
+tooltip_text = "If the item held in this slot can be stored here, removes the item from this slot returning it to the inventory."
+texture_normal = ExtResource("5_cydjt")
+texture_pressed = ExtResource("5_cydjt")
+texture_hover = ExtResource("6_5nlbb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="hand1ItemIcon" type="TextureRect" parent="hand 2"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 80.0
+offset_bottom = 64.0
+expand_mode = 1
+
+[node name="Label" type="Label" parent="hand 2"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 31.0
+text = "Hand 1:"
+
+[node name="Label2" type="Label" parent="hand 2"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 35.0
+offset_right = 160.0
+offset_bottom = 58.0
+text = "[Item info here]"
+
 [node name="inventory" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -107,6 +200,7 @@ offset_right = 1025.0
 offset_bottom = 513.0
 
 [node name="inventoryLabel" type="Label" parent="inventory"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 13.0
 offset_right = 212.0
@@ -116,6 +210,7 @@ text = "Inventory section"
 uppercase = true
 
 [node name="VScrollBar" type="VScrollBar" parent="inventory"]
+layout_mode = 0
 offset_left = 256.0
 offset_top = 32.0
 offset_right = 277.0
@@ -126,6 +221,7 @@ theme_override_styles/grabber_highlight = ExtResource("3_s8w2v")
 theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_s3we1")
 
 [node name="inventoryView" type="ScrollContainer" parent="inventory"]
+layout_mode = 0
 offset_left = -81.0
 offset_top = 40.0
 offset_right = 264.0
@@ -149,6 +245,7 @@ offset_left = 8.0
 offset_top = 2.0
 offset_right = 72.0
 offset_bottom = 66.0
+tooltip_text = "Select this item."
 texture_normal = ExtResource("5_cydjt")
 texture_pressed = ExtResource("5_cydjt")
 texture_hover = ExtResource("6_5nlbb")
@@ -184,137 +281,92 @@ theme_override_font_sizes/font_size = 13
 text = "Quantity"
 horizontal_alignment = 1
 
-[node name="Inventory item2" type="Control" parent="inventory/inventoryView/inventoryContainer"]
-custom_minimum_size = Vector2(80, 100)
-layout_mode = 2
+[node name="currentlyHoldingLabel" type="Label" parent="."]
+offset_left = 352.0
+offset_top = 152.0
+offset_right = 608.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 20
+text = "Currently holding"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
-[node name="inventorySlot" type="TextureButton" parent="inventory/inventoryView/inventoryContainer/Inventory item2"]
+[node name="handGreyOut" type="ColorRect" parent="."]
+offset_left = 352.0
+offset_top = 208.0
+offset_right = 608.0
+offset_bottom = 504.0
+color = Color(0.709804, 0.709804, 0.709804, 0.827451)
+
+[node name="setHand1" type="TextureButton" parent="handGreyOut"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 2.0
-offset_right = 72.0
-offset_bottom = 66.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 232.0
+offset_bottom = 88.0
+tooltip_text = "Adds the selected item to hand 1 (if the hand is empty)."
 texture_normal = ExtResource("5_cydjt")
 texture_pressed = ExtResource("5_cydjt")
 texture_hover = ExtResource("6_5nlbb")
-texture_disabled = SubResource("ViewportTexture_2mn2s")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="inventoryItemIcon" type="TextureRect" parent="inventory/inventoryView/inventoryContainer/Inventory item2"]
+[node name="set1Label" type="Label" parent="handGreyOut/setHand1"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 15.0
-offset_right = 65.0
-offset_bottom = 55.0
-mouse_filter = 2
-expand_mode = 1
-
-[node name="inventoryItemName" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item2"]
-layout_mode = 0
-offset_top = 61.0
-offset_right = 80.0
-offset_bottom = 84.0
-theme_override_font_sizes/font_size = 13
-text = "Item name"
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 184.0
+offset_bottom = 48.0
+text = "Put in hand 1"
 horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
-[node name="inventoryItemAmount" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item2"]
+[node name="setHand2" type="TextureButton" parent="handGreyOut"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 72.0
-offset_right = 72.0
-offset_bottom = 95.0
-theme_override_font_sizes/font_size = 13
-text = "Quantity"
-horizontal_alignment = 1
-
-[node name="Inventory item3" type="Control" parent="inventory/inventoryView/inventoryContainer"]
-custom_minimum_size = Vector2(80, 100)
-layout_mode = 2
-
-[node name="inventorySlot" type="TextureButton" parent="inventory/inventoryView/inventoryContainer/Inventory item3"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 2.0
-offset_right = 72.0
-offset_bottom = 66.0
+offset_left = 24.0
+offset_top = 133.0
+offset_right = 232.0
+offset_bottom = 197.0
+tooltip_text = "Adds the selected item to hand 2 (if the hand is empty)."
 texture_normal = ExtResource("5_cydjt")
 texture_pressed = ExtResource("5_cydjt")
 texture_hover = ExtResource("6_5nlbb")
-texture_disabled = SubResource("ViewportTexture_2mn2s")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="inventoryItemIcon" type="TextureRect" parent="inventory/inventoryView/inventoryContainer/Inventory item3"]
+[node name="set2Label" type="Label" parent="handGreyOut/setHand2"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 15.0
-offset_right = 65.0
-offset_bottom = 55.0
-mouse_filter = 2
-expand_mode = 1
-
-[node name="inventoryItemName" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item3"]
-layout_mode = 0
-offset_top = 61.0
-offset_right = 80.0
-offset_bottom = 84.0
-theme_override_font_sizes/font_size = 13
-text = "Item name"
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 184.0
+offset_bottom = 48.0
+text = "Put in hand 1"
 horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
-[node name="inventoryItemAmount" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item3"]
+[node name="cancelButton" type="TextureButton" parent="handGreyOut"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 72.0
-offset_right = 72.0
-offset_bottom = 95.0
-theme_override_font_sizes/font_size = 13
-text = "Quantity"
-horizontal_alignment = 1
-
-[node name="Inventory item4" type="Control" parent="inventory/inventoryView/inventoryContainer"]
-custom_minimum_size = Vector2(80, 100)
-layout_mode = 2
-
-[node name="inventorySlot" type="TextureButton" parent="inventory/inventoryView/inventoryContainer/Inventory item4"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 2.0
-offset_right = 72.0
-offset_bottom = 66.0
+offset_left = 24.0
+offset_top = 222.0
+offset_right = 232.0
+offset_bottom = 286.0
+tooltip_text = "Adds the selected item to hand 2 (if the hand is empty)."
 texture_normal = ExtResource("5_cydjt")
 texture_pressed = ExtResource("5_cydjt")
 texture_hover = ExtResource("6_5nlbb")
-texture_disabled = SubResource("ViewportTexture_2mn2s")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="inventoryItemIcon" type="TextureRect" parent="inventory/inventoryView/inventoryContainer/Inventory item4"]
+[node name="cancelLabel" type="Label" parent="handGreyOut/cancelButton"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 15.0
-offset_right = 65.0
-offset_bottom = 55.0
-mouse_filter = 2
-expand_mode = 1
-
-[node name="inventoryItemName" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item4"]
-layout_mode = 0
-offset_top = 61.0
-offset_right = 80.0
-offset_bottom = 84.0
-theme_override_font_sizes/font_size = 13
-text = "Item name"
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 184.0
+offset_bottom = 48.0
+text = "cancel"
 horizontal_alignment = 1
-
-[node name="inventoryItemAmount" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item4"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 72.0
-offset_right = 72.0
-offset_bottom = 95.0
-theme_override_font_sizes/font_size = 13
-text = "Quantity"
-horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

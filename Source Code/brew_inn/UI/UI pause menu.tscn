@@ -1,25 +1,89 @@
-[gd_scene format=3 uid="uid://c2oq28vnyql2m"]
+[gd_scene load_steps=3 format=3 uid="uid://c2oq28vnyql2m"]
+
+[ext_resource type="Texture2D" uid="uid://qmd7ngwoprcf" path="res://UI/UI assets/General button.png" id="1_mi122"]
+[ext_resource type="Texture2D" uid="uid://nl7m6s2rqdmt" path="res://UI/UI assets/Button highlighted.png" id="2_05q72"]
 
 [node name="UiPauseMenu" type="Node2D"]
 
-[node name="Back - Exit pause" type="Button" parent="."]
-offset_left = 182.0
-offset_top = 36.0
-offset_right = 430.0
-offset_bottom = 116.0
-text = "Back"
+[node name="backgroundGreyOut" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.372549, 0.345098, 0.333333, 0.811765)
 
-[node name="Save" type="Button" parent="."]
-offset_left = 182.0
-offset_top = 131.0
-offset_right = 430.0
-offset_bottom = 208.0
-pivot_offset = Vector2(375, 65)
-text = "Save"
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.646029, 0.646029, 0.646029, 1)
+offset_left = 32.0
+offset_top = 17.0
+offset_right = 1118.0
+offset_bottom = 614.0
+texture = ExtResource("1_mi122")
+expand_mode = 5
 
-[node name="Save and quit" type="Button" parent="."]
-offset_left = 182.0
-offset_top = 222.0
-offset_right = 430.0
-offset_bottom = 293.0
+[node name="saveAndQuitButton" type="TextureButton" parent="."]
+offset_left = 304.0
+offset_top = 392.0
+offset_right = 792.0
+offset_bottom = 500.0
+tooltip_text = "Save your progress and exit the application."
+texture_normal = ExtResource("1_mi122")
+texture_pressed = ExtResource("1_mi122")
+texture_hover = ExtResource("2_05q72")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="exitLabel" type="Label" parent="saveAndQuitButton"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 456.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 44
 text = "Save and quit"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="saveButton" type="TextureButton" parent="."]
+offset_left = 304.0
+offset_top = 265.0
+offset_right = 792.0
+offset_bottom = 373.0
+tooltip_text = "Save your progeress"
+texture_normal = ExtResource("1_mi122")
+texture_pressed = ExtResource("1_mi122")
+texture_hover = ExtResource("2_05q72")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="exitLabel" type="Label" parent="saveButton"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 456.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 44
+text = "Save"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="backButton" type="TextureButton" parent="."]
+offset_left = 304.0
+offset_top = 136.0
+offset_right = 792.0
+offset_bottom = 244.0
+tooltip_text = "Return to game"
+texture_normal = ExtResource("1_mi122")
+texture_pressed = ExtResource("1_mi122")
+texture_hover = ExtResource("2_05q72")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="exitLabel" type="Label" parent="backButton"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 448.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 44
+text = "Back"
+horizontal_alignment = 1
+uppercase = true
