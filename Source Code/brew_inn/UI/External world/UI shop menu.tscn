@@ -70,6 +70,7 @@ offset_right = 960.0
 offset_bottom = 512.0
 
 [node name="shopScrollableFarmingTab" type="ScrollContainer" parent="farmingTab"]
+layout_mode = 0
 offset_left = -6.0
 offset_top = -10.0
 offset_right = 607.0
@@ -179,6 +180,7 @@ offset_right = 960.0
 offset_bottom = 512.0
 
 [node name="shopScrollableMachinesTab" type="ScrollContainer" parent="machinesTab"]
+layout_mode = 0
 offset_left = -6.0
 offset_top = -10.0
 offset_right = 607.0
@@ -288,6 +290,7 @@ offset_right = 960.0
 offset_bottom = 512.0
 
 [node name="shopScrollableLicensesTab" type="ScrollContainer" parent="licensesTab"]
+layout_mode = 0
 offset_left = -6.0
 offset_top = -10.0
 offset_right = 607.0
@@ -396,6 +399,7 @@ offset_right = 960.0
 offset_bottom = 512.0
 
 [node name="shopScrollableWorkersTab2" type="ScrollContainer" parent="workersTab"]
+layout_mode = 0
 offset_left = -6.0
 offset_top = -10.0
 offset_right = 607.0
