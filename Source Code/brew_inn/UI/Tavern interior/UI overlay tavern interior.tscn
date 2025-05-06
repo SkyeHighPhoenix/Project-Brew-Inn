@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://yx6knh7fwti7"]
+[gd_scene load_steps=9 format=3 uid="uid://yx6knh7fwti7"]
 
 [ext_resource type="Texture2D" uid="uid://brrcrimvaltd3" path="res://UI/UI assets/HUD.png" id="1_8pj2h"]
 [ext_resource type="Texture2D" uid="uid://m1348m0q4pdl" path="res://UI/UI assets/Coin.png" id="2_jcprj"]
@@ -8,17 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://dmxvexme0h3a7" path="res://UI/UI assets/Pause button.png" id="6_dvkm1"]
 [ext_resource type="Texture2D" uid="uid://cp3h4yci8p60a" path="res://UI/UI assets/Pause highlighted.png" id="7_ay3v7"]
 [ext_resource type="Texture2D" uid="uid://b8dxv6qi0ilx1" path="res://UI/UI assets/Morning icon.png" id="8_nv1t2"]
-[ext_resource type="PackedScene" uid="uid://c2oq28vnyql2m" path="res://UI/UI pause menu.tscn" id="9_idr21"]
-[ext_resource type="Script" path="res://UI/Tavern interior/ui_pause_menu_interior.gd" id="10_jaxwq"]
-[ext_resource type="Texture2D" uid="uid://l5d4ei3pv88h" path="res://Assets/Will/icon.svg" id="11_aj1cq"]
 
-[node name="UiOverlayTavernInterior" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="UiOverlayTavernInterior" type="Node3D"]
 
 [node name="HUDFraming" type="TextureRect" parent="."]
 z_index = -10
-layout_mode = 0
 offset_right = 1194.0
 offset_bottom = 582.0
 texture = ExtResource("1_8pj2h")
@@ -84,7 +78,6 @@ offset_bottom = 58.0
 text = "[LEVEL NO HERE]"
 
 [node name="pauseButton" type="TextureButton" parent="."]
-layout_mode = 0
 offset_left = 1053.0
 offset_top = 10.0
 offset_right = 1135.0
@@ -96,18 +89,9 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="timeIndicator" type="TextureRect" parent="."]
-layout_mode = 0
 offset_left = 16.0
 offset_top = 8.0
 offset_right = 104.0
 offset_bottom = 96.0
 texture = ExtResource("8_nv1t2")
 expand_mode = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(556, 304)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("11_aj1cq")
-
-[node name="UiPauseMenu" parent="." instance=ExtResource("9_idr21")]
-script = ExtResource("10_jaxwq")

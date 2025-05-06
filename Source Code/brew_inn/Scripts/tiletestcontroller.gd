@@ -31,13 +31,3 @@ func _input(event: InputEvent) -> void:
 			KEY_5:
 				print("5")
 				setTile.emit("irbend", "irrigation")
-			KEY_6:
-				print("6")
-				setTile.emit("irwell", "irrigation")
-			KEY_7:
-				print("7")
-				setTile.emit("irstraight", "irrigation")
-			KEY_8:
-				print("8")
-				setTile.emit("irjunction", "irrigation")
-				

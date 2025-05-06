@@ -1,6 +1,6 @@
 extends CharacterBody3D
 @export var sensitivity =1.0
-@export var speed = 5.0
+@export var speed = 3.0
 
 @onready var camera = $Camera3D
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +16,8 @@ func _unhandled_input(event):
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
@@ -27,7 +29,3 @@ func _physics_process(delta: float) -> void:
 		velocity.z = 0.0
 		
 	move_and_slide()
-
-func _input(event):
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
