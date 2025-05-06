@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 
 func increaseResources():
 	if tick % ticksToGrow == 0:
-		if storageBox!=null:
+		if storageBox!=null and Irrigated:
 			storageBox.addResources(resourcesOnHarvest)
 
 func checkConnections(tiles):
