@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://da7cye1gfd64u"]
 
-[ext_resource type="Script" path="res://playerController.gd" id="1_i5hvf"]
+[ext_resource type="Script" path="res://Scripts/playerController.gd" id="1_i5hvf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0e5y3"]
 
@@ -11,7 +11,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 floor_stop_on_slope = false
 script = ExtResource("1_i5hvf")
 sensitivity = 0.001
-speed = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_0e5y3")
@@ -22,3 +21,16 @@ mesh = SubResource("CapsuleMesh_ioomm")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.621807, 0)
 current = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2

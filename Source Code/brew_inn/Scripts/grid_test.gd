@@ -1,5 +1,7 @@
 extends Node2D
 
+signal freshIrrigation(tiles)
+
 const tileTypeDict = {"storage":[Vector2i(1,1)], "cropPlot":[Vector2i(0,1)],"greenhouse":Vector2i(0,2),
 "orchardLemon":[Vector2i(3,4)], "berryBushes":[Vector2i(0,5)], "herbGarden":[Vector2i(0,6)],
 "irwell":[Vector2i(6,3)],"irjunction":[Vector2i(4,3)], "irbend":[Vector2i(4,2)], "irstraight":[Vector2i(3,0)]}
@@ -117,6 +119,7 @@ func placeTile(coordinates):
 				var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
 				tileInstance.setTile.connect(setTileAt.bind())
 				tileInstance.checkNeigbors.connect(neigbors.bind())
+				tileInstance.setIrrigation.connect(setIrrigation.bind())
 				for i in range(tileSize.x):
 					for j in range(tileSize.y):
 						dictionaryOfTiles[mapIndex - Vector2i(i,j)] = tileInstance
@@ -135,10 +138,19 @@ func placeTypeFarm(mapIndex:Vector2i, connectedTiles:Array, placing:String):
 			if mapIndex - Vector2i(i,j) in dictionaryOfIrrigation:
 				irrigated = true
 	tileInstance.setTileAt.connect(setTileAt.bind())
+	freshIrrigation.connect(tileInstance.catchIrrigation.bind())
 	tileInstance.createBuilding(placingTile, mapIndex, tileSize, irrigated,connectedTiles)
 
-func setTileAt(onSet, onMap, rotation = 0): # linked to signals
-	var currentrotation = $PlacingObject.getRotation(placingRotation)
+func setIrrigation(coordinates):
+	for i in coordinates:
+		if i not in dictionaryOfIrrigation:
+			dictionaryOfIrrigation[i] = 1
+		else:
+			dictionaryOfIrrigation[i] += 1
+	freshIrrigation.emit(coordinates)
+
+func setTileAt(onSet, onMap, placeRotation = null): # linked to signals
+	var currentrotation = $PlacingObject.getRotation(placingRotation if placeRotation == null else placeRotation)
 	$TileMap/ObejctLayer.set_cell(onMap,0,onSet,currentrotation)
 	pass
 

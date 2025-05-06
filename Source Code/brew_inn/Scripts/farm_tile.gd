@@ -37,11 +37,11 @@ func _process(delta: float) -> void:
 	
 func increaseResources():
 	if tick % ticksToGrow == 0 and Irrigated == true:
-		print("StandardFarmIncrease ", storedResources)
 		if localStorage == true:
 			storedResources += resourcesOnHarvest
 			if storedResources > storageCap:
 				storedResources = storageCap
+			print("Crops increased to ", storedResources)
 
 func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, irrigationStatus:bool, connectedTiles:Array):
 	GlobalTick.tickIncreased.connect(tickIncrease)
@@ -52,8 +52,9 @@ func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, ir
 	pass
 
 func tickIncrease():
-	tick += 1
-	increaseResources()
+	if Irrigated == true:
+		tick += 1
+		increaseResources()
 
 func checkOutputs(coordsIn):
 	# take block
@@ -66,4 +67,12 @@ func setAttributes():
 
 func setPlantsGrowing(plants:Array):
 	plantGrowing = plants
+
+func catchIrrigation(tiles):
+	print(tilePosition, "positron", tiles)
+	for x in range(tileSize.x):
+		for y in range(tileSize.y):
+			if tilePosition-Vector2i(x,y) in tiles:
+				print("shoodbegood")
+				Irrigated = true
 	

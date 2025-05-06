@@ -1,17 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2oq28vnyql2m"]
+[gd_scene load_steps=4 format=3 uid="uid://c2oq28vnyql2m"]
 
+[ext_resource type="Script" path="res://UI/ui_pause_menu.gd" id="1_bmj3x"]
 [ext_resource type="Texture2D" uid="uid://qmd7ngwoprcf" path="res://UI/UI assets/General button.png" id="1_mi122"]
 [ext_resource type="Texture2D" uid="uid://nl7m6s2rqdmt" path="res://UI/UI assets/Button highlighted.png" id="2_05q72"]
 
-[node name="UiPauseMenu" type="Node2D"]
+[node name="UiPauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_bmj3x")
 
 [node name="backgroundGreyOut" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.372549, 0.345098, 0.333333, 0.811765)
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
+layout_mode = 0
 offset_left = 32.0
 offset_top = 17.0
 offset_right = 1118.0
@@ -20,6 +27,7 @@ texture = ExtResource("1_mi122")
 expand_mode = 5
 
 [node name="saveAndQuitButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 304.0
 offset_top = 392.0
 offset_right = 792.0
@@ -43,6 +51,7 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="saveButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 304.0
 offset_top = 265.0
 offset_right = 792.0
@@ -66,6 +75,7 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="backButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 304.0
 offset_top = 136.0
 offset_right = 792.0
@@ -87,3 +97,6 @@ theme_override_font_sizes/font_size = 44
 text = "Back"
 horizontal_alignment = 1
 uppercase = true
+
+[connection signal="pressed" from="saveAndQuitButton" to="." method="_on_save_and_quit_button_pressed"]
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

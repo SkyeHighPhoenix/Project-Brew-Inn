@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5vsjahnd030e"]
+
+[ext_resource type="PackedScene" uid="uid://c2oq28vnyql2m" path="res://UI/UI pause menu.tscn" id="1_auifk"]
+[ext_resource type="Script" path="res://UI/Tavern interior/ui_pause_menu_interior.gd" id="2_dbpla"]
+
+[node name="UiPauseMenuInterior" instance=ExtResource("1_auifk")]
+script = ExtResource("2_dbpla")
