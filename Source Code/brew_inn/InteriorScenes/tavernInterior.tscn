@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfix66ksjvwt0"]
+[gd_scene load_steps=10 format=3 uid="uid://dfix66ksjvwt0"]
 
 [ext_resource type="PackedScene" uid="uid://yx6knh7fwti7" path="res://UI/Tavern interior/UI overlay tavern interior.tscn" id="1_ycoge"]
 [ext_resource type="PackedScene" uid="uid://da7cye1gfd64u" path="res://InteriorScenes/player.tscn" id="1_yoomx"]
@@ -19,6 +19,11 @@ size = Vector3(2, 9, 40)
 [sub_resource type="BoxMesh" id="BoxMesh_dobfd"]
 material = SubResource("StandardMaterial3D_hgope")
 size = Vector3(2, 9, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_me2wn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ggvgk"]
+material = SubResource("StandardMaterial3D_hgope")
 
 [node name="TavernInterior" type="Node3D"]
 process_mode = 3
@@ -129,3 +134,11 @@ shape = SubResource("BoxShape3D_0f12o")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="building/Wall4"]
 mesh = SubResource("BoxMesh_dobfd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building/StaticBody3D"]
+shape = SubResource("BoxShape3D_me2wn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="building/StaticBody3D"]
+mesh = SubResource("BoxMesh_ggvgk")

@@ -147,6 +147,7 @@ texture = ExtResource("4_caayg")
 expand_mode = 5
 
 [node name="Crop collection tab" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 364.0
@@ -173,14 +174,6 @@ offset_bottom = 1485.0
 mouse_filter = 2
 texture = ExtResource("5_38qnv")
 expand_mode = 3
-
-[node name="Collect - hidden under icon" type="Button" parent="Crop collection tab"]
-layout_mode = 2
-offset_left = 68.0
-offset_top = 37.0
-offset_right = 177.0
-offset_bottom = 115.0
-text = "Quick Collect"
 
 [node name="quickCollectCropA" type="TextureButton" parent="Crop collection tab"]
 layout_mode = 2
@@ -219,12 +212,12 @@ offset_bottom = 61.0
 text = "[Number here]"
 uppercase = true
 
-[node name="growthPhaseIndicator2" type="TextureRect" parent="Crop collection tab/quickCollectCropA"]
+[node name="growthPhaseIndicator" type="TextureRect" parent="Crop collection tab/quickCollectCropA"]
 layout_mode = 0
 offset_left = -71.0
-offset_top = 112.0
+offset_top = 16.0
 offset_right = -7.0
-offset_bottom = 179.0
+offset_bottom = 83.0
 texture = ExtResource("8_8fjku")
 expand_mode = 1
 
@@ -274,12 +267,12 @@ offset_bottom = 62.0
 text = "[Number here]"
 uppercase = true
 
-[node name="growthPhaseIndicator" type="TextureRect" parent="Crop collection tab/quickCollectCropB"]
+[node name="growthPhaseIndicator2" type="TextureRect" parent="Crop collection tab/quickCollectCropB"]
 layout_mode = 0
 offset_left = -71.0
-offset_top = -79.0
+offset_top = 17.0
 offset_right = -7.0
-offset_bottom = -12.0
+offset_bottom = 84.0
 texture = ExtResource("8_8fjku")
 expand_mode = 1
 

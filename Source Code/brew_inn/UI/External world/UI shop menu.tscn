@@ -281,7 +281,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="licensesTab" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 352.0
@@ -391,6 +390,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="workersTab" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 352.0

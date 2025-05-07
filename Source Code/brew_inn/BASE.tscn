@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://f5j5cuob45s7"]
+
+[ext_resource type="PackedScene" uid="uid://betj6e7c7ogv5" path="res://ExteriorWorld.tscn" id="1_pbmkc"]
+[ext_resource type="PackedScene" uid="uid://dfix66ksjvwt0" path="res://InteriorScenes/tavernInterior.tscn" id="2_jkghx"]
+
+[node name="Base" type="Node2D"]
+
+[node name="ExteriorWorld" parent="." instance=ExtResource("1_pbmkc")]
+
+[node name="TavernInterior" parent="." instance=ExtResource("2_jkghx")]

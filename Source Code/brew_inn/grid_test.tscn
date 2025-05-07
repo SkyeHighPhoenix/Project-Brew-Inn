@@ -1197,6 +1197,7 @@ tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_vvaqy")
 
 [node name="GridTest" type="Node2D"]
+visible = false
 script = ExtResource("1_1loiy")
 
 [node name="TileMap" type="Node2D" parent="."]
@@ -1228,5 +1229,10 @@ script = ExtResource("10_bonyg")
 gradient = ExtResource("11_p5wyo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1159.0
+offset_bottom = 660.0
+color = Color(1, 1, 1, 0)
 
 [node name="UiPauseMenu" parent="CanvasLayer" instance=ExtResource("12_0qemr")]

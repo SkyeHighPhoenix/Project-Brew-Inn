@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://betj6e7c7ogv5"]
+
+[ext_resource type="PackedScene" uid="uid://bh3ksvxjojdyn" path="res://grid_test.tscn" id="2_wobri"]
+
+[node name="ExteriorWorld" type="Node2D"]
+
+[node name="GridTest" parent="." instance=ExtResource("2_wobri")]
