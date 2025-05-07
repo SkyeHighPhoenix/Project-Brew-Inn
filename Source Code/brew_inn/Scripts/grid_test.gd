@@ -2,9 +2,25 @@ extends Node2D
 
 signal freshIrrigation(tiles)
 
-const tileTypeDict = {"storage":[Vector2i(1,1)], "cropPlot":[Vector2i(0,1)],"greenhouse":Vector2i(0,2),
-"orchardLemon":[Vector2i(3,4)], "berryBushes":[Vector2i(0,5)], "herbGarden":[Vector2i(0,6)],
-"irwell":[Vector2i(6,3)],"irjunction":[Vector2i(4,3)], "irbend":[Vector2i(4,2)], "irstraight":[Vector2i(3,0)]}
+const tileTypeDict = {
+	"storage":[Vector2i(1,1)], 
+	"cropPlot":[Vector2i(0,1)],
+	"greenhouse":Vector2i(0,2),
+	"orchardLemon":[Vector2i(3,4)], 
+	"berryBushes":[Vector2i(0,5)], 
+	"herbGarden":[Vector2i(0,6)],
+	"irwell":[Vector2i(6,3)],
+	"irjunction":[Vector2i(4,3)], 
+	"irbend":[Vector2i(4,2)], 
+	"irstraight":[Vector2i(3,0)],
+	"bottlingUnit":[Vector2i(2,7)],
+	"carbonator":[Vector2i(3,6)],
+	"dehydrator":[Vector2i(6,6)],
+	"fermenter":[Vector2i(4,7)], 
+	"industrialMixer":[Vector2i(0,8)], 
+	"juicer":[Vector2i(6,4)], 
+	"washer":[Vector2i(3,8)], 
+	"waterProcessingUnit":[Vector2i(6,8)]}
 var currentlyPlacing = true
 var dictionaryOfTiles = {} # for each populated tile in the ObjectLayer, format {mapIndex Vector2i():Building String}
 var dictionaryOfIrrigation = {} # each tile will have a number value, representing how many irrigation pipes are irrigating it
@@ -124,6 +140,16 @@ func placeTile(coordinates):
 					for j in range(tileSize.y):
 						dictionaryOfTiles[mapIndex - Vector2i(i,j)] = tileInstance
 				tileInstance.createBuilding(placingTile, mapIndex, tileSize,connectedTiles, placingRotation)
+			"productionMachine":
+				var tileToPlace = load("res://TileScenes/production_machine.tscn")
+				var tileInstance = tileToPlace.instantiate()
+				var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
+				tileInstance.setTileAt.connect(setTileAt.bind())
+				for i in range(tileSize.x):
+					for j in range(tileSize.y):
+						dictionaryOfTiles[mapIndex - Vector2i(i,j)] = tileInstance
+				tileInstance.createBuilding(placingTile, mapIndex, tileSize,connectedTiles)
+				
 				
 	pass
 
