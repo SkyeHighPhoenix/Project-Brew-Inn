@@ -40,4 +40,8 @@ func _input(event: InputEvent) -> void:
 			KEY_8:
 				print("8")
 				setTile.emit("irjunction", "irrigation")
+			KEY_9:
+				print("9")
+				setTile.emit("bottlingUnit", "productionMachine")
+				
 				

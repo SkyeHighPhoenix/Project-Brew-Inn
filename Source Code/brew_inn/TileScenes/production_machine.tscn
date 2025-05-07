@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmvp0t25u3yka"]
+
+[ext_resource type="Script" path="res://Scripts/production_machine.gd" id="1_yw3cl"]
+
+[node name="ProductionMachine" type="Node2D"]
+script = ExtResource("1_yw3cl")
