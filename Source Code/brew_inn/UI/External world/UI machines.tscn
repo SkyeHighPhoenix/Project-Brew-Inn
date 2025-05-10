@@ -245,7 +245,7 @@ offset_bottom = 52.0
 mouse_filter = 2
 expand_mode = 1
 
-[node name="Label" type="Label" parent="inputInfo"]
+[node name="inputLabel" type="Label" parent="inputInfo"]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 8.0
@@ -366,10 +366,10 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="manualDepositButton" type="TextureButton" parent="."]
-offset_left = 126.0
-offset_top = 278.0
-offset_right = 290.0
-offset_bottom = 341.0
+offset_left = 128.0
+offset_top = 272.0
+offset_right = 292.0
+offset_bottom = 320.0
 tooltip_text = "Switches between the deposit and set modes when interacting with items in your inventory."
 texture_normal = ExtResource("1_l7rb1")
 texture_pressed = ExtResource("1_l7rb1")
@@ -379,10 +379,9 @@ stretch_mode = 0
 
 [node name="depositLabel" type="Label" parent="manualDepositButton"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 15.0
-offset_right = 144.0
-offset_bottom = 50.0
+offset_left = 10.0
+offset_right = 154.0
+offset_bottom = 48.0
 theme_override_font_sizes/font_size = 18
 text = "Deposit / set"
 horizontal_alignment = 1
@@ -394,7 +393,7 @@ uppercase = true
 offset_left = 126.0
 offset_top = 213.0
 offset_right = 290.0
-offset_bottom = 276.0
+offset_bottom = 272.0
 tooltip_text = "Collect all the refined resources in the local storage and add them to your inventory."
 texture_normal = ExtResource("1_l7rb1")
 texture_pressed = ExtResource("1_l7rb1")
@@ -404,10 +403,10 @@ stretch_mode = 0
 
 [node name="collectLabel" type="Label" parent="collectFromLocalStorageButton"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 15.0
-offset_right = 144.0
-offset_bottom = 50.0
+offset_left = 18.0
+offset_top = 3.0
+offset_right = 154.0
+offset_bottom = 54.0
 theme_override_font_sizes/font_size = 20
 text = "collect"
 horizontal_alignment = 1
@@ -415,10 +414,10 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="clearInputStorageButton" type="TextureButton" parent="."]
-offset_left = 127.0
-offset_top = 342.0
-offset_right = 291.0
-offset_bottom = 405.0
+offset_left = 126.0
+offset_top = 320.0
+offset_right = 290.0
+offset_bottom = 376.0
 tooltip_text = "Clears the current input resources, returning all  locally stored to your inventory."
 texture_normal = ExtResource("1_l7rb1")
 texture_pressed = ExtResource("1_l7rb1")
@@ -428,16 +427,42 @@ stretch_mode = 0
 
 [node name="clearLabel" type="Label" parent="clearInputStorageButton"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 20.0
-offset_right = 144.0
-offset_bottom = 55.0
+offset_left = 26.0
+offset_top = 16.0
+offset_right = 148.0
+offset_bottom = 51.0
 theme_override_font_sizes/font_size = 17
 text = "clear inputs"
 horizontal_alignment = 1
 uppercase = true
 
+[node name="workerInfoButton" type="TextureButton" parent="."]
+offset_left = 126.0
+offset_top = 376.0
+offset_right = 290.0
+offset_bottom = 432.0
+tooltip_text = "Clears the current input resources, returning all  locally stored to your inventory."
+texture_normal = ExtResource("1_l7rb1")
+texture_pressed = ExtResource("1_l7rb1")
+texture_hover = ExtResource("2_hsr4o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="workersLabel" type="Label" parent="workerInfoButton"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 154.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 12
+text = "Workers /inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
 [node name="inventory" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 752.0
@@ -724,3 +749,246 @@ text = "[Value]"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="Workers" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 768.0
+offset_top = 152.0
+offset_right = 1024.0
+offset_bottom = 496.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Workers"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 256.0
+offset_bottom = 353.0
+
+[node name="workersDeposit" type="Control" parent="Workers/VBoxContainer"]
+custom_minimum_size = Vector2(200, 115)
+layout_mode = 2
+
+[node name="depositWorkersBase" type="TextureRect" parent="Workers/VBoxContainer/workersDeposit"]
+modulate = Color(0.811765, 0.811765, 0.811765, 1)
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+offset_top = 4.0
+offset_right = 256.0
+offset_bottom = 120.0
+texture = ExtResource("1_l7rb1")
+expand_mode = 1
+
+[node name="depositWorkerLabel" type="Label" parent="Workers/VBoxContainer/workersDeposit"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 242.0
+offset_bottom = 47.0
+text = "Workers - Deposit resource"
+
+[node name="currentlyLabel" type="Label" parent="Workers/VBoxContainer/workersDeposit"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 72.0
+offset_right = 104.0
+offset_bottom = 95.0
+text = "Currently:"
+
+[node name="freeCapacityLabel" type="Label" parent="Workers/VBoxContainer/workersDeposit"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 45.0
+offset_right = 104.0
+offset_bottom = 68.0
+text = "Free capacity:"
+
+[node name="depositWorkerNumber" type="Label" parent="Workers/VBoxContainer/workersDeposit"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 72.0
+offset_right = 145.0
+offset_bottom = 95.0
+text = "[X]"
+
+[node name="freeCapacityNumber" type="Label" parent="Workers/VBoxContainer/workersDeposit"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 44.0
+offset_right = 184.0
+offset_bottom = 67.0
+text = "[X]"
+
+[node name="assignButton" type="TextureButton" parent="Workers/VBoxContainer/workersDeposit"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 72.0
+offset_right = 232.0
+offset_bottom = 96.0
+tooltip_text = "Assigns 5 worker capacity to the machine to periodically deposit resources to the input storage."
+texture_normal = ExtResource("1_l7rb1")
+texture_pressed = ExtResource("1_l7rb1")
+texture_hover = ExtResource("2_hsr4o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="assignLabel" type="Label" parent="Workers/VBoxContainer/workersDeposit/assignButton"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 80.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 14
+text = "Assign"
+horizontal_alignment = 1
+
+[node name="workersCollect" type="Control" parent="Workers/VBoxContainer"]
+custom_minimum_size = Vector2(200, 115)
+layout_mode = 2
+
+[node name="collectWorkersBase" type="TextureRect" parent="Workers/VBoxContainer/workersCollect"]
+modulate = Color(0.811765, 0.811765, 0.811765, 1)
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+offset_top = 4.0
+offset_right = 256.0
+offset_bottom = 120.0
+texture = ExtResource("1_l7rb1")
+expand_mode = 1
+
+[node name="collectWorkerLabel" type="Label" parent="Workers/VBoxContainer/workersCollect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 242.0
+offset_bottom = 47.0
+text = "Workers - Collect resource"
+
+[node name="currentlyLabel" type="Label" parent="Workers/VBoxContainer/workersCollect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 72.0
+offset_right = 104.0
+offset_bottom = 95.0
+text = "Currently:"
+
+[node name="freeCapacityLabel" type="Label" parent="Workers/VBoxContainer/workersCollect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 45.0
+offset_right = 104.0
+offset_bottom = 68.0
+text = "Free capacity:"
+
+[node name="collectWorkerNumber" type="Label" parent="Workers/VBoxContainer/workersCollect"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 72.0
+offset_right = 145.0
+offset_bottom = 95.0
+text = "[X]"
+
+[node name="freeCapacityNumber" type="Label" parent="Workers/VBoxContainer/workersCollect"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 44.0
+offset_right = 184.0
+offset_bottom = 67.0
+text = "[X]"
+
+[node name="assignButton" type="TextureButton" parent="Workers/VBoxContainer/workersCollect"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 72.0
+offset_right = 232.0
+offset_bottom = 96.0
+tooltip_text = "Assigns 5 worker capacity to the machine to periodically collect resources from the output storage."
+texture_normal = ExtResource("1_l7rb1")
+texture_pressed = ExtResource("1_l7rb1")
+texture_hover = ExtResource("2_hsr4o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="assignLabel" type="Label" parent="Workers/VBoxContainer/workersCollect/assignButton"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 80.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 14
+text = "Assign"
+horizontal_alignment = 1
+
+[node name="workersOperate" type="Control" parent="Workers/VBoxContainer"]
+custom_minimum_size = Vector2(200, 115)
+layout_mode = 2
+
+[node name="operateWorkersBase" type="TextureRect" parent="Workers/VBoxContainer/workersOperate"]
+modulate = Color(0.811765, 0.811765, 0.811765, 1)
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+offset_top = 4.0
+offset_right = 256.0
+offset_bottom = 120.0
+texture = ExtResource("1_l7rb1")
+expand_mode = 1
+
+[node name="operateWorkerLabel" type="Label" parent="Workers/VBoxContainer/workersOperate"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 242.0
+offset_bottom = 47.0
+text = "Workers - Operate machine"
+
+[node name="currentlyLabel" type="Label" parent="Workers/VBoxContainer/workersOperate"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 72.0
+offset_right = 104.0
+offset_bottom = 95.0
+text = "Currently:"
+
+[node name="freeCapacityLabel" type="Label" parent="Workers/VBoxContainer/workersOperate"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 45.0
+offset_right = 104.0
+offset_bottom = 68.0
+text = "Free capacity:"
+
+[node name="operateWorkerNumber" type="Label" parent="Workers/VBoxContainer/workersOperate"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 72.0
+offset_right = 145.0
+offset_bottom = 95.0
+text = "[X]"
+
+[node name="freeCapacityNumber" type="Label" parent="Workers/VBoxContainer/workersOperate"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 44.0
+offset_right = 184.0
+offset_bottom = 67.0
+text = "[X]"
+
+[node name="assignButton" type="TextureButton" parent="Workers/VBoxContainer/workersOperate"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 72.0
+offset_right = 232.0
+offset_bottom = 96.0
+tooltip_text = "Assigns 5 worker capacity to operate the machine and prevent downtime."
+texture_normal = ExtResource("1_l7rb1")
+texture_pressed = ExtResource("1_l7rb1")
+texture_hover = ExtResource("2_hsr4o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="assignLabel" type="Label" parent="Workers/VBoxContainer/workersOperate/assignButton"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 80.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 14
+text = "Assign"
+horizontal_alignment = 1

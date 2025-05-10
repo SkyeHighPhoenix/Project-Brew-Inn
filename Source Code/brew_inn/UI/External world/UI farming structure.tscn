@@ -38,7 +38,7 @@ horizontal_alignment = 1
 offset_left = 126.0
 offset_top = 219.0
 offset_right = 290.0
-offset_bottom = 282.0
+offset_bottom = 272.0
 tooltip_text = "Harvests the crops if they have reached maturity. (Crops are automatically harvested after a time period.)"
 texture_normal = ExtResource("1_ag6c4")
 texture_pressed = ExtResource("1_ag6c4")
@@ -48,20 +48,21 @@ stretch_mode = 0
 
 [node name="harvest label" type="Label" parent="manualHarvestButton"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 17.0
-offset_right = 144.0
-offset_bottom = 52.0
+offset_left = 18.0
+offset_top = 5.0
+offset_right = 146.0
+offset_bottom = 48.0
 theme_override_font_sizes/font_size = 20
 text = "Harvest"
 horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
 
 [node name="collectFromLocalStorageButton" type="TextureButton" parent="."]
 offset_left = 127.0
-offset_top = 280.0
+offset_top = 271.0
 offset_right = 291.0
-offset_bottom = 343.0
+offset_bottom = 327.0
 tooltip_text = "Collects the crops grown by this structure adding them to your inventory."
 texture_normal = ExtResource("1_ag6c4")
 texture_pressed = ExtResource("1_ag6c4")
@@ -71,20 +72,21 @@ stretch_mode = 0
 
 [node name="collectLabel" type="Label" parent="collectFromLocalStorageButton"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 15.0
-offset_right = 144.0
-offset_bottom = 50.0
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 139.0
+offset_bottom = 48.0
 theme_override_font_sizes/font_size = 20
 text = "collect"
 horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
 
 [node name="setCropButton" type="TextureButton" parent="."]
 offset_left = 128.0
-offset_top = 344.0
+offset_top = 328.0
 offset_right = 292.0
-offset_bottom = 407.0
+offset_bottom = 384.0
 tooltip_text = "Switches the structure menu between the structure overview and set crop modes."
 texture_normal = ExtResource("1_ag6c4")
 texture_pressed = ExtResource("1_ag6c4")
@@ -94,21 +96,45 @@ stretch_mode = 0
 
 [node name="setCropLabel" type="Label" parent="setCropButton"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 15.0
-offset_right = 144.0
-offset_bottom = 50.0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 146.0
+offset_bottom = 47.0
 theme_override_font_sizes/font_size = 13
 text = "Overview /       Set crop"
 horizontal_alignment = 1
 autowrap_mode = 3
 uppercase = true
 
+[node name="setCropButton2" type="TextureButton" parent="."]
+offset_left = 128.0
+offset_top = 381.0
+offset_right = 292.0
+offset_bottom = 437.0
+tooltip_text = "Switches the structure menu between the structure overview and set crop modes."
+texture_normal = ExtResource("1_ag6c4")
+texture_pressed = ExtResource("1_ag6c4")
+texture_hover = ExtResource("2_7cwx6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="setCropLabel" type="Label" parent="setCropButton2"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 146.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 13
+text = "Farming info / Workers"
+horizontal_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
 [node name="backButton" type="TextureButton" parent="."]
-offset_left = 124.0
-offset_top = 438.0
-offset_right = 288.0
-offset_bottom = 501.0
+offset_left = 128.0
+offset_top = 440.0
+offset_right = 292.0
+offset_bottom = 503.0
 texture_normal = ExtResource("1_ag6c4")
 texture_pressed = ExtResource("1_ag6c4")
 texture_hover = ExtResource("2_7cwx6")
@@ -533,3 +559,170 @@ offset_right = 1073.0
 offset_bottom = 363.032
 texture = ExtResource("4_caayg")
 expand_mode = 5
+
+[node name="Workers" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 376.0
+offset_top = 152.0
+offset_right = 1024.0
+offset_bottom = 496.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Workers"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 256.0
+offset_bottom = 353.0
+
+[node name="workersCollect" type="Control" parent="Workers/VBoxContainer"]
+custom_minimum_size = Vector2(200, 115)
+layout_mode = 2
+
+[node name="collectWorkersBase" type="TextureRect" parent="Workers/VBoxContainer/workersCollect"]
+modulate = Color(0.811765, 0.811765, 0.811765, 1)
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+offset_top = 4.0
+offset_right = 368.0
+offset_bottom = 120.0
+texture = ExtResource("1_ag6c4")
+expand_mode = 1
+
+[node name="collectWorkerLabel" type="Label" parent="Workers/VBoxContainer/workersCollect"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 25.0
+offset_right = 258.0
+offset_bottom = 48.0
+text = "Workers - Collect resource"
+
+[node name="currentlyLabel" type="Label" parent="Workers/VBoxContainer/workersCollect"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 73.0
+offset_right = 120.0
+offset_bottom = 96.0
+text = "Currently:"
+
+[node name="freeCapacityLabel" type="Label" parent="Workers/VBoxContainer/workersCollect"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 46.0
+offset_right = 147.0
+offset_bottom = 69.0
+text = "Free capacity:"
+
+[node name="collectWorkerNumber" type="Label" parent="Workers/VBoxContainer/workersCollect"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 73.0
+offset_right = 161.0
+offset_bottom = 96.0
+text = "[X]"
+
+[node name="freeCapacityNumber" type="Label" parent="Workers/VBoxContainer/workersCollect"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 45.0
+offset_right = 200.0
+offset_bottom = 68.0
+text = "[X]"
+
+[node name="assignButton" type="TextureButton" parent="Workers/VBoxContainer/workersCollect"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 73.0
+offset_right = 328.0
+offset_bottom = 97.0
+tooltip_text = "Assigns 5 worker capacity to the machine to periodically collect resources from the output storage."
+texture_normal = ExtResource("1_ag6c4")
+texture_pressed = ExtResource("1_ag6c4")
+texture_hover = ExtResource("2_7cwx6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="assignLabel" type="Label" parent="Workers/VBoxContainer/workersCollect/assignButton"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 80.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 14
+text = "Assign"
+horizontal_alignment = 1
+
+[node name="workersOperate" type="Control" parent="Workers/VBoxContainer"]
+custom_minimum_size = Vector2(200, 115)
+layout_mode = 2
+
+[node name="operateWorkersBase" type="TextureRect" parent="Workers/VBoxContainer/workersOperate"]
+modulate = Color(0.811765, 0.811765, 0.811765, 1)
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+offset_top = 4.0
+offset_right = 368.0
+offset_bottom = 120.0
+texture = ExtResource("1_ag6c4")
+expand_mode = 1
+
+[node name="operateWorkerLabel" type="Label" parent="Workers/VBoxContainer/workersOperate"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 258.0
+offset_bottom = 47.0
+text = "Workers - Harvest farm"
+
+[node name="currentlyLabel" type="Label" parent="Workers/VBoxContainer/workersOperate"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 72.0
+offset_right = 120.0
+offset_bottom = 95.0
+text = "Currently:"
+
+[node name="freeCapacityLabel" type="Label" parent="Workers/VBoxContainer/workersOperate"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 45.0
+offset_right = 147.0
+offset_bottom = 68.0
+text = "Free capacity:"
+
+[node name="operateWorkerNumber" type="Label" parent="Workers/VBoxContainer/workersOperate"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 72.0
+offset_right = 161.0
+offset_bottom = 95.0
+text = "[X]"
+
+[node name="freeCapacityNumber" type="Label" parent="Workers/VBoxContainer/workersOperate"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 44.0
+offset_right = 200.0
+offset_bottom = 67.0
+text = "[X]"
+
+[node name="assignButton" type="TextureButton" parent="Workers/VBoxContainer/workersOperate"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 74.0
+offset_right = 328.0
+offset_bottom = 98.0
+tooltip_text = "Assigns 5 worker capacity to harvest the farm and prevent downtime."
+texture_normal = ExtResource("1_ag6c4")
+texture_pressed = ExtResource("1_ag6c4")
+texture_hover = ExtResource("2_7cwx6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="assignLabel" type="Label" parent="Workers/VBoxContainer/workersOperate/assignButton"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 80.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 14
+text = "Assign"
+horizontal_alignment = 1

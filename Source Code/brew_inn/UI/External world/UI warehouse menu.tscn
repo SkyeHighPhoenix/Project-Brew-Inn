@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7bj7yxkrgdqf"]
+[gd_scene load_steps=13 format=3 uid="uid://b7bj7yxkrgdqf"]
 
 [ext_resource type="Texture2D" uid="uid://brle7flb0x5sa" path="res://UI/UI assets/Scroll bar.png" id="1_uxu52"]
 [ext_resource type="StyleBox" uid="uid://bdm02q18bch88" path="res://UI/External world/vertical scrollbar grabber highlighted.tres" id="2_eu06l"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://nl7m6s2rqdmt" path="res://UI/UI assets/Button highlighted.png" id="6_ml26i"]
 [ext_resource type="Texture2D" uid="uid://5cpyqi47gvvv" path="res://UI/UI assets/Modular seperater vertical.png" id="7_5gi1a"]
 [ext_resource type="Texture2D" uid="uid://cv0i7vsbcm2c6" path="res://UI/UI assets/Modular seperater horizontal.png" id="8_6214p"]
+[ext_resource type="Texture2D" uid="uid://m1348m0q4pdl" path="res://UI/UI assets/Coin.png" id="9_m7b6h"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b77vu"]
 texture = ExtResource("1_uxu52")
@@ -95,6 +96,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="inventory" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 349.0
@@ -171,3 +173,272 @@ offset_bottom = 95.0
 theme_override_font_sizes/font_size = 13
 text = "Quantity"
 horizontal_alignment = 1
+
+[node name="inventoryTabButton" type="TextureButton" parent="."]
+offset_left = 126.0
+offset_top = 219.0
+offset_right = 290.0
+offset_bottom = 272.0
+tooltip_text = "Harvests the crops if they have reached maturity. (Crops are automatically harvested after a time period.)"
+texture_normal = ExtResource("5_pawdp")
+texture_pressed = ExtResource("5_pawdp")
+texture_hover = ExtResource("6_ml26i")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="inventoryLabel" type="Label" parent="inventoryTabButton"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 5.0
+offset_right = 146.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 20
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="workersTabButton" type="TextureButton" parent="."]
+offset_left = 127.0
+offset_top = 271.0
+offset_right = 291.0
+offset_bottom = 327.0
+tooltip_text = "Collects the crops grown by this structure adding them to your inventory."
+texture_normal = ExtResource("5_pawdp")
+texture_pressed = ExtResource("5_pawdp")
+texture_hover = ExtResource("6_ml26i")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="workersLabel" type="Label" parent="workersTabButton"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 139.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 20
+text = "Workers"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="workersTab" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 352.0
+offset_top = 136.0
+offset_right = 1016.0
+offset_bottom = 496.0
+
+[node name="overviewBreakdown" type="Control" parent="workersTab"]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = -3.0
+offset_right = 600.0
+offset_bottom = 245.0
+
+[node name="overviewBase1" type="TextureRect" parent="workersTab/overviewBreakdown"]
+modulate = Color(0.811765, 0.811765, 0.811765, 1)
+custom_minimum_size = Vector2(200, 100)
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 600.0
+offset_bottom = 240.0
+texture = ExtResource("5_pawdp")
+expand_mode = 1
+
+[node name="coinIcon1" type="TextureRect" parent="workersTab/overviewBreakdown"]
+offset_left = 81.0
+offset_top = 101.0
+offset_right = 777.0
+offset_bottom = 485.0
+mouse_filter = 2
+texture = ExtResource("9_m7b6h")
+expand_mode = 1
+
+[node name="coinIcon2" type="TextureRect" parent="workersTab/overviewBreakdown"]
+offset_left = 81.0
+offset_top = 173.0
+offset_right = 777.0
+offset_bottom = 557.0
+mouse_filter = 2
+texture = ExtResource("9_m7b6h")
+expand_mode = 1
+
+[node name="overviewLabel" type="Label" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 24.0
+offset_right = 240.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 20
+text = "Workers Overview"
+
+[node name="standardWorkersLabel" type="Label" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 55.0
+offset_right = 240.0
+offset_bottom = 78.0
+text = "Standard workers hired:"
+
+[node name="capacityProvidedLabel" type="Label" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 79.0
+offset_right = 272.0
+offset_bottom = 102.0
+text = "Capacity provided:"
+
+[node name="costLabel" type="Label" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 103.0
+offset_right = 272.0
+offset_bottom = 126.0
+text = "Total Cost:"
+horizontal_alignment = 2
+
+[node name="capacityProvidedLabel2" type="Label" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 151.0
+offset_right = 272.0
+offset_bottom = 174.0
+text = "Capacity provided:"
+
+[node name="costLabel2" type="Label" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 175.0
+offset_right = 272.0
+offset_bottom = 198.0
+text = "Total Cost:"
+horizontal_alignment = 2
+
+[node name="standardWorkerNumber" type="Label" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 55.0
+offset_right = 432.0
+offset_bottom = 78.0
+text = "[Number here]"
+
+[node name="standardWorkerCapacityNumber" type="Label" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 79.0
+offset_right = 464.0
+offset_bottom = 102.0
+text = "[Number here]"
+
+[node name="standardWorkerCostNumber" type="Label" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 103.0
+offset_right = 484.0
+offset_bottom = 126.0
+text = "[Number here] (/ 3 days)"
+
+[node name="specialistWorkerCapacityNumber" type="Label" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 151.0
+offset_right = 464.0
+offset_bottom = 174.0
+text = "[Number here]"
+
+[node name="specialistWorkerCostNumber" type="Label" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 175.0
+offset_right = 484.0
+offset_bottom = 198.0
+text = "[Number here] (/ 2 days)"
+
+[node name="specialistWorkerNumber2" type="Label" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 127.0
+offset_right = 432.0
+offset_bottom = 150.0
+text = "[Number here]"
+
+[node name="specialistWorkersLabel" type="Label" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 127.0
+offset_right = 240.0
+offset_bottom = 150.0
+text = "Specialist workers hired:"
+
+[node name="overviewResults" type="Control" parent="workersTab"]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 238.0
+offset_right = 592.0
+offset_bottom = 368.0
+
+[node name="overviewBase2" type="TextureRect" parent="workersTab/overviewResults"]
+modulate = Color(0.811765, 0.811765, 0.811765, 1)
+custom_minimum_size = Vector2(200, 100)
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 600.0
+offset_bottom = 146.0
+texture = ExtResource("5_pawdp")
+expand_mode = 1
+
+[node name="resultsLabel" type="Label" parent="workersTab/overviewResults"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 18.0
+offset_right = 240.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 20
+text = "Overall capacity"
+
+[node name="totalCapacityLabel" type="Label" parent="workersTab/overviewResults"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 42.0
+offset_right = 176.0
+offset_bottom = 65.0
+text = "Total capacity:"
+
+[node name="usedCapacityLabel" type="Label" parent="workersTab/overviewResults"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 66.0
+offset_right = 160.0
+offset_bottom = 89.0
+text = "Capacity used:"
+
+[node name="remainingCapacityLabel" type="Label" parent="workersTab/overviewResults"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 90.0
+offset_right = 176.0
+offset_bottom = 113.0
+text = "Remaining capacity:"
+
+[node name="totalCapacityNumber" type="Label" parent="workersTab/overviewResults"]
+offset_left = 160.0
+offset_top = 42.0
+offset_right = 352.0
+offset_bottom = 65.0
+text = "[Number here]"
+
+[node name="usedCapacityNumber" type="Label" parent="workersTab/overviewResults"]
+offset_left = 160.0
+offset_top = 66.0
+offset_right = 352.0
+offset_bottom = 89.0
+text = "[Number here]"
+
+[node name="remainingCapacityNumber" type="Label" parent="workersTab/overviewResults"]
+offset_left = 208.0
+offset_top = 90.0
+offset_right = 400.0
+offset_bottom = 113.0
+text = "[Number here]"
