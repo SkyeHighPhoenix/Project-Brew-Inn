@@ -1,6 +1,7 @@
 extends Node2D
 
 signal freshIrrigation(tiles)
+signal tileTapped(playerMade, tile)
 
 const tileTypeDict = {
 	"storage":[Vector2i(1,1)], 
@@ -86,6 +87,14 @@ func _input(event: InputEvent) -> void:
 						rotationLocked = true
 					elif event.is_action_released:
 						rotationLocked = false
+	else:
+		if event is InputEventMouseButton:
+			if event.button_index == 1 and event.pressed == false:
+				var clickCoordinates = checkCoords(getMouseToCoords(event.position))[0]
+				if clickCoordinates in dictionaryOfTiles:
+					tileTapped.emit(true,dictionaryOfTiles[clickCoordinates])
+				elif $PlacingObject/PlacingLayer.get_cell_source_id(clickCoordinates) != -1:
+					pass
 
 func setPlacingTile(tile, tileType):
 	if tile == "0":
