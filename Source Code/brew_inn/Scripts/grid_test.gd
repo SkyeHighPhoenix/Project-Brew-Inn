@@ -64,26 +64,27 @@ func getMouseToCoords(eventCoords): #something appears to be off with where the 
 	
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and isPlacing:
-		if placingTile != null:
-			setPlacingTexture(checkCoords(getMouseToCoords(event.position))[0], placingTile)
-	if event is InputEventMouseButton:
-		if event.button_index == 1 and event.pressed == false:
+	if isPlacing:
+		if event is InputEventMouseMotion:
 			if placingTile != null:
-				placeTile(getMouseToCoords(event.position))
-	if event is InputEventKey:
-		print(rotationLocked)
-		if OS.get_keycode_string(event.keycode) == 'R' and placingTileType in rotatableTiles:
-			if event.is_action_pressed:
-				if not rotationLocked:
-					if placingRotation != 3:
-						placingRotation +=1
-					else:
-						placingRotation = 0
-					setPlacingTexture(checkCoords(getMouseToCoords(get_viewport().get_mouse_position()))[0], placingTile)
-					rotationLocked = true
-				elif event.is_action_released:
-					rotationLocked = false
+				setPlacingTexture(checkCoords(getMouseToCoords(event.position))[0], placingTile)
+		if event is InputEventMouseButton:
+			if event.button_index == 1 and event.pressed == false:
+				if placingTile != null:
+					placeTile(getMouseToCoords(event.position))
+		if event is InputEventKey:
+			print(rotationLocked)
+			if OS.get_keycode_string(event.keycode) == 'R' and placingTileType in rotatableTiles:
+				if event.is_action_pressed:
+					if not rotationLocked:
+						if placingRotation != 3:
+							placingRotation +=1
+						else:
+							placingRotation = 0
+						setPlacingTexture(checkCoords(getMouseToCoords(get_viewport().get_mouse_position()))[0], placingTile)
+						rotationLocked = true
+					elif event.is_action_released:
+						rotationLocked = false
 
 func setPlacingTile(tile, tileType):
 	placingTile = tile
