@@ -3,6 +3,7 @@ var tick = 0 #unneccissary? #I think it is neccissary, idk why it says that?
 var time = 0
 signal tickIncreased
 signal timeIncreased(time)
+signal entered()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,3 +21,6 @@ func _on_timer_timeout() -> void:
 			time = 0
 		print(time)
 		timeIncreased.emit(time)
+
+func emit_entered():
+	entered.emit()

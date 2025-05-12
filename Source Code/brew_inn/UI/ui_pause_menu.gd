@@ -1,5 +1,5 @@
 extends Control
-
+var outside = false
 var paused = false
 
 func pause():
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _input(event):
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") && outside == true:
 		if paused == false:
 			pause()
 		else:

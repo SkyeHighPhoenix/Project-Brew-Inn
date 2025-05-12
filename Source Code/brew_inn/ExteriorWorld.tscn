@@ -5,3 +5,4 @@
 [node name="ExteriorWorld" type="Node2D"]
 
 [node name="GridTest" parent="." instance=ExtResource("2_wobri")]
+process_mode = 1
