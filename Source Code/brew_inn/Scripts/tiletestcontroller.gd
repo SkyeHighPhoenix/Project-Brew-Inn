@@ -43,5 +43,9 @@ func _input(event: InputEvent) -> void:
 			KEY_9:
 				print("9")
 				setTile.emit("bottlingUnit", "productionMachine")
+			KEY_0:
+				print("0")
+				setTile.emit("0", "0")
+				
 				
 				

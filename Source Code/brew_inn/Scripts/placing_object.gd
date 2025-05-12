@@ -31,6 +31,8 @@ func setCoords(coords:Vector2i, sourceId:int, atlasCoords:Vector2i, altTile:int=
 		$PlacingLayer.set_cell(previousCoords, -1, Vector2i(-1,-1),-1)
 	previousCoords = coords
 
+func clear():
+	$PlacingLayer.set_cell(previousCoords, -1, Vector2i(-1,-1),-1)
 func getTileSize(coords:Vector2i):
 	return $PlacingLayer.tile_set.get_source(0).get_tile_size_in_atlas(coords)
 	pass

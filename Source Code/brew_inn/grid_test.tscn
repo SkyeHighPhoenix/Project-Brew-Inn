@@ -48,8 +48,15 @@ texture_region_size = Vector2i(128, 128)
 1:3/0 = 0
 2:3/0 = 0
 3:3/0 = 0
+4:0/next_alternative_id = 2
 4:0/0 = 0
+4:0/1 = 1
+4:0/1/flip_h = true
+4:1/next_alternative_id = 2
 4:1/0 = 0
+4:1/1 = 1
+4:1/1/flip_h = true
+4:1/1/transpose = true
 4:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_4xwws"]
@@ -212,6 +219,7 @@ script = ExtResource("1_1loiy")
 script = ExtResource("2_edvfu")
 
 [node name="Layer0" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 254, 255, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 253, 255, 0, 0, 1, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_nit3u")
 
 [node name="Layer1" type="TileMapLayer" parent="TileMap"]

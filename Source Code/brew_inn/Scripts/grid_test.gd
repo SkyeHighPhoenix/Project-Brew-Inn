@@ -29,6 +29,7 @@ var dictionaryOfIrrigation = {} # each tile will have a number value, representi
 #//order in which the tiles will be checked to connect nodes
 const checkOrder = [Vector2i(1,0),Vector2i(0,-1),Vector2i(-1,0), Vector2i(0,1)] 
 const rotatableTiles = ["irrigation"]
+const productionSide = ["productionMachine"]
 
 var isPlacing = true
 var placingTile = "storage"
@@ -87,12 +88,17 @@ func _input(event: InputEvent) -> void:
 						rotationLocked = false
 
 func setPlacingTile(tile, tileType):
-	placingTile = tile
-	placingTileType = tileType
-	placingRotation = 0
-	if tile == null:
-		$PlacingObject.clearPlacing()
-	setPlacingTexture(checkCoords(getMouseToCoords(get_viewport().get_mouse_position()))[0], placingTile)
+	if tile == "0":
+		isPlacing = false
+		$PlacingObject.clear()
+	else:
+		isPlacing = true
+		placingTile = tile
+		placingTileType = tileType
+		placingRotation = 0
+		if tile == null:
+			$PlacingObject.clearPlacing()
+		setPlacingTexture(checkCoords(getMouseToCoords(get_viewport().get_mouse_position()))[0], placingTile)
 
 func checkCoords(mousePosition:Vector2):
 	var mapCoords = $TileMap/Layer1.local_to_map(mousePosition/NodeScale)
@@ -103,6 +109,7 @@ func checkCoords(mousePosition:Vector2):
 func setPlacingTexture(Coords:Vector2i, Placing:String):
 	$PlacingObject.setCoords(Coords,0,tileTypeDict[Placing][0],placingRotation)
 	pass
+
 
 func placeTile(coordinates):
 	var mapIndex = checkCoords(coordinates)[0]
@@ -182,12 +189,23 @@ func setTileAt(onSet, onMap, placeRotation = null): # linked to signals
 	pass
 
 func checkTileValid(coordinates): # checks if a tile has been placed in region
+	var isProduction = false
+	if placingTileType in productionSide:
+		isProduction = true
 	var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
 	var isValid = true
 	for x in range(tileSize.x):
 		for y in range(tileSize.y):
-			if coordinates - Vector2i(x,y) in dictionaryOfTiles:
+			var tileSpot = coordinates - Vector2i(x,y)
+			if tileSpot in dictionaryOfTiles:
 				isValid = false
+			if tileSpot.y >= 0:
+				isValid = false
+			if isProduction and tileSpot.x < 0:
+				isValid = false
+			elif not isProduction and tileSpot.x > -1:
+				isValid = false
+			
 	print(isValid)
 	return isValid
 
