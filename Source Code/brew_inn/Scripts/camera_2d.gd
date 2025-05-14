@@ -6,7 +6,8 @@ var tileSize = 128
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var originButton = get_tree().get_root().get_node("/root/Base/ExteriorWorld/CanvasLayer/UiOverlay/originButton")
+	originButton.pressed.connect(returnToOrigin)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,3 +39,7 @@ func restrictBorders():
 		position.y = actualBorderY
 	elif position.y < actualBorderY*-1:
 		position.y = actualBorderY*-1
+
+func returnToOrigin():
+	position = Vector2(0,0)
+	zoom = Vector2(0.555,0.555)

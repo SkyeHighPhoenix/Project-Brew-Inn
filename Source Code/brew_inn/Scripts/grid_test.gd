@@ -65,7 +65,7 @@ func getMouseToCoords(eventCoords): #something appears to be off with where the 
 	return Vector2i(newcoords)
 	
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if isPlacing:
 		if event is InputEventMouseMotion:
 			if placingTile != null:
@@ -93,6 +93,7 @@ func _input(event: InputEvent) -> void:
 				var clickCoordinates = checkCoords(getMouseToCoords(event.position))[0]
 				if clickCoordinates in dictionaryOfTiles:
 					tileTapped.emit(true,dictionaryOfTiles[clickCoordinates])
+					print(dictionaryOfTiles[clickCoordinates])
 				elif $PlacingObject/PlacingLayer.get_cell_source_id(clickCoordinates) != -1:
 					pass
 
