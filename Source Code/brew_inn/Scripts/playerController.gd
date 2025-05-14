@@ -9,6 +9,7 @@ func _ready() -> void:
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
+		print("trying to look around")
 		rotate_y(-event.relative.x * sensitivity)
 		camera.rotate_x(-event.relative.y * sensitivity)
 		camera.transform = camera.transform.orthonormalized()

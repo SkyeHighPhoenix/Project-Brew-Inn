@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://betj6e7c7ogv5"]
+[gd_scene load_steps=4 format=3 uid="uid://betj6e7c7ogv5"]
 
+[ext_resource type="PackedScene" uid="uid://citkugy70ljus" path="res://UI/External world/UI overlay external world.tscn" id="1_umlrn"]
 [ext_resource type="PackedScene" uid="uid://bh3ksvxjojdyn" path="res://grid_test.tscn" id="2_wobri"]
+[ext_resource type="PackedScene" uid="uid://c2oq28vnyql2m" path="res://UI/UI pause menu.tscn" id="3_w47gm"]
 
 [node name="ExteriorWorld" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UiOverlay" parent="CanvasLayer" instance=ExtResource("1_umlrn")]
+
+[node name="UiPauseMenu" parent="CanvasLayer" instance=ExtResource("3_w47gm")]
+
 [node name="GridTest" parent="." instance=ExtResource("2_wobri")]
+process_mode = 1

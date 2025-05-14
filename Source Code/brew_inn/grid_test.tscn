@@ -8,10 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://chx4nrfpmah42" path="res://Assets/Tilemaps/Tilesetwithtavern.png" id="5_hbvq8"]
 [ext_resource type="Texture2D" uid="uid://cdp4evcrvpigo" path="res://Assets/Tilemaps/orchard_experiment.png" id="6_p3vsv"]
 [ext_resource type="Texture2D" uid="uid://c84y1bn4w224l" path="res://Assets/Tilemaps/tileSetProductionMachines.png" id="6_tbr7o"]
-[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="9_lk0xb"]
+[ext_resource type="PackedScene" uid="uid://do4g8qbd4pwnk" path="res://exteriorCamera.tscn" id="8_52pkr"]
 [ext_resource type="Script" path="res://Scripts/dayNightCycle.gd" id="10_bonyg"]
 [ext_resource type="Texture2D" uid="uid://djwafrmxxa0fj" path="res://Assets/dayNightCycle/daynightcycle-gradient-texture.tres" id="11_p5wyo"]
-[ext_resource type="PackedScene" uid="uid://c2oq28vnyql2m" path="res://UI/UI pause menu.tscn" id="12_0qemr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0vyo1"]
 texture = ExtResource("2_xe40p")
@@ -246,19 +245,10 @@ script = ExtResource("5_gp0ai")
 [node name="PlacingLayer" type="TileMapLayer" parent="PlacingObject"]
 tile_set = SubResource("TileSet_48jck")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("9_lk0xb")
+[node name="Camera2D" parent="." instance=ExtResource("8_52pkr")]
+visible = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.25191, 0.374138, 0.78056, 1)
 script = ExtResource("10_bonyg")
 gradient = ExtResource("11_p5wyo")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1159.0
-offset_bottom = 660.0
-color = Color(1, 1, 1, 0)
-
-[node name="UiPauseMenu" parent="CanvasLayer" instance=ExtResource("12_0qemr")]

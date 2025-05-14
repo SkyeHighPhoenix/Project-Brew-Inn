@@ -30,9 +30,6 @@ process_mode = 3
 
 [node name="UiOverlayTavernInterior" parent="." instance=ExtResource("1_ycoge")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
 [node name="Player" parent="." instance=ExtResource("1_yoomx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 15.7307)
 

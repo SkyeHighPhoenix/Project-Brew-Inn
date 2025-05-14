@@ -79,7 +79,7 @@ func getMouseToCoords(eventCoords): #something appears to be off with where the 
 	return Vector2i(newcoords)
 	
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if isPlacing:
 		if event is InputEventMouseMotion:
 			if placingTile != null:

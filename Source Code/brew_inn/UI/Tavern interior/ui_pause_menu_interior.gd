@@ -7,12 +7,14 @@ func pause():
 	paused = true
 	get_tree().paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	print("3d paused")
 	
 func resume():
 	hide()
 	paused = false
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	print("3d resumed")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

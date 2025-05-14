@@ -1,5 +1,4 @@
 extends Control
-
 var paused = false
 
 func pause():
@@ -15,6 +14,8 @@ func resume():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide()
+	var pauseButton = get_tree().get_root().get_node("/root/Base/ExteriorWorld/CanvasLayer/UiOverlay/pauseButton")
+	pauseButton.pressed.connect(pause)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
