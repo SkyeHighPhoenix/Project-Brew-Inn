@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bh3ksvxjojdyn"]
+[gd_scene load_steps=22 format=3 uid="uid://bh3ksvxjojdyn"]
 
 [ext_resource type="Script" path="res://Scripts/grid_test.gd" id="1_1loiy"]
 [ext_resource type="Script" path="res://Scripts/enviromap.gd" id="2_edvfu"]
 [ext_resource type="Texture2D" uid="uid://dvjjpptvui2q0" path="res://Assets/Tilemaps/dirt sprite revamp.png" id="2_xe40p"]
 [ext_resource type="Texture2D" uid="uid://d24k2cd3qdua7" path="res://Assets/Tilemaps/GrassWCorners.png" id="4_khc6q"]
 [ext_resource type="Script" path="res://Scripts/placing_object.gd" id="5_gp0ai"]
+[ext_resource type="Texture2D" uid="uid://chx4nrfpmah42" path="res://Assets/Tilemaps/Tilesetwithtavern.png" id="5_hbvq8"]
 [ext_resource type="Texture2D" uid="uid://cdp4evcrvpigo" path="res://Assets/Tilemaps/orchard_experiment.png" id="6_p3vsv"]
 [ext_resource type="Texture2D" uid="uid://c84y1bn4w224l" path="res://Assets/Tilemaps/tileSetProductionMachines.png" id="6_tbr7o"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="9_lk0xb"]
@@ -64,7 +65,7 @@ tile_size = Vector2i(128, 128)
 sources/1 = SubResource("TileSetAtlasSource_5vs5u")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4t3y1"]
-texture = ExtResource("6_tbr7o")
+texture = ExtResource("5_hbvq8")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 1:0/0 = 0
@@ -129,6 +130,15 @@ texture_region_size = Vector2i(128, 128)
 0:8/size_in_atlas = Vector2i(3, 2)
 0:8/0 = 0
 0:8/0/texture_origin = Vector2i(128, 64)
+9:7/size_in_atlas = Vector2i(5, 3)
+9:7/0 = 0
+9:7/0/texture_origin = Vector2i(256, 128)
+10:3/size_in_atlas = Vector2i(4, 4)
+10:3/0 = 0
+10:3/0/texture_origin = Vector2i(192, 192)
+10:0/size_in_atlas = Vector2i(4, 3)
+10:0/0 = 0
+10:0/0/texture_origin = Vector2i(192, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h64wa"]
 texture = ExtResource("6_p3vsv")
@@ -227,6 +237,7 @@ tile_map_data = PackedByteArray(0, 0, 40, 0, 246, 255, 0, 0, 0, 0, 5, 0, 0, 0)
 tile_set = SubResource("TileSet_4xwws")
 
 [node name="ObejctLayer" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 9, 0, 7, 0, 0, 0, 3, 0, 4, 0, 0, 0, 10, 0, 3, 0, 0, 0, 253, 255, 3, 0, 0, 0, 10, 0, 0, 0, 0, 0, 10, 0, 255, 255, 0, 0, 9, 0, 7, 0, 0, 0)
 tile_set = SubResource("TileSet_4fb17")
 
 [node name="PlacingObject" type="Node2D" parent="."]

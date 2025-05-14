@@ -3,6 +3,8 @@ extends Node2D
 signal freshIrrigation(tiles)
 signal tileTapped(playerMade, tile)
 
+var structureLocations = {Vector2i(-3,3):"warehouse", Vector2i(3,4):"shop", Vector2i(9,3):"tavern"}
+
 const tileTypeDict = {
 	"storage":[Vector2i(1,1)], 
 	"cropPlot":[Vector2i(0,1)],
@@ -51,6 +53,18 @@ func _ready() -> void:
 	testingInstance = testingInterface.instantiate()
 	add_child(testingInstance)
 	testingInstance.setTile.connect(setPlacingTile)
+	var tempStructures = {}
+	for x in range(4):
+		for y in range(4):
+			tempStructures[Vector2i(3-x,4-y)] = "warehouse"
+	for x in range(5):
+		for y in range(3):
+			tempStructures[Vector2i(10-x,-1-y)] = "shop"
+	for x in range(4):
+		for y in range(3):
+			tempStructures[Vector2i(-3-x,3-y)] = "tavern"
+	structureLocations = tempStructures
+		
 	pass # Replace with function body.
 
 
@@ -93,8 +107,10 @@ func _input(event: InputEvent) -> void:
 				var clickCoordinates = checkCoords(getMouseToCoords(event.position))[0]
 				if clickCoordinates in dictionaryOfTiles:
 					tileTapped.emit(true,dictionaryOfTiles[clickCoordinates])
-				elif $PlacingObject/PlacingLayer.get_cell_source_id(clickCoordinates) != -1:
+				elif clickCoordinates in structureLocations:
+					tileTapped.emit(false,structureLocations[clickCoordinates])
 					pass
+				
 
 func setPlacingTile(tile, tileType):
 	if tile == "0":
@@ -206,7 +222,7 @@ func checkTileValid(coordinates): # checks if a tile has been placed in region
 	for x in range(tileSize.x):
 		for y in range(tileSize.y):
 			var tileSpot = coordinates - Vector2i(x,y)
-			if tileSpot in dictionaryOfTiles:
+			if tileSpot in dictionaryOfTiles or tileSpot in structureLocations:
 				isValid = false
 			if tileSpot.y >= 0:
 				isValid = false
