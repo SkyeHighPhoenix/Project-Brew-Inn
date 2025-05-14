@@ -8,4 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$HUDFraming/currencyAmount.text=str(GlobalInventory.currency)
+	$HUDFraming/expLevelNumberLabel.text = str(GlobalInventory.level)

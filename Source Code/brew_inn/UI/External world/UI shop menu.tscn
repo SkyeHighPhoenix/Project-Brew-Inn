@@ -63,7 +63,6 @@ texture = ExtResource("3_8dht8")
 expand_mode = 5
 
 [node name="farmingTab" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 352.0
@@ -161,6 +160,807 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="buyLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem/purchaseButtonF1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="shopItem6" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem6"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem6"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem6"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem6"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "[Item name here]"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem6"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem6"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem6"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonF1" type="TextureButton" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem6"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem6/purchaseButtonF1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="shopItem7" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem7"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem7"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem7"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem7"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "[Item name here]"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem7"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem7"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem7"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonF1" type="TextureButton" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem7"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem7/purchaseButtonF1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="shopItem8" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem8"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem8"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem8"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem8"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "[Item name here]"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem8"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem8"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem8"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonF1" type="TextureButton" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem8"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem8/purchaseButtonF1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="shopItem9" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem9"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem9"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem9"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem9"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "[Item name here]"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem9"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem9"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem9"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonF1" type="TextureButton" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem9"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem9/purchaseButtonF1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="shopItem10" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem10"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem10"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem10"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem10"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "[Item name here]"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem10"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem10"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem10"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonF1" type="TextureButton" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem10"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem10/purchaseButtonF1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="shopItem2" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem2"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem2"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem2"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem2"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "[Item name here]"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem2"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem2"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem2"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonF1" type="TextureButton" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem2"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem2/purchaseButtonF1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="shopItem3" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem3"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem3"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem3"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem3"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "[Item name here]"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem3"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem3"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem3"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonF1" type="TextureButton" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem3"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem3/purchaseButtonF1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="shopItem4" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem4"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem4"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem4"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem4"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "[Item name here]"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem4"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem4"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem4"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonF1" type="TextureButton" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem4"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem4/purchaseButtonF1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="shopItem5" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem5"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem5"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem5"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem5"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "[Item name here]"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem5"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem5"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem5"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonF1" type="TextureButton" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem5"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem5/purchaseButtonF1"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
@@ -283,6 +1083,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="licensesTab" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 352.0
