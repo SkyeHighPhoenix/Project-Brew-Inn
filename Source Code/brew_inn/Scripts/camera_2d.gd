@@ -3,7 +3,6 @@ const zoomSpeed = 0.1
 const borders = 500
 var tileSize = 128
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var originButton = get_tree().get_root().get_node("/root/Base/ExteriorWorld/CanvasLayer/UiOverlay/originButton")
