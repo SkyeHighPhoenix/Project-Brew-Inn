@@ -6,16 +6,63 @@ extends Node2D
 ##MacineInfo list populated as 
 #[recipeDictionary{[inputResources]:[outputResources]}, tileLocation(vector2i), [ticksToRefine,inputStorageCap,outputStorageCap,maxBatchSize]]
 const machineInfo = {
-	"bottlingUnit":[{["placeholderInput0"]:["placeholderOutput0", "placeholderOutput1"],
-	["placeholderInput1"]:["placeholderOutput2"], 
-	["placeholderInput2", "placeholderInput3"]:["placeholderOutput3"]},Vector2i(2,7),[105,505,505,31]],
-	"carbonator":[{},Vector2i(3,6), []],
-	"dehydrator":[{}, Vector2i(6,6), []],
-	"fermenter":[{}, Vector2i(4,7), []], 
-	"industrialMixer":[{}, Vector2i(0,8), []], 
-	"juicer":[{}, Vector2i(6,4), []], 
-	"washer":[{}, Vector2i(3,8), []], 
-	"waterProcessingUnit":[{}, Vector2i(6,8), []]}
+	"bottlingUnit":[{["appleJuice"]:["appleJuiceBottled"],
+	["orangeJuice"]:["orangeJuiceBottled"],["blueberryJuice"]:["blueberryJuiceBottled"],
+	["lemonLimeMix"]:["lemonLimeMixBottled"],["tomatoJuice"]:["tomatoJuiceBottled"],
+	["pineappleJuice"]:["pineappleJuiceBottled"],["lemonade"]:["lemonadeBottled"],
+	["limenade"]:["limenadeBottled"],["cola"]:["colaBottled"],
+	["orangeSoda"]:["orangeSodaBottled"],["appleConcentrate"]:["appleConcentrateBottled"],
+	["orangeConcentrate"]:["orangeConcentrateBottled"],["blueberryConcentrate"]:["blueberryConcentrateBottled"],
+	["lemonLimeConcentrate"]:["lemonLimeConcentrateBottled"],
+	["mixedBerryConcentrate"]:["mixedBerryConcentrateBottled"],["coffee"]:["coffeeBottled"],
+	["greenTea"]:["greenTeaBottled"],["peppermintTea"]:["peppermintTeaBottled"],
+	["flavouredWater"]:["waterBottled"]},Vector2i(2,7),[80,75,250,5]],
+	
+	"carbonator":[{["appleCiderFlat"]:["AppleCider"],["pearCiderFlat"]:["pearCider"],
+	["strawberryCiderFlat"]:["strawberryCider"],["raspberryCiderFlat"]:["raspberryCider"],
+	["blackberryCiderFlat"]:["blackberryCider"],["micedBerryCiderFlat"]:["mixedBerryCider"],
+	["lemonadeMix"]:["lemonade"],["limenadeMix"]:["limenade"],["colaMix"]:["cola"],
+	["orangeSodaMix"]:["orangeSoda"],["aleFlat"]:["ale"],["lagerFlat"]:["lager"],
+	["gingerBeerFlat"]:["gingerBeer"],["rootBeerFlat"]:["rootBeer"]},Vector2i(3,6), [250,100,100,15]],
+	
+	"dehydrator":[{["appleJuice"]:["appleConcentrate"],["orangeJuice"]:["orangeConcentrate"],
+	["blueberryJuice"]:["blueberryConcentrate"],["lemonLimeMix"]:["lemonLimeConcentrate"],
+	["mixedBerryJuice"]:["mixedBerryConcentrate"]}, Vector2i(6,6), [240,150,150,15]],
+	
+	"fermenter":[{["appleJuice"]:["appleCiderFlat"],["pearJuice"]:["pearCiderFlat"],
+	["strawberryJuice"]:["strawberryCiderFlat"],["raspberryJuice"]:["raspberryCiderFlat"],
+	["blackberryJuice"]:["blackberryCiderFlat"],["mixedBerryJuice"]:["mixeBerryCiderFlat"],
+	["aleMix"]:["aleFlat"],["lagerMix"]:["lagerFlat"],
+	["rootBeerMix"]:["rootBeerFlat"],["gingerBeerMix"]:["gingerBeerFlat"]}, Vector2i(4,7), [600,75,75,15]], 
+	
+	"industrialMixer":[{["lemonJuice","LimeJuice"]:["lemonLimeMix"],
+	["lemonJuice","drinkingWater"]:["lemonadeMix"],["limeJuice","drinkingWater"]:["limenadeMix"],
+	["strawberryJuice","raspberryJuice","blackberryJuice"]:["mixedBerryJuice"],
+	["teaCrop","drinkingWater"]:["greenTea"],["coffeeCrop","drinkingWater"]:["coffee"],
+	["orangeConcentrate","sugarcaneWashed","vanillaWashed"]:["orangeSodaMix"],
+	["drinkingWater", "sugarcaneWashed"]:["colaBase"],
+	["colaBase","cinnamonWashed","vanillaWashed"]:["colaMix"],
+	["maltWashed","drinkingWater"]:["aleMix"],
+	["hopsWashed","drinkingWater"]:["lagerMix"],
+	["drinkingWater","sarsaparillaWashed","nutmegWashed"]:["rootBeerMix"],
+	["gingerWashed","sugarcaneWashed","drinkingWater"]:["gingerBeerMix"],
+	["peppermintCrop","drinkingWater"]:["peppermintTea"],
+	["drinkingWater","mintWashed"]:["flavouredWater"]}, Vector2i(0,8), [400,375,375,40]], 
+	
+	"juicer":[{["appleCrop"]:["appleJuice"],["orangeCrop"]:["orangeJuice"],
+	["blueberryCrop"]:["blueberryJuice"],["lemonCrop"]:["lemonJuice"],
+	["limeCrop"]:["limeJuice"],["tomatoCrop"]:["tomatoJuice"],
+	["pineappleCrop"]:["pineappleJuice"],["pearCrop"]:["pearJuice"],
+	["strawberryCrop"]:["strawberryJuice"], ["raspberryCrop"]:["raspberryJuice"],
+	["blackberryCrop"]:["blackberryJuice"]}, Vector2i(6,4), [150,100,100,10]], 
+	
+	"washer":[{["gingerCrop"]:["gingerWashed"],["hopsCrop"]:["hopsWashed"],
+	["sarsaparillaCrop"]:["sarsaparillaWashed"],["maltCrop"]:["maltWashed"],
+	["sugarcaneCrop"]:["sugarcaneWashed"],["cinnamonCrop"]:["cinnamonWashed"],
+	["mintCrop"]:["mintWashed"],["nutmegCrop"]:["nutmegWashed"],
+	["peppermintCrop"]:["peppermintWashed"],["vanillaCrop"]:["vanillaWashed"]}, Vector2i(3,8), [300,250,250,50]], 
+	
+	"waterProcessingUnit":[{["waterUnrefined"]:["drinkingWater"]}, Vector2i(6,8), [2400,40,400,40]]}
 
 #These are all placeholder values that will be changed by code once the building is created
 var validRecipesDict = {["placeholderInput0"]:["placeholderOutput0", "placeholderOutput1"], ["placeholderInput1"]:["placeholderOutput2"], ["placeholderInput2", "placeholderInput3"]:["placeholderOutput3"]}	
