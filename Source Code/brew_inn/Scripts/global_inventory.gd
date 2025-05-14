@@ -21,6 +21,7 @@ func addResource(resource, amount):
 		resourceCount[str(resource)]+=amount
 		print (resourceCount)
 		print (categories)
+		GlobalInventory.exp+=amount
 	else:
 		return false
 	

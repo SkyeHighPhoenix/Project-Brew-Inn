@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://b7hgkn50alasv"
+path.s3tc="res://.godot/imported/Empty Bar NO LIGHT_Wood050_2K-JPG_NormalGL.jpg-9e826457d201128940b076c99e4db834.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "2c95f7b212000227037919f41404fe51"
+}
+
+[deps]
+
+source_file="res://Assets/Empty Bar NO LIGHT_Wood050_2K-JPG_NormalGL.jpg"
+dest_files=["res://.godot/imported/Empty Bar NO LIGHT_Wood050_2K-JPG_NormalGL.jpg-9e826457d201128940b076c99e4db834.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Assets/Empty Bar NO LIGHT_Wood050_2K-JPG_NormalGL.jpg"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

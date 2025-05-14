@@ -10,3 +10,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$HUDFraming/currencyAmount.text=str(GlobalInventory.currency)
 	$HUDFraming/expLevelNumberLabel.text = str(GlobalInventory.level)
+	var expFillAmount = GlobalInventory.exp/GlobalInventory.expProgression*100
+	$HUDFraming/expBarFunctional.set_value(expFillAmount)

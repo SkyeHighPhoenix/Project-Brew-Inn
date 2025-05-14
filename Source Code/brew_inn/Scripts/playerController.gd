@@ -8,12 +8,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		print("trying to look around")
-		rotate_y(-event.relative.x * sensitivity)
-		camera.rotate_x(-event.relative.y * sensitivity)
-		camera.transform = camera.transform.orthonormalized()
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(65))
+	pass
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -32,3 +27,9 @@ func _physics_process(delta: float) -> void:
 func _input(event):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
+	if event is InputEventMouseMotion:
+		print("trying to look around")
+		rotate_y(-event.relative.x * sensitivity)
+		camera.rotate_x(-event.relative.y * sensitivity)
+		camera.transform = camera.transform.orthonormalized()
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(65))
