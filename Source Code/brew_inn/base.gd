@@ -1,5 +1,6 @@
 extends Node3D
 var exterior
+var inside = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,10 +11,12 @@ func _process(delta: float) -> void:
 	pass
 	
 func _input(event):
-	if Input.is_action_just_pressed("enter"):
+	if Input.is_action_just_pressed("enter")&&inside!=true:
+		inside = true
 		EnteredTavern()
 		print("enter")
-	elif Input.is_action_just_pressed("exit"):
+	elif Input.is_action_just_pressed("exit")&&inside!=false:
+		inside = false
 		ExitedTavern()
 		print("exit")
 
