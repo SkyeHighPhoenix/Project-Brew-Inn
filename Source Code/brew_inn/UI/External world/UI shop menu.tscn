@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://lh2iktcf4mmj"]
+[gd_scene load_steps=13 format=3 uid="uid://lh2iktcf4mmj"]
 
+[ext_resource type="Script" path="res://UI/External world/ui_shop_menu.gd" id="1_n5kmo"]
 [ext_resource type="Texture2D" uid="uid://qmd7ngwoprcf" path="res://UI/UI assets/General button.png" id="1_wlmrt"]
 [ext_resource type="Texture2D" uid="uid://brle7flb0x5sa" path="res://UI/UI assets/Scroll bar.png" id="1_xgxvl"]
 [ext_resource type="StyleBox" uid="uid://bdm02q18bch88" path="res://UI/External world/vertical scrollbar grabber highlighted.tres" id="2_eb8b5"]
@@ -25,6 +26,7 @@ texture = ExtResource("4_p5651")
 region_rect = Rect2(105, 378, 165, 190)
 
 [node name="UiShop" type="Node2D"]
+script = ExtResource("1_n5kmo")
 
 [node name="backgroundGreyOut" type="ColorRect" parent="."]
 offset_right = 1152.0

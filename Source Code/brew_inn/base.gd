@@ -19,8 +19,11 @@ func _input(event):
 
 func EnteredTavern():
 	remove_child($ExteriorWorld)
-	add_child($TavernInterior)
+	var interior = preload("res://InteriorScenes/tavernInterior.tscn")
+	var interiorInstance = interior.instantiate()
+	add_child(interiorInstance)
 
 func ExitedTavern():
 	add_child(exterior)
 	remove_child($TavernInterior)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

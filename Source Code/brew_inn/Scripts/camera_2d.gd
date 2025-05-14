@@ -2,7 +2,6 @@ extends Camera2D
 const zoomSpeed = 0.1
 const borders = 500
 var tileSize = 128
-var outside = true
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,18 +14,17 @@ func _process(delta: float) -> void:
 	pass
 
 func _input(event: InputEvent):
-	if outside:
-		if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
-			position -= event.relative/zoom
-			restrictBorders()
-			print(position)
-		if event is InputEventMouseButton:
-			if Input.is_action_just_pressed('ScrollUp'):
-				if zoom.x <= 10:
-					zoom *= 1+zoomSpeed
-			elif Input.is_action_just_pressed("ScrollDown"):
-				if zoom.x >= 0.1:
-					zoom *= 1-zoomSpeed
+	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
+		position -= event.relative/zoom
+		restrictBorders()
+		print(position)
+	if event is InputEventMouseButton:
+		if Input.is_action_just_pressed('ScrollUp'):
+			if zoom.x <= 10:
+				zoom *= 1+zoomSpeed
+		elif Input.is_action_just_pressed("ScrollDown"):
+			if zoom.x >= 0.1:
+				zoom *= 1-zoomSpeed
 
 func restrictBorders():
 	var actualBorderX = (borders*tileSize)-(get_viewport_rect().size.x/2)/zoom.x

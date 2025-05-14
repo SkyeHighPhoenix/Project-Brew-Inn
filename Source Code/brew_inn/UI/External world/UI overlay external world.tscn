@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://citkugy70ljus"]
+[gd_scene load_steps=12 format=3 uid="uid://citkugy70ljus"]
 
+[ext_resource type="Script" path="res://UI/External world/ui_overlay_external_world.gd" id="1_3ox0i"]
 [ext_resource type="Texture2D" uid="uid://brrcrimvaltd3" path="res://UI/UI assets/HUD.png" id="1_fnry5"]
 [ext_resource type="Texture2D" uid="uid://m1348m0q4pdl" path="res://UI/UI assets/Coin.png" id="2_k3twl"]
 [ext_resource type="Texture2D" uid="uid://cinj8njhyee3m" path="res://UI/UI assets/Progressbarunder.png" id="3_egka6"]
@@ -11,7 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cp3h4yci8p60a" path="res://UI/UI assets/Pause highlighted.png" id="9_5uwde"]
 [ext_resource type="Texture2D" uid="uid://b8dxv6qi0ilx1" path="res://UI/UI assets/Morning icon.png" id="10_fhlpn"]
 
-[node name="UiTest" type="Node2D"]
+[node name="UiOverlay" type="Node2D"]
+script = ExtResource("1_3ox0i")
 
 [node name="HUDFraming" type="TextureRect" parent="."]
 z_index = -10
