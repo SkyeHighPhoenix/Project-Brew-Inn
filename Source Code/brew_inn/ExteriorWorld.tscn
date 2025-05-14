@@ -8,9 +8,9 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UiPauseMenu" parent="CanvasLayer" instance=ExtResource("3_w47gm")]
+[node name="UiOverlay" parent="CanvasLayer" instance=ExtResource("1_umlrn")]
 
-[node name="UiTest" parent="CanvasLayer" instance=ExtResource("1_umlrn")]
+[node name="UiPauseMenu" parent="CanvasLayer" instance=ExtResource("3_w47gm")]
 
 [node name="GridTest" parent="." instance=ExtResource("2_wobri")]
 process_mode = 1
