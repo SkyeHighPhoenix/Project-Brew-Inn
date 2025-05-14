@@ -37,6 +37,7 @@ var minSize
 var tilePosition = Vector2i() # liles main tile position
 var tileSize = Vector2i() # 0,0 is a 1 by 1
 var tileType = ""
+var worker = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

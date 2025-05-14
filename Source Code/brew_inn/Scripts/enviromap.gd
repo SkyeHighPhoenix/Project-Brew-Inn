@@ -19,7 +19,7 @@ func _ready() -> void:
 			var tile = grassTiles[random.rand_weighted(tileweights)]
 			$Layer1.set_cell(Vector2i(-1-x,-1-y),1,tile,0)
 	for x in range(outsideSize.x*2):
-		for y in range(outsideSize.y):
+		for y in range(20):
 			var tile = grassTiles[random.rand_weighted(tileweights)]
 			$Layer1.set_cell(Vector2i(x-outsideSize.x,y),1,tile,0)
 	for y in range(outsideSize.y):

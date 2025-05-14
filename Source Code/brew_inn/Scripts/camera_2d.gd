@@ -25,17 +25,18 @@ func _input(event: InputEvent):
 		elif Input.is_action_just_pressed("ScrollDown"):
 			if zoom.x >= 0.1:
 				zoom *= 1-zoomSpeed
+		restrictBorders()
 
 func restrictBorders():
 	var actualBorderX = (borders*tileSize)-(get_viewport_rect().size.x/2)/zoom.x
 	var actualBorderY = (borders*tileSize)-(get_viewport_rect().size.y/2)/zoom.y
-	print(actualBorderX)
+	var actualBorderYDown = (20*tileSize)-(get_viewport_rect().size.y/2)/zoom.y
 	if position.x > actualBorderX:
 		position.x = actualBorderX
 	elif position.x < actualBorderX*-1:
 		position.x = actualBorderX*-1
-	if position.y > actualBorderY:
-		position.y = actualBorderY
+	if position.y > actualBorderYDown:
+		position.y = actualBorderYDown
 	elif position.y < actualBorderY*-1:
 		position.y = actualBorderY*-1
 

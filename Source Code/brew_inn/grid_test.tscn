@@ -236,7 +236,7 @@ tile_map_data = PackedByteArray(0, 0, 40, 0, 246, 255, 0, 0, 0, 0, 5, 0, 0, 0)
 tile_set = SubResource("TileSet_4xwws")
 
 [node name="ObejctLayer" type="TileMapLayer" parent="TileMap"]
-tile_map_data = PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 9, 0, 7, 0, 0, 0, 3, 0, 4, 0, 0, 0, 10, 0, 3, 0, 0, 0, 253, 255, 3, 0, 0, 0, 10, 0, 0, 0, 0, 0, 10, 0, 255, 255, 0, 0, 9, 0, 7, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 9, 0, 7, 0, 0, 0, 3, 0, 4, 0, 0, 0, 10, 0, 3, 0, 0, 0, 253, 255, 3, 0, 0, 0, 10, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_4fb17")
 
 [node name="PlacingObject" type="Node2D" parent="."]

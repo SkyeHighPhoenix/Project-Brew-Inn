@@ -8,6 +8,7 @@ var itemCount:int = 0
 var cropActive = null
 var assignedNodes = []
 var tilePosition
+var worker = false
 signal setTile(onSet, onMap)
 
 

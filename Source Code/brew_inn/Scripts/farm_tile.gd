@@ -9,6 +9,7 @@ var resourcesOnHarvest = 25
 var storageCap = 500
 var tilemapLocations = {}
 var delayTicks = 0
+var worker = false
 
 var tilePosition = Vector2i() # liles main tile position
 var tileSize = Vector2i() # 0,0 is a 1 by 1
