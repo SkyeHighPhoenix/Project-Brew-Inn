@@ -1,144 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfix66ksjvwt0"]
+[gd_scene load_steps=4 format=3 uid="uid://dfix66ksjvwt0"]
 
+[ext_resource type="PackedScene" uid="uid://j8q5lwf17ylv" path="res://bar.tscn" id="1_a8qpa"]
 [ext_resource type="PackedScene" uid="uid://yx6knh7fwti7" path="res://UI/Tavern interior/UI overlay tavern interior.tscn" id="1_ycoge"]
 [ext_resource type="PackedScene" uid="uid://da7cye1gfd64u" path="res://InteriorScenes/player.tscn" id="1_yoomx"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_cq7wy"]
-size = Vector3(40, 2, 40)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgope"]
-albedo_color = Color(0.445759, 0.24018, 0.0288904, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_65j44"]
-material = SubResource("StandardMaterial3D_hgope")
-size = Vector3(40, 2, 40)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0f12o"]
-size = Vector3(2, 9, 40)
-
-[sub_resource type="BoxMesh" id="BoxMesh_dobfd"]
-material = SubResource("StandardMaterial3D_hgope")
-size = Vector3(2, 9, 40)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_me2wn"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_ggvgk"]
-material = SubResource("StandardMaterial3D_hgope")
-
 [node name="TavernInterior" type="Node3D"]
-process_mode = 3
+
+[node name="Empty Bar NO LIGHT2" parent="." instance=ExtResource("1_a8qpa")]
 
 [node name="UiOverlayTavernInterior" parent="." instance=ExtResource("1_ycoge")]
 
 [node name="Player" parent="." instance=ExtResource("1_yoomx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 15.7307)
-
-[node name="building" type="Node" parent="."]
-
-[node name="Lights" type="Node" parent="building"]
-
-[node name="SpotLight3D" type="SpotLight3D" parent="building/Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0288773, 5.54169, -0.268572)
-light_energy = 11.667
-shadow_enabled = true
-spot_range = 20.572
-spot_angle = 73.125
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="building/Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -11.7723, 5.54169, -9.85062)
-light_energy = 11.667
-shadow_enabled = true
-spot_range = 20.572
-spot_angle = 73.125
-
-[node name="SpotLight3D3" type="SpotLight3D" parent="building/Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -12.9392, 5.54169, 10.9522)
-light_energy = 11.667
-shadow_enabled = true
-spot_range = 20.572
-spot_angle = 73.125
-
-[node name="SpotLight3D4" type="SpotLight3D" parent="building/Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 10.4764, 5.54169, -9.24092)
-light_energy = 11.667
-shadow_enabled = true
-spot_range = 20.572
-spot_angle = 73.125
-
-[node name="SpotLight3D5" type="SpotLight3D" parent="building/Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 12.7394, 5.54169, 8.76754)
-light_energy = 11.667
-shadow_enabled = true
-spot_range = 20.572
-spot_angle = 73.125
-
-[node name="SpotLight3D6" type="SpotLight3D" parent="building/Lights"]
-transform = Transform3D(1, 0, 0, 0, 0.72511, 0.688633, 0, -0.688633, 0.72511, 0.0288773, 5.54169, 19.0215)
-light_energy = 16.0
-light_indirect_energy = 1.175
-light_specular = 1.112
-shadow_enabled = true
-spot_range = 20.572
-spot_angle = 73.125
-
-[node name="Floor" type="StaticBody3D" parent="building"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="building/Floor"]
-shape = SubResource("BoxShape3D_cq7wy")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="building/Floor"]
-mesh = SubResource("BoxMesh_65j44")
-
-[node name="Ceiling" type="StaticBody3D" parent="building"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="building/Ceiling"]
-shape = SubResource("BoxShape3D_cq7wy")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="building/Ceiling"]
-mesh = SubResource("BoxMesh_65j44")
-
-[node name="Wall" type="StaticBody3D" parent="building"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="building/Wall"]
-shape = SubResource("BoxShape3D_0f12o")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="building/Wall"]
-mesh = SubResource("BoxMesh_dobfd")
-
-[node name="Wall2" type="StaticBody3D" parent="building"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 2.5, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="building/Wall2"]
-shape = SubResource("BoxShape3D_0f12o")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="building/Wall2"]
-mesh = SubResource("BoxMesh_dobfd")
-
-[node name="Wall3" type="StaticBody3D" parent="building"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2.5, 20)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="building/Wall3"]
-shape = SubResource("BoxShape3D_0f12o")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="building/Wall3"]
-mesh = SubResource("BoxMesh_dobfd")
-
-[node name="Wall4" type="StaticBody3D" parent="building"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2.5, -20)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="building/Wall4"]
-shape = SubResource("BoxShape3D_0f12o")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="building/Wall4"]
-mesh = SubResource("BoxMesh_dobfd")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="building"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="building/StaticBody3D"]
-shape = SubResource("BoxShape3D_me2wn")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="building/StaticBody3D"]
-mesh = SubResource("BoxMesh_ggvgk")
+transform = Transform3D(-1.48, 0, -2.23474e-07, 0, 1.48, 0, 2.23474e-07, 0, -1.48, 2.57023, 2.74883, -5.35)

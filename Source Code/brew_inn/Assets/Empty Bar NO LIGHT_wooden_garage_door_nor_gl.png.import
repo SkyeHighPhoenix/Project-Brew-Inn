@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bgrkh4q3p3iv0"
+path.s3tc="res://.godot/imported/Empty Bar NO LIGHT_wooden_garage_door_nor_gl.png-d4900aa38ecf2169f18728c3f70e8fb4.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "9b3d5529acb86eaf38a2c08b3a2db837"
+}
+
+[deps]
+
+source_file="res://Assets/Empty Bar NO LIGHT_wooden_garage_door_nor_gl.png"
+dest_files=["res://.godot/imported/Empty Bar NO LIGHT_wooden_garage_door_nor_gl.png-d4900aa38ecf2169f18728c3f70e8fb4.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Assets/Empty Bar NO LIGHT_wooden_garage_door_nor_gl.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
