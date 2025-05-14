@@ -59,7 +59,7 @@ func _ready() -> void:
 			tempStructures[Vector2i(3-x,4-y)] = "warehouse"
 	for x in range(5):
 		for y in range(3):
-			tempStructures[Vector2i(10-x,-1-y)] = "shop"
+			tempStructures[Vector2i(9-x,3-y)] = "shop"
 	for x in range(4):
 		for y in range(3):
 			tempStructures[Vector2i(-3-x,3-y)] = "tavern"
@@ -107,8 +107,10 @@ func _unhandled_input(event: InputEvent) -> void:
 				var clickCoordinates = checkCoords(getMouseToCoords(event.position))[0]
 				if clickCoordinates in dictionaryOfTiles:
 					tileTapped.emit(true,dictionaryOfTiles[clickCoordinates])
+					print(dictionaryOfTiles[clickCoordinates].tileType)
 				elif clickCoordinates in structureLocations:
 					tileTapped.emit(false,structureLocations[clickCoordinates])
+					print(structureLocations[clickCoordinates])
 					pass
 				
 
