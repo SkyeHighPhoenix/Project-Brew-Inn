@@ -20,7 +20,7 @@ func _input(event: InputEvent) -> void:
 				setTile.emit("storage", "storage")
 			KEY_2:
 				print("2")
-				setTile.emit("orchardLemon","standardFarm")
+				setTile.emit("orchard","standardFarm")
 			
 			KEY_3:
 				print("3")

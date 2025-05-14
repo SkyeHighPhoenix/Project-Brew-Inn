@@ -56,6 +56,7 @@ func tickIncrease():
 	if Irrigated == true:
 		tick += 1
 		increaseResources()
+		
 
 func checkOutputs(coordsIn):
 	# take block

@@ -73,7 +73,7 @@ func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, ir
 	tileType = buildingType
 	tilePosition = coordinates
 	tileSize = size
-	tilemapLocations = {"cropPlot":Vector2i(2,6)}
+	tilemapLocations = {"cropPlot":Vector2i(2,6),"hops":Vector2i(9,0), "ginger":Vector2i(9,1),"sugarcane":Vector2i(9,2),"sasparilla":Vector2i(9,3)}
 	checkConnections(connectedTiles)
 	checkForStorage()
 	setTileAt.emit(tilemapLocations["cropPlot"], tilePosition)
