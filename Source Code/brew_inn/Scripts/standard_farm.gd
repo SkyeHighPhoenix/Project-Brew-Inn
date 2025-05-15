@@ -4,6 +4,7 @@ const typeResources = {}
 # Called when the node enters the scene tree for the first time.
 func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, irrigationStatus:bool, connectedTiles:Array):
 	category = "standardFarm"
+	finalType = buildingType
 	GlobalTick.tickIncreased.connect(tickIncrease)
 	Irrigated = irrigationStatus
 	tileType = buildingType

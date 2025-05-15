@@ -4,6 +4,7 @@ var secondResourceCount = 0
 
 func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, irrigationStatus:bool, connectedTiles:Array):
 	category = "herbGarden"
+	finalType = "herbGarden"
 	GlobalTick.tickIncreased.connect(tickIncrease)
 	Irrigated = irrigationStatus
 	tileType = "hGL"

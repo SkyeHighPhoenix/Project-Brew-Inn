@@ -39,13 +39,9 @@ func subtractCurrency(amount):
 func addResource(resource, amount):
 	if resource in resourceCount:
 		resourceCount[str(resource)]+=amount
-		print (resourceCount)
-		print (categories)
 		GlobalInventory.exp+=amount
 	else:
 		resourceCount[str(resource)]=amount
-		print (resourceCount)
-		print (categories)
 		GlobalInventory.exp+=amount
 		return false
 	
@@ -64,8 +60,6 @@ func newResource(name, categoryList, initialAmount=0):
 	for i in range(len(categoryList)):
 		categories[categoryList[i]].append(name)
 	resourceCount[name]=initialAmount
-	print (resourceCount)
-	print (categories)
 
 func addEXP(amount):
 	exp+=amount

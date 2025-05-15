@@ -40,6 +40,7 @@ func ExitedTavern():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func handleStructureInteractions(isPlaced, structure):
+	var ui
 	if !isPlaced:
 		match structure:
 			"tavern":
@@ -49,4 +50,16 @@ func handleStructureInteractions(isPlaced, structure):
 			"shop":
 				$ExteriorWorld/CanvasLayer/UiShop.show()
 	else:
-		pass
+		match structure.category:
+			"cropPlots":
+				pass
+			"storage":
+				ui = preload("res://UI/External world/UI_farming_structure.tscn")
+				var uiInstance = ui.instantiate()
+				uiInstance.init(structure)
+				$ExteriorWorld/CanvasLayer.add_child(uiInstance)
+			"standardFarm":
+				ui = preload("res://UI/External world/UI_farming_structure.tscn")
+				var uiInstance = ui.instantiate()
+				uiInstance.init(structure)
+				$ExteriorWorld/CanvasLayer.add_child(uiInstance)

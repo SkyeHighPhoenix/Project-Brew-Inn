@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://j8q5lwf17ylv"]
+[gd_scene load_steps=7 format=3 uid="uid://j8q5lwf17ylv"]
 
 [ext_resource type="PackedScene" uid="uid://f4awr0taktj2" path="res://Assets/Empty Bar NO LIGHT.glb" id="1_a6k07"]
 [ext_resource type="Script" path="res://bar.gd" id="2_e21vt"]
@@ -8,6 +8,13 @@ size = Vector3(10, 100, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2tfs5"]
 size = Vector3(10, 100, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygx4r"]
+albedo_color = Color(0.788235, 0.470588, 0.211765, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p7h5f"]
+material = SubResource("StandardMaterial3D_ygx4r")
+size = Vector3(2, 2, 2)
 
 [node name="Empty Bar NO LIGHT" instance=ExtResource("1_a6k07")]
 transform = Transform3D(0.295, 0, 0, 0, -1.28949e-08, 0.295, 0, -0.295, -1.28949e-08, 32.3763, 0, 0)
@@ -65,12 +72,25 @@ transform = Transform3D(1, 0, 0, 0, -0.438967, 0.898503, 0, -0.898503, -0.438967
 light_energy = 2.224
 spot_range = 14.1478
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Lights" index="1"]
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lights" index="1"]
+transform = Transform3D(0.999421, 0.00547609, -0.0335838, 0.0340273, -0.160839, 0.986394, 0, -0.986966, -0.160932, -1.26428, 12.9121, 5.3232)
+light_energy = 16.0
+light_indirect_energy = 1.78
+spot_range = 25.298
+spot_angle = 10.4284
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights" index="2"]
 transform = Transform3D(1, 0, 0, 0, -0.438967, 0.898503, 0, -0.898503, -0.438967, 1.97285, 7.7562, -7.59879)
 light_energy = 2.224
 spot_range = 14.1478
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="Lights" index="2"]
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lights" index="3"]
 transform = Transform3D(1, 0, 0, 0, -0.438967, 0.898503, 0, -0.898503, -0.438967, 5.4142, 7.7562, -7.59879)
 light_energy = 2.224
 spot_range = 14.1478
+
+[node name="CUBE" type="StaticBody3D" parent="." index="3"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CUBE" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 4.9738e-14, 0, -4.9738e-14, 2, -112.816, -23.2692, 5.75768)
+mesh = SubResource("BoxMesh_p7h5f")

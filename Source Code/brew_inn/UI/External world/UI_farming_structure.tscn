@@ -31,7 +31,7 @@ offset_bottom = 614.0
 texture = ExtResource("1_ag6c4")
 expand_mode = 5
 
-[node name="Structure name" type="Label" parent="."]
+[node name="StructureName" type="Label" parent="."]
 layout_mode = 0
 offset_left = 144.0
 offset_top = 130.0
@@ -780,10 +780,6 @@ theme_override_font_sizes/font_size = 14
 text = "Assign"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="manualHarvestButton" to="." method="_on_manual_harvest_button_pressed"]
-[connection signal="pressed" from="collectFromLocalStorageButton" to="." method="_on_collect_from_local_storage_button_pressed"]
-[connection signal="pressed" from="setCropButton" to="." method="_on_set_crop_button_pressed"]
-[connection signal="pressed" from="setCropButton2" to="." method="_on_set_crop_button_2_pressed"]
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Crop collection tab/quickCollectCropA" to="." method="_on_quick_collect_crop_a_pressed"]
 [connection signal="pressed" from="Crop collection tab/quickCollectCropB" to="." method="_on_quick_collect_crop_b_pressed"]
