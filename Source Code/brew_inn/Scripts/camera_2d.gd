@@ -13,7 +13,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _input(event: InputEvent):
+func _unhandled_input(event: InputEvent):
 	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
 		position -= event.relative/zoom
 		restrictBorders()

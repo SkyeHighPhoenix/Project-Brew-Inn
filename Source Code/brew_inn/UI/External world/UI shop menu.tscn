@@ -31,12 +31,14 @@ anchors_preset = 0
 script = ExtResource("1_n5kmo")
 
 [node name="backgroundGreyOut" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.372549, 0.345098, 0.333333, 0.811765)
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
+layout_mode = 0
 offset_left = 32.0
 offset_top = 17.0
 offset_right = 1118.0
@@ -46,6 +48,7 @@ expand_mode = 5
 
 [node name="Vertical divider" type="TextureRect" parent="."]
 modulate = Color(0.707967, 0.707966, 0.707967, 1)
+layout_mode = 0
 offset_left = 278.0
 offset_top = 84.0
 offset_right = 367.0
@@ -56,6 +59,7 @@ expand_mode = 3
 
 [node name="Horizontal divider" type="TextureRect" parent="."]
 modulate = Color(0.709804, 0.709804, 0.709804, 1)
+layout_mode = 0
 offset_left = 121.0
 offset_top = 183.0
 offset_right = 306.0
@@ -2033,6 +2037,7 @@ offset_bottom = 97.0
 text = "Cost is incurred every 2 days"
 
 [node name="VScrollBar" type="VScrollBar" parent="."]
+layout_mode = 0
 offset_left = 976.0
 offset_top = 132.0
 offset_right = 1005.0
@@ -2043,6 +2048,7 @@ theme_override_styles/grabber_highlight = ExtResource("3_00wu6")
 theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_6x2hq")
 
 [node name="backButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 438.0
 offset_right = 290.0
@@ -2065,6 +2071,7 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="Shop label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 169.0
 offset_top = 134.0
 offset_right = 263.0
@@ -2074,6 +2081,7 @@ text = "Shop"
 uppercase = true
 
 [node name="machinesTabButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 268.0
 offset_right = 290.0
@@ -2099,6 +2107,7 @@ autowrap_mode = 3
 uppercase = true
 
 [node name="farmingTabLabel" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 213.0
 offset_right = 290.0
@@ -2123,6 +2132,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="licensesTabButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 127.0
 offset_top = 324.0
 offset_right = 291.0
@@ -2147,6 +2157,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="workerTabButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 128.0
 offset_top = 375.0
 offset_right = 292.0
