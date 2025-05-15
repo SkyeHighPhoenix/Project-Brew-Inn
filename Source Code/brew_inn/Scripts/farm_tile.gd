@@ -8,7 +8,7 @@ const typeToResource = {"hops":"Hops", "ginger":"Ginger","sugarcane":"Sugarcane"
 	"vanillahGR":"Vanilla","vanillahGL":"Vanilla","spearminthGR":"Spearmint","spearminthGL":"Spearmint",
 	"minthGR":"Mint","minthGL":"Mint","nutmeghGR":"Nutmeg","nutmeghGL":"Nutmeg"}
 signal setTileAt(onSet, onMap)
-
+var category = "nullFarm"
 var ticksToGrow = 100
 var resourcesOnHarvest = 25
 var storageCap = 500

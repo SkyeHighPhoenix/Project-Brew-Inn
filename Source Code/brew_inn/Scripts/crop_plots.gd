@@ -72,6 +72,7 @@ func setStorage(settingStorage, checkedTiles = []):
 	pass
 
 func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, irrigationStatus:bool, connectedTiles:Array):
+	category = "cropPlots"
 	GlobalTick.tickIncreased.connect(tickIncrease)
 	Irrigated = irrigationStatus
 	tileType = buildingType

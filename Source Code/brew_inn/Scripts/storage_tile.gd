@@ -1,4 +1,5 @@
 extends Node2D
+const category = "storage"
 const maxTiles = 6
 const startCapacity = 100
 const validTypes = ['cropPlot']

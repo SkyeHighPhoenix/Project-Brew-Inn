@@ -5,6 +5,7 @@ extends Node2D
 ##DESIGNERS: these should be all of the variables you need to change
 ##MacineInfo list populated as 
 #[recipeDictionary{[inputResources]:[outputResources]}, tileLocation(vector2i), [ticksToRefine,inputStorageCap,outputStorageCap,maxBatchSize]]
+const category = "productionMachine"
 const machineInfo = {
 	"bottlingUnit":[{["appleJuice"]:["appleJuiceBottled"],
 	["orangeJuice"]:["orangeJuiceBottled"],["blueberryJuice"]:["blueberryJuiceBottled"],

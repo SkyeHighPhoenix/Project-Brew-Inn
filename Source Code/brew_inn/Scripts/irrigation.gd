@@ -1,4 +1,5 @@
 extends Node2D
+const category = "irrigation"
 signal setTile(onSet, onMap)
 signal checkNeigbors(location)
 signal setIrrigation(vectors)

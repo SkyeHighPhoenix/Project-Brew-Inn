@@ -1,14 +1,14 @@
 extends Node2D
 
 signal freshIrrigation(tiles)
-signal tileTapped(playerMade, tile)
+signal tileTapped(playerMade, tile, category)
 
 var structureLocations = {Vector2i(-3,3):"warehouse", Vector2i(3,4):"shop", Vector2i(9,3):"tavern"}
 
 const tileTypeDict = {
 	"storage":[Vector2i(1,1)], 
 	"cropPlot":[Vector2i(2,6)],
-	"greenhouse":Vector2i(0,2),
+	"greenhouse":[Vector2i(0,2)],
 	"orchard":[Vector2i(3,4)], 
 	"berryBushes":[Vector2i(0,5)], 
 	"herbGarden":[Vector2i(0,6)],
@@ -24,7 +24,7 @@ const tileTypeDict = {
 	"juicer":[Vector2i(6,4)], 
 	"washer":[Vector2i(3,8)], 
 	"waterProcessingUnit":[Vector2i(6,8)]}
-var currentlyPlacing = true
+
 var dictionaryOfTiles = {} # for each populated tile in the ObjectLayer, format {mapIndex Vector2i():Building String}
 var dictionaryOfIrrigation = {} # each tile will have a number value, representing how many irrigation pipes are irrigating it
 # need to have a bool in all farm tiles that tells when it's globally irrigated
@@ -34,7 +34,7 @@ const checkOrder = [Vector2i(1,0),Vector2i(0,-1),Vector2i(-1,0), Vector2i(0,1)]
 const rotatableTiles = ["irrigation"]
 const productionSide = ["productionMachine"]
 
-var isPlacing = true
+var isPlacing = false
 var placingTile = "storage"
 var placingTileType = "storage"
 var placingRotation = 0
@@ -108,7 +108,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				var clickCoordinates = checkCoords(getMouseToCoords(event.position))[0]
 				if clickCoordinates in dictionaryOfTiles:
 					tileTapped.emit(true,dictionaryOfTiles[clickCoordinates])
-					print(dictionaryOfTiles[clickCoordinates].tileType)
+					print(dictionaryOfTiles[clickCoordinates].category)
 				elif clickCoordinates in structureLocations:
 					tileTapped.emit(false,structureLocations[clickCoordinates])
 					print(structureLocations[clickCoordinates])
@@ -142,6 +142,7 @@ func setPlacingTexture(Coords:Vector2i, Placing:String):
 func placeTile(coordinates):
 	var mapIndex = checkCoords(coordinates)[0]
 	if checkTileValid(mapIndex):
+		setPlacingTile("0","0")
 		var connectedTiles = checkConnected(mapIndex)
 		match placingTileType:
 			
