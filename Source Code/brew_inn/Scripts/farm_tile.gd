@@ -21,7 +21,7 @@ var workerSpeed = 200
 var tilePosition = Vector2i() # liles main tile position
 var tileSize = Vector2i() # 0,0 is a 1 by 1
 var tileType = ""
-var plantGrowing = []
+var plantGrowing = [null]
 var Irrigated = false
 
 var growthStage = 0
@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 	pass
 
 func exportResources(manual = false):
-	if tick % workerSpeed == 0 and plantGrowing != null:
+	if tick % workerSpeed == 0 and plantGrowing[0] != null:
 		if storedResources > workerExportCount:
 			GlobalInventory.addResource(plantGrowing[0], workerExportCount)
 			storedResources -= workerExportCount
@@ -72,8 +72,8 @@ func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, ir
 	pass
 
 func tickIncrease():
+	tick += 1
 	if Irrigated == true:
-		tick += 1
 		increaseResources()
 	if worker:
 		exportResources()

@@ -63,6 +63,7 @@ texture = ExtResource("3_8dht8")
 expand_mode = 5
 
 [node name="farmingTab" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 352.0
@@ -83,6 +84,7 @@ vertical_scroll_mode = 2
 layout_mode = 2
 
 [node name="shopItem" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+visible = false
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 
@@ -119,7 +121,7 @@ offset_left = 166.0
 offset_top = 34.0
 offset_right = 342.0
 offset_bottom = 57.0
-text = "[Item name here]"
+text = "Crop Plot Storage"
 uppercase = true
 
 [node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem"]
@@ -172,6 +174,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="shopItem6" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+visible = false
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 
@@ -208,7 +211,7 @@ offset_left = 166.0
 offset_top = 34.0
 offset_right = 342.0
 offset_bottom = 57.0
-text = "[Item name here]"
+text = "Crop Plot"
 uppercase = true
 
 [node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem6"]
@@ -261,6 +264,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="shopItem7" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+visible = false
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 
@@ -297,7 +301,7 @@ offset_left = 166.0
 offset_top = 34.0
 offset_right = 342.0
 offset_bottom = 57.0
-text = "[Item name here]"
+text = "Greenhouse"
 uppercase = true
 
 [node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem7"]
@@ -350,6 +354,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="shopItem8" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+visible = false
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 
@@ -386,7 +391,7 @@ offset_left = 166.0
 offset_top = 34.0
 offset_right = 342.0
 offset_bottom = 57.0
-text = "[Item name here]"
+text = "Orchard"
 uppercase = true
 
 [node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem8"]
@@ -439,6 +444,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="shopItem9" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+visible = false
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 
@@ -475,7 +481,7 @@ offset_left = 166.0
 offset_top = 34.0
 offset_right = 342.0
 offset_bottom = 57.0
-text = "[Item name here]"
+text = "Berry Bushes"
 uppercase = true
 
 [node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem9"]
@@ -528,6 +534,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="shopItem10" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+visible = false
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 
@@ -564,7 +571,7 @@ offset_left = 166.0
 offset_top = 34.0
 offset_right = 342.0
 offset_bottom = 57.0
-text = "[Item name here]"
+text = "Herb Garden"
 uppercase = true
 
 [node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem10"]
@@ -617,6 +624,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="shopItem2" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+visible = false
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 
@@ -653,7 +661,7 @@ offset_left = 166.0
 offset_top = 34.0
 offset_right = 342.0
 offset_bottom = 57.0
-text = "[Item name here]"
+text = "Irrigation Well"
 uppercase = true
 
 [node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem2"]
@@ -706,6 +714,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="shopItem3" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+visible = false
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 
@@ -742,7 +751,7 @@ offset_left = 166.0
 offset_top = 34.0
 offset_right = 342.0
 offset_bottom = 57.0
-text = "[Item name here]"
+text = "Irrigation Straight Pipe"
 uppercase = true
 
 [node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem3"]
@@ -795,6 +804,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="shopItem4" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+visible = false
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 
@@ -831,7 +841,7 @@ offset_left = 166.0
 offset_top = 34.0
 offset_right = 342.0
 offset_bottom = 57.0
-text = "[Item name here]"
+text = "Irrigation turn"
 uppercase = true
 
 [node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem4"]
@@ -884,6 +894,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="shopItem5" type="Control" parent="farmingTab/shopScrollableFarmingTab/farmingItemList"]
+visible = false
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 
@@ -920,7 +931,7 @@ offset_left = 166.0
 offset_top = 34.0
 offset_right = 342.0
 offset_bottom = 57.0
-text = "[Item name here]"
+text = "Irrigation Junction"
 uppercase = true
 
 [node name="currentlyOwnedLabel" type="Label" parent="farmingTab/shopScrollableFarmingTab/farmingItemList/shopItem5"]
@@ -973,7 +984,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="machinesTab" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 352.0
@@ -993,11 +1003,11 @@ vertical_scroll_mode = 2
 [node name="machinesItemList" type="VBoxContainer" parent="machinesTab/shopScrollableMachinesTab"]
 layout_mode = 2
 
-[node name="shopItem" type="Control" parent="machinesTab/shopScrollableMachinesTab/machinesItemList"]
+[node name="bottlingUnit" type="Control" parent="machinesTab/shopScrollableMachinesTab/machinesItemList"]
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 
-[node name="entryBackground" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+[node name="entryBackground" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/bottlingUnit"]
 modulate = Color(0.813258, 0.813258, 0.813258, 1)
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
@@ -1006,7 +1016,7 @@ offset_bottom = 150.0
 texture = ExtResource("1_wlmrt")
 expand_mode = 1
 
-[node name="iconHighlight" type="ColorRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+[node name="iconHighlight" type="ColorRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/bottlingUnit"]
 layout_mode = 0
 offset_left = 70.0
 offset_top = 34.0
@@ -1014,7 +1024,7 @@ offset_right = 158.0
 offset_bottom = 114.0
 color = Color(0.527967, 0.419829, 0.320141, 1)
 
-[node name="coinPriceIcon" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+[node name="coinPriceIcon" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/bottlingUnit"]
 layout_mode = 0
 offset_left = -26.0
 offset_top = 51.0
@@ -1024,16 +1034,16 @@ mouse_filter = 2
 texture = ExtResource("4_3dpcs")
 expand_mode = 1
 
-[node name="shopItemName" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+[node name="shopItemName" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/bottlingUnit"]
 layout_mode = 0
 offset_left = 166.0
 offset_top = 34.0
 offset_right = 342.0
 offset_bottom = 57.0
-text = "[Item name here]"
+text = "bottling unit"
 uppercase = true
 
-[node name="currentlyOwnedLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+[node name="currentlyOwnedLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/bottlingUnit"]
 layout_mode = 0
 offset_left = 166.0
 offset_top = 92.0
@@ -1041,7 +1051,7 @@ offset_right = 302.0
 offset_bottom = 115.0
 text = "Currently owned:"
 
-[node name="currentlyOwnedAmountLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+[node name="currentlyOwnedAmountLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/bottlingUnit"]
 layout_mode = 0
 offset_left = 301.0
 offset_top = 92.0
@@ -1049,7 +1059,7 @@ offset_right = 437.0
 offset_bottom = 115.0
 text = "[number here]"
 
-[node name="shopItemCost" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+[node name="shopItemCost" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/bottlingUnit"]
 layout_mode = 0
 offset_left = 186.0
 offset_top = 53.0
@@ -1058,7 +1068,7 @@ offset_bottom = 76.0
 text = "[Price number here]"
 uppercase = true
 
-[node name="purchaseButtonM1" type="TextureButton" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem"]
+[node name="purchaseButtonM1" type="TextureButton" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/bottlingUnit"]
 layout_mode = 0
 offset_left = 446.0
 offset_top = 50.0
@@ -1070,7 +1080,630 @@ texture_hover = ExtResource("8_yn2nk")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="buyLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/shopItem/purchaseButtonM1"]
+[node name="buyLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/bottlingUnit/purchaseButtonM1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="carbonator" type="Control" parent="machinesTab/shopScrollableMachinesTab/machinesItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/carbonator"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/carbonator"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/carbonator"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/carbonator"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "Carbonator"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/carbonator"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/carbonator"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/carbonator"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonM1" type="TextureButton" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/carbonator"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/carbonator/purchaseButtonM1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="dehydrator" type="Control" parent="machinesTab/shopScrollableMachinesTab/machinesItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/dehydrator"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/dehydrator"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/dehydrator"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/dehydrator"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "Dehydrator"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/dehydrator"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/dehydrator"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/dehydrator"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonM1" type="TextureButton" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/dehydrator"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/dehydrator/purchaseButtonM1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="fermentor" type="Control" parent="machinesTab/shopScrollableMachinesTab/machinesItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "Fermenter"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonM1" type="TextureButton" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor/purchaseButtonM1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="industrialMixer" type="Control" parent="machinesTab/shopScrollableMachinesTab/machinesItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/industrialMixer"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/industrialMixer"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/industrialMixer"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/industrialMixer"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "industrial mixer"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/industrialMixer"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/industrialMixer"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/industrialMixer"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonM1" type="TextureButton" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/industrialMixer"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/industrialMixer/purchaseButtonM1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="juicer" type="Control" parent="machinesTab/shopScrollableMachinesTab/machinesItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/juicer"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/juicer"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/juicer"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/juicer"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "juicer"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/juicer"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/juicer"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/juicer"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonM1" type="TextureButton" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/juicer"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/juicer/purchaseButtonM1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="washer" type="Control" parent="machinesTab/shopScrollableMachinesTab/machinesItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/washer"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/washer"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/washer"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/washer"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "Washer"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/washer"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/washer"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/washer"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonM1" type="TextureButton" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/washer"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/washer/purchaseButtonM1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="waterProcessingUnit" type="Control" parent="machinesTab/shopScrollableMachinesTab/machinesItemList"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+
+[node name="entryBackground" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/waterProcessingUnit"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 150.0
+texture = ExtResource("1_wlmrt")
+expand_mode = 1
+
+[node name="iconHighlight" type="ColorRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/waterProcessingUnit"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 34.0
+offset_right = 158.0
+offset_bottom = 114.0
+color = Color(0.527967, 0.419829, 0.320141, 1)
+
+[node name="coinPriceIcon" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/waterProcessingUnit"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 51.0
+offset_right = 670.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("4_3dpcs")
+expand_mode = 1
+
+[node name="shopItemName" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/waterProcessingUnit"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 57.0
+text = "water processing unit"
+uppercase = true
+
+[node name="currentlyOwnedLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/waterProcessingUnit"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 92.0
+offset_right = 302.0
+offset_bottom = 115.0
+text = "Currently owned:"
+
+[node name="currentlyOwnedAmountLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/waterProcessingUnit"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 92.0
+offset_right = 437.0
+offset_bottom = 115.0
+text = "[number here]"
+
+[node name="shopItemCost" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/waterProcessingUnit"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 53.0
+offset_right = 358.0
+offset_bottom = 76.0
+text = "[Price number here]"
+uppercase = true
+
+[node name="purchaseButtonM1" type="TextureButton" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/waterProcessingUnit"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 50.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture_normal = ExtResource("1_wlmrt")
+texture_pressed = ExtResource("1_wlmrt")
+texture_hover = ExtResource("8_yn2nk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="buyLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/waterProcessingUnit/purchaseButtonM1"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0

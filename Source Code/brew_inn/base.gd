@@ -20,6 +20,9 @@ func _input(event):
 		ExitedTavern()
 		print("exit")
 
+func uiToggled():
+	pass
+
 func EnteredTavern():
 	inside = true
 	remove_child($ExteriorWorld)

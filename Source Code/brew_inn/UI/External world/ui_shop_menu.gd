@@ -8,6 +8,9 @@ var workersShopCostDict = {"Standard":[80, 3], "Specialist":[100, 2]}#second num
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for shopItem in $machinesTab/shopScrollableMachinesTab/machinesItemList.get_children():
+		shopItem.get_node("purchaseButtonM1").pressed.connect(shopButtonPressed.bind(shopItem))
+		
 	pass # Replace with function body.
 
 
@@ -18,3 +21,7 @@ func _process(delta: float) -> void:
 
 func _on_back_button_pressed() -> void:
 	hide();
+
+func shopButtonPressed(button):
+	print(button.name)
+	pass
