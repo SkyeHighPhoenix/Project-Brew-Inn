@@ -8,7 +8,10 @@ var itemCount:int = 0
 var cropActive = null
 var assignedNodes = []
 var tilePosition
-var worker = false
+var worker = true
+var tick = 0
+var workerExportCount = 20
+var workerSpeed = 200
 signal setTile(onSet, onMap)
 
 
@@ -31,9 +34,16 @@ func addResources(count:int):
 	pass
 	
 func createBuilding(buildingType:String, coordinates:Vector2i, tileSize:Vector2i,connectedTiles:Array):
+	changeCrop("sugarcane")
 	tilePosition = coordinates
 	connectPlots(connectedTiles)
 	setTile.emit(Vector2i(1,1), tilePosition)
+	GlobalTick.tickIncreased.connect(tickIncrease)
+
+func tickIncrease():
+	tick += 1
+	if worker:
+		exportResources()
 
 func connectPlots(connections):
 	var checkedPlots = []
@@ -55,7 +65,20 @@ func connectPlots(connections):
 		pass
 	print(assignedNodes, "connectPLots")
 
-func changeCrop(newCrop):
+func exportResources(manual = false):
+	if tick % workerSpeed == 0 and cropActive != null:
+		if itemCount > workerExportCount:
+			GlobalInventory.addResource(cropActive, workerExportCount)
+			itemCount -= workerExportCount
+		else:
+			GlobalInventory.addResource(cropActive, itemCount)
+			itemCount = 0
+	if manual:
+		print("manual")
+		GlobalInventory.addResource(cropActive, itemCount)
+		itemCount = 0
+
+func changeCrop(newCrop:String):
 	cropActive = newCrop
 	for i in assignedNodes:
 		i.updateCropType(newCrop)
@@ -64,7 +87,8 @@ func changeCrop(newCrop):
 func addNode(node):
 	if node not in assignedNodes:
 		assignedNodes.append(node)
-		node.updateCropType(cropActive)
+		if cropActive != null:
+			node.updateCropType(cropActive)
 		print(assignedNodes, "AddNode")
 	pass
 

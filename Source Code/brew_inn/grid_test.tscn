@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://bh3ksvxjojdyn"]
+[gd_scene load_steps=21 format=3 uid="uid://bh3ksvxjojdyn"]
 
 [ext_resource type="Script" path="res://Scripts/grid_test.gd" id="1_1loiy"]
 [ext_resource type="Script" path="res://Scripts/enviromap.gd" id="2_edvfu"]
 [ext_resource type="Texture2D" uid="uid://dvjjpptvui2q0" path="res://Assets/Tilemaps/dirt sprite revamp.png" id="2_xe40p"]
 [ext_resource type="Texture2D" uid="uid://d24k2cd3qdua7" path="res://Assets/Tilemaps/GrassWCorners.png" id="4_khc6q"]
+[ext_resource type="Texture2D" uid="uid://dxb7wf4ydiuac" path="res://Assets/Tilemaps/moreFruits....png" id="5_8kc6i"]
 [ext_resource type="Texture2D" uid="uid://bokfwjlwf55bf" path="res://Assets/Tilemaps/TilesheetALLCROPSACTUALLY.png" id="5_387pg"]
 [ext_resource type="Script" path="res://Scripts/placing_object.gd" id="5_gp0ai"]
 [ext_resource type="Texture2D" uid="uid://cdp4evcrvpigo" path="res://Assets/Tilemaps/orchard_experiment.png" id="6_p3vsv"]
@@ -63,7 +64,7 @@ tile_size = Vector2i(128, 128)
 sources/1 = SubResource("TileSetAtlasSource_5vs5u")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4t3y1"]
-texture = ExtResource("5_387pg")
+texture = ExtResource("5_8kc6i")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 1:0/0 = 0
@@ -189,6 +190,12 @@ texture_region_size = Vector2i(128, 128)
 0:11/size_in_atlas = Vector2i(3, 2)
 0:11/0 = 0
 0:11/0/texture_origin = Vector2i(128, 64)
+9:10/size_in_atlas = Vector2i(3, 1)
+9:10/0 = 0
+9:10/0/texture_origin = Vector2i(128, 0)
+9:11/size_in_atlas = Vector2i(3, 2)
+9:11/0 = 0
+9:11/0/texture_origin = Vector2i(128, 64)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h64wa"]
 texture = ExtResource("6_p3vsv")

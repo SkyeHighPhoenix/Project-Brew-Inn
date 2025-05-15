@@ -1,9 +1,11 @@
 extends "res://Scripts/farm_tile.gd"
 
+var secondResourceCount = 0
+
 func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, irrigationStatus:bool, connectedTiles:Array):
 	GlobalTick.tickIncreased.connect(tickIncrease)
 	Irrigated = irrigationStatus
-	tileType = buildingType
+	tileType = "hGL"
 	tilePosition = coordinates
 	tileSize = size
 	tilemapLocations = {"hGL":Vector2i(0,6),"hGR":Vector2i(1,6),"cinnamonhGR":Vector2i(7,0),"cinnamonhGL":Vector2i(8,0),
@@ -11,7 +13,47 @@ func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, ir
 	"minthGR":Vector2i(14,0),"minthGL":Vector2i(15,0),"nutmeghGR":Vector2i(14,2),"nutmeghGL":Vector2i(15,2)}
 	setTileAt.emit(tilemapLocations["hGR"], tilePosition)
 	setTileAt.emit(tilemapLocations["hGL"], tilePosition-Vector2i(1,0))
+	setPlantsGrowing([null, null])
 	pass
 
-func changeCrop(newCrop, side):
+func changeCrop(newCrop:String, side):
+	if side == "L":
+		setTileAt.emit(tilemapLocations[newCrop+"hGL"], tilePosition-Vector2i(1,0))
+		setPlantsGrowing([plantGrowing[0], newCrop])
+		storedResources = 0
+	else:
+		setTileAt.emit(tilemapLocations[newCrop+"hGR"], tilePosition)
+		setPlantsGrowing([newCrop, plantGrowing[1]])
+		secondResourceCount = 0
 	pass
+
+func increaseResources():
+	if tick % ticksToGrow == 0 and Irrigated == true:
+		storedResources += resourcesOnHarvest
+		secondResourceCount += resourcesOnHarvest
+		if storedResources > storageCap:
+			storedResources = storageCap
+		if secondResourceCount > storageCap:
+			secondResourceCount = storageCap
+	pass
+
+func exportResources(manual = false):
+	if tick % workerSpeed == 0 and plantGrowing[0] != null:
+		if storedResources > workerExportCount:
+			GlobalInventory.addResource(plantGrowing[0], workerExportCount)
+			storedResources -= workerExportCount
+		else:
+			GlobalInventory.addResource(plantGrowing[0], storedResources)
+			storedResources = 0
+	if tick % workerSpeed == 0 and plantGrowing[1] != null:	
+		if secondResourceCount > workerExportCount:
+			GlobalInventory.addResource(plantGrowing[1], workerExportCount)
+			secondResourceCount -= workerExportCount
+		else:
+			GlobalInventory.addResource(plantGrowing[1], secondResourceCount)
+			secondResourceCount = 0
+	if manual:
+		GlobalInventory.addResource(plantGrowing[0], storedResources)
+		GlobalInventory.addResource(plantGrowing[1], secondResourceCount)
+		secondResourceCount = 0
+		storedResources = 0

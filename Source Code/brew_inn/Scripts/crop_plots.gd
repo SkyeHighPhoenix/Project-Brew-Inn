@@ -4,7 +4,6 @@ extends "res://Scripts/farm_tile.gd"
 var plotsToStorage = null
 var connections = []
 var storageBox = null
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -17,7 +16,7 @@ func _process(delta: float) -> void:
 
 func increaseResources():
 	if tick % ticksToGrow == 0:
-		if storageBox!=null and Irrigated:
+		if storageBox!=null and Irrigated and storageBox.cropActive != null:
 			storageBox.addResources(resourcesOnHarvest)
 
 func checkConnections(tiles):
@@ -47,6 +46,9 @@ func checkForStorage():
 	if currentSelection != null and currentSelection.storageBox.getAvailable() >0:
 		plotsToStorage = currentSelection.plotsToStorage + 1
 		storageBox = currentSelection.storageBox
+		print("uhh")
+		if storageBox.cropActive != null:
+				updateCropType(storageBox.cropActive)
 		storageBox.addNode(self)
 		for i in connections:
 			if i.storageBox != storageBox:
@@ -60,6 +62,8 @@ func setStorage(settingStorage, checkedTiles = []):
 		if i.storageBox == null and settingStorage.getAvailable() > 0:
 			settingStorage.addNode(i)
 			i.storageBox = settingStorage
+			if settingStorage.cropActive != null:
+				i.updateCropType(settingStorage.cropActive)
 	for i in connections:
 		if i.storageBox == settingStorage and settingStorage.getAvailable() > 0 and i not in checkedTiles:
 			checkedTiles.append(self)
@@ -73,17 +77,21 @@ func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, ir
 	tileType = buildingType
 	tilePosition = coordinates
 	tileSize = size
-	tilemapLocations = {"cropPlot":Vector2i(2,6),"hops":Vector2i(9,0), "ginger":Vector2i(9,1),"sugarcane":Vector2i(9,2),"sasparilla":Vector2i(9,3)}
+	tilemapLocations = {"cropPlot":Vector2i(2,6),"hops":Vector2i(9,0), "ginger":Vector2i(9,1),"sugarcane":Vector2i(9,2),"sarsaparilla":Vector2i(9,3)}
+	setTileAt.emit(tilemapLocations[buildingType], tilePosition)
 	checkConnections(connectedTiles)
 	checkForStorage()
-	setTileAt.emit(tilemapLocations["cropPlot"], tilePosition)
+	tileType = buildingType
 
 func addConnection(toConnect):
 	connections.append(toConnect)
 	pass
 
-func updateCropType(crop):
-	plantGrowing = crop
+func updateCropType(newCrop:String):
+	plantGrowing = newCrop
+	setTileAt.emit(tilemapLocations[newCrop], tilePosition)
+	tileType = newCrop
+	setPlantsGrowing([newCrop])
 	# apply visual changes
 	pass
 		
@@ -94,6 +102,8 @@ func newStorage(distance, settingStorage): # crop plot exclusive
 	if distance < plotsToStorage:
 		settingStorage.addNode(self)
 		storageBox = settingStorage
+		if settingStorage.cropActive != null:
+			updateCropType(settingStorage.cropActive)
 		setStorage(settingStorage)
 		return connections
 	else:

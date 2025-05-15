@@ -3,7 +3,7 @@ extends Node2D
 var categories = {"wood":["oak", "cherry", "beech", "willow", "hazel"], "cake":["chocolate guinness cake", "carrot cake"]}
 
 var currency = 0
-var resourceCount = {"cherry":0, "beech":0, "willow":0, "hazel":0, "chocolate guinness cake":0, "carrot cake":0}
+var resourceCount = {"Orange":0, "Apple":0,"Lemon":0,"Lime":0,"Pear":0,"Strawberry":0,"Raspberry":0}
 # Called when the node enters the scene tree for the first time.
 
 var level = 1
@@ -23,9 +23,15 @@ func addResource(resource, amount):
 		print (categories)
 		GlobalInventory.exp+=amount
 	else:
+		resourceCount[str(resource)]=amount
+		print (resourceCount)
+		print (categories)
+		GlobalInventory.exp+=amount
 		return false
 	
 func subtractResource(resource, amount):
+	if resource not in resourceCount:
+		resourceCount[resource] = 0
 	if resourceCount[str(resource)]>=amount:
 		resourceCount[str(resource)]-=amount
 		return amount
