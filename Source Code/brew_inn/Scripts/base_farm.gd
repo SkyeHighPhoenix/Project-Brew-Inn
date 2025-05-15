@@ -1,4 +1,6 @@
 extends Node2D
+
+
 var tick = 0
 var ticksToGrow = 100
 var resourcesOnHarvest = 25

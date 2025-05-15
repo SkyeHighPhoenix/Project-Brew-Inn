@@ -357,6 +357,44 @@ offset_bottom = 80.0
 mouse_filter = 2
 expand_mode = 1
 
+[node name="Crop 7" type="TextureButton" parent="Set crop"]
+visible = false
+layout_mode = 0
+offset_left = 700.0
+offset_top = 152.0
+offset_right = 820.0
+offset_bottom = 256.0
+texture_normal = ExtResource("1_ag6c4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Currently growing" type="Label" parent="Set crop/Crop 7"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 16.0
+offset_right = 312.0
+offset_bottom = 39.0
+text = "Currently growing:"
+uppercase = true
+
+[node name="Crop name 1" type="Label" parent="Set crop/Crop 7"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 48.0
+offset_right = 280.0
+offset_bottom = 71.0
+text = "[Crop name here]"
+uppercase = true
+
+[node name="Crop icon" type="TextureRect" parent="Set crop/Crop 7"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 96.0
+offset_bottom = 80.0
+mouse_filter = 2
+expand_mode = 1
+
 [node name="Crop 2" type="TextureButton" parent="Set crop"]
 layout_mode = 0
 offset_left = 376.0
@@ -563,6 +601,7 @@ texture = ExtResource("4_caayg")
 expand_mode = 5
 
 [node name="Workers" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 376.0
@@ -737,6 +776,7 @@ horizontal_alignment = 1
 [connection signal="pressed" from="Crop collection tab/quickCollectCropA" to="." method="_on_quick_collect_crop_a_pressed"]
 [connection signal="pressed" from="Crop collection tab/quickCollectCropB" to="." method="_on_quick_collect_crop_b_pressed"]
 [connection signal="pressed" from="Set crop/Crop 1" to="." method="_on_crop_1_pressed"]
+[connection signal="pressed" from="Set crop/Crop 7" to="." method="_on_crop_1_pressed"]
 [connection signal="pressed" from="Set crop/Crop 2" to="." method="_on_crop_2_pressed"]
 [connection signal="pressed" from="Set crop/Crop 3" to="." method="_on_crop_3_pressed"]
 [connection signal="pressed" from="Set crop/Crop 4" to="." method="_on_crop_4_pressed"]

@@ -1,7 +1,12 @@
 extends Node2D
 # when tile is deleted you must remove all instances of this tile 
 # from connected tiles and storage
-
+const typeToResource = {"hops":"Hops", "ginger":"Ginger","sugarcane":"Sugarcane","sarsaparilla":"Sasaparilla",
+"orchardLemon":"Lemon", "blueberries":"Blueberry","strawberries":"Strawberry",
+	"blackberries":"Blackberry","orchardApple":"Apple","orchardLime":"Lime",
+	"orchardPear":"Pear","cinnamonhGR":"Cinnamon","cinnamonhGL":"Cinnamon",
+	"vanillahGR":"Vanilla","vanillahGL":"Vanilla","spearminthGR":"Spearmint","spearminthGL":"Spearmint",
+	"minthGR":"Mint","minthGL":"Mint","nutmeghGR":"Nutmeg","nutmeghGL":"Nutmeg"}
 signal setTileAt(onSet, onMap)
 
 var ticksToGrow = 100
@@ -9,12 +14,14 @@ var resourcesOnHarvest = 25
 var storageCap = 500
 var tilemapLocations = {}
 var delayTicks = 0
-var worker = false
+var worker = true
+var workerExportCount = 20
+var workerSpeed = 200
 
 var tilePosition = Vector2i() # liles main tile position
 var tileSize = Vector2i() # 0,0 is a 1 by 1
 var tileType = ""
-var plantGrowing = ""
+var plantGrowing = []
 var Irrigated = false
 
 var growthStage = 0
@@ -35,7 +42,19 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	
+
+func exportResources(manual = false):
+	if tick % workerSpeed == 0 and plantGrowing != null:
+		if storedResources > workerExportCount:
+			GlobalInventory.addResource(plantGrowing[0], workerExportCount)
+			storedResources -= workerExportCount
+		else:
+			GlobalInventory.addResource(plantGrowing[0], storedResources)
+			storedResources = 0
+	if manual:
+		GlobalInventory.addResource(plantGrowing[0], storedResources)
+		storedResources = 0
+
 func increaseResources():
 	if tick % ticksToGrow == 0 and Irrigated == true:
 		if localStorage == true:
@@ -56,6 +75,8 @@ func tickIncrease():
 	if Irrigated == true:
 		tick += 1
 		increaseResources()
+	if worker:
+		exportResources()
 		
 
 func checkOutputs(coordsIn):

@@ -84,7 +84,9 @@ var minSize
 var tilePosition = Vector2i() # liles main tile position
 var tileSize = Vector2i() # 0,0 is a 1 by 1
 var tileType = ""
-var worker = false
+var worker = true
+var workerCapacity = 20
+var workerSpeed = 200
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -131,6 +133,31 @@ func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, co
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func grabResources(manual = false):
+	for i in storedUnrefinedResources:
+		if storedUnrefinedResources[i] < inputStorageCap:
+			if storedUnrefinedResources[i]+workerCapacity > inputStorageCap:
+				storedUnrefinedResources[i]+=GlobalInventory.subtractResource(i, inputStorageCap-storedUnrefinedResources[i])
+			else:
+				storedUnrefinedResources[i]+=GlobalInventory.subtractResource(i, workerCapacity)
+	if manual:
+		for i in storedUnrefinedResources:
+			storedUnrefinedResources[i]+=GlobalInventory.subtractResource(i, inputStorageCap-storedUnrefinedResources[i])
+
+func sendResources(manual = false):
+	for i in storedRefinedResources:
+		if storedRefinedResources[i] > workerCapacity:
+			GlobalInventory.addResource(i, workerCapacity)
+			storedRefinedResources[i] -= workerCapacity
+		else:
+			GlobalInventory.addResource(i, storedRefinedResources[i])
+			storedRefinedResources[i] = 0
+	if manual:
+		for i in storedRefinedResources:
+			GlobalInventory.addResource(i, storedRefinedResources[i])
+			storedRefinedResources[i] = 0
+	pass
 
 func increaseResources():#if active = true: it checks if it is done yet, otherwise it checks if it should autostart
 	var emptySpace = outputStorageCap
