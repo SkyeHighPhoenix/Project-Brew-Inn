@@ -1544,3 +1544,5 @@ text = "Workers"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

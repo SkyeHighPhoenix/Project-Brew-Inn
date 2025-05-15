@@ -1,13 +1,10 @@
 extends Node2D
 ## put the starting prices list as a dictionary {placeholder:£placeholder price}
-var number
-var farmingShopCostDict = {"Orchard":150*1.05**(number-1), "Bushes":300*1.05**(number-1), "Crop Plot Storage":750*1.05**(number-1), "Crop Plot Body":100*1.01**(number-1), "Herb garden":1000*1.05**(number-1), "Greenhouse":1500*1.05**(number-1), "Irigation Well":200*1.1**(number-1), "Irigation main":80*1.02**(number-1), "Irigation split":100*1.05**(number-1), "Irigation turn":100*1.02**(number-1)}
-var machinesShopCostDict = {"Juicer":325*1.1**(number-1), "Fermenter":550*1.1**(number-1), "Washer":425*1.1**(number-1), "Dehydrator":675*1.1**(number-1), "Carbonator":850*1.1**(number-1), "Water Processing Unit":900*1.15**(number-1), "Industrial Mixer":1500*1.25**(number-1), "Bottling Unit":500*1.1**(number-1)}
+var structure="Null"
+var numberOfStruct = {"Null":0, "Orchard":0, "Bushes":0, "Crop Plot Storage":0, "Crop Plot Body":0, "Herb garden":0, "Greenhouse":0, "Irigation Well":0, "Irigation main":0, "Irigation split":0, "Irigation turn":0, "Juicer":0, "Fermenter":0, "Washer":0, "Dehydrator":0, "Carbonator":0, "Water Processing Unit":0, "Industrial Mixer":0, "Bottling Unit":0}
+var buildingPrice = 150*1.05**(numberOfStruct[structure]-1)
 var licensesShopCostDict = {"Juices":0, "Concentrates":150, "Ciders":400, "Beers":1175, "Soft Drinks":850, "Hot Drinks":1450}
-var workersShopCostDict = {"Standard":[80, "per 3 days"], "Specialist":[100, "per 2 days"]}
-
-
-
+var workersShopCostDict = {"Standard":[80, 3], "Specialist":[100, 2]}#second number is how often they get paid in days
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,3 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_back_button_pressed() -> void:
+	hide();
