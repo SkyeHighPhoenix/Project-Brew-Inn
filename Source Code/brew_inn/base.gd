@@ -7,6 +7,8 @@ func _ready() -> void:
 	exterior = $ExteriorWorld
 	var gridTest = get_node("ExteriorWorld/GridTest")
 	gridTest.tileTapped.connect(handleStructureInteractions)
+	#exterior.get_node("UiShop")
+	get_node("ExteriorWorld/CanvasLayer/UiShop").setTile.connect(gridTest.setPlacingTile)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
