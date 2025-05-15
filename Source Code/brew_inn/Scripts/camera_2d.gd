@@ -17,7 +17,6 @@ func _input(event: InputEvent):
 	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
 		position -= event.relative/zoom
 		restrictBorders()
-		print(position)
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed('ScrollUp'):
 			if zoom.x <= 10:
