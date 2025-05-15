@@ -28,7 +28,7 @@ func _on_set_crop_button_2_pressed() -> void:
 
 
 func _on_back_button_pressed() -> void:
-	pass # Replace with function body.
+	hide()
 
 
 func _on_quick_collect_crop_a_pressed() -> void:

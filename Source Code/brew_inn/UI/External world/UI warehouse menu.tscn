@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7bj7yxkrgdqf"]
+[gd_scene load_steps=14 format=3 uid="uid://b7bj7yxkrgdqf"]
 
+[ext_resource type="Script" path="res://UI/External world/ui_warehouse_menu.gd" id="1_4g15y"]
 [ext_resource type="Texture2D" uid="uid://brle7flb0x5sa" path="res://UI/UI assets/Scroll bar.png" id="1_uxu52"]
 [ext_resource type="StyleBox" uid="uid://bdm02q18bch88" path="res://UI/External world/vertical scrollbar grabber highlighted.tres" id="2_eu06l"]
 [ext_resource type="StyleBox" uid="uid://dq0ipva3g3q1n" path="res://UI/External world/vertical scrollbar grabber.tres" id="3_sp45i"]
@@ -27,6 +28,7 @@ region_rect = Rect2(105, 378, 165, 190)
 [sub_resource type="ViewportTexture" id="ViewportTexture_jhm37"]
 
 [node name="UiWarehouse" type="Node2D"]
+script = ExtResource("1_4g15y")
 
 [node name="backgroundGreyOut" type="ColorRect" parent="."]
 offset_right = 1152.0
@@ -96,7 +98,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="inventory" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 349.0
@@ -223,6 +224,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="workersTab" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 352.0
@@ -240,6 +242,7 @@ offset_bottom = 245.0
 [node name="overviewBase1" type="TextureRect" parent="workersTab/overviewBreakdown"]
 modulate = Color(0.811765, 0.811765, 0.811765, 1)
 custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
 offset_left = -24.0
 offset_top = -16.0
 offset_right = 600.0
@@ -248,6 +251,7 @@ texture = ExtResource("5_pawdp")
 expand_mode = 1
 
 [node name="coinIcon1" type="TextureRect" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
 offset_left = 81.0
 offset_top = 101.0
 offset_right = 777.0
@@ -257,6 +261,7 @@ texture = ExtResource("9_m7b6h")
 expand_mode = 1
 
 [node name="coinIcon2" type="TextureRect" parent="workersTab/overviewBreakdown"]
+layout_mode = 0
 offset_left = 81.0
 offset_top = 173.0
 offset_right = 777.0
@@ -382,6 +387,7 @@ offset_bottom = 368.0
 [node name="overviewBase2" type="TextureRect" parent="workersTab/overviewResults"]
 modulate = Color(0.811765, 0.811765, 0.811765, 1)
 custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
 offset_left = -24.0
 offset_top = -16.0
 offset_right = 600.0
@@ -423,6 +429,7 @@ offset_bottom = 113.0
 text = "Remaining capacity:"
 
 [node name="totalCapacityNumber" type="Label" parent="workersTab/overviewResults"]
+layout_mode = 0
 offset_left = 160.0
 offset_top = 42.0
 offset_right = 352.0
@@ -430,6 +437,7 @@ offset_bottom = 65.0
 text = "[Number here]"
 
 [node name="usedCapacityNumber" type="Label" parent="workersTab/overviewResults"]
+layout_mode = 0
 offset_left = 160.0
 offset_top = 66.0
 offset_right = 352.0
@@ -437,8 +445,11 @@ offset_bottom = 89.0
 text = "[Number here]"
 
 [node name="remainingCapacityNumber" type="Label" parent="workersTab/overviewResults"]
+layout_mode = 0
 offset_left = 208.0
 offset_top = 90.0
 offset_right = 400.0
 offset_bottom = 113.0
 text = "[Number here]"
+
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]
