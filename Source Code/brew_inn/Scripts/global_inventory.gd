@@ -2,6 +2,8 @@ extends Node2D
 
 var categories = {"wood":["oak", "cherry", "beech", "willow", "hazel"], "cake":["chocolate guinness cake", "carrot cake"]}
 var workerCredits = 0
+var workers = 0
+var specialWorkers = 0
 var currency:int = 5000
 var resourceCount = {"Orange":0, "Apple":0,"Lemon":0,"Lime":0,"Pear":0,"Strawberry":0,"Raspberry":0}
 # Called when the node enters the scene tree for the first time.
@@ -9,7 +11,25 @@ var resourceCount = {"Orange":0, "Apple":0,"Lemon":0,"Lime":0,"Pear":0,"Strawber
 var level = 1
 var expProgression = 500*1.125**(level-1)
 var exp = 0
+var days = 0
 
+func _ready() -> void:
+	GlobalTick.timeIncreased.connect(timeup.bind())
+	
+func timeup(time):
+	if time == 0:
+		days += 1
+	if days % 3 == 0:
+		var charging = 0
+		for i in range(workers):
+			charging += 80
+		currency -= charging
+	if days % 2 == 0:
+		var charging = 0
+		for i in range(specialWorkers):
+			charging += 100
+		currency -= charging
+	pass
 func addCurrency(amount):
 	currency+=amount
 		

@@ -71,12 +71,14 @@ func shopButtonPressed(button):
 			GlobalInventory.workerCredits += 3
 			GlobalInventory.currency -= 80
 			numberOfWorkers[button.name] += 1
+			GlobalInventory.workers += 1
 			button.get_node("currentlyOwnedAmountLabel").text = str(numberOfWorkers[button.name])
 	elif tileName == "specialistWorker":
 		if 100 <= GlobalInventory.currency:
 			GlobalInventory.workerCredits += 5
 			GlobalInventory.currency -= 100
 			numberOfWorkers[button.name] += 1
+			GlobalInventory.specialWorkers += 1
 			button.get_node("currentlyOwnedAmountLabel").text = str(numberOfWorkers[button.name])
 
 func shopNavigationPressed(button):

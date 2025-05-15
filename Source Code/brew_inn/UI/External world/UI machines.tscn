@@ -33,6 +33,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="backgroundGreyOut" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.372549, 0.345098, 0.333333, 0.811765)
@@ -336,6 +337,7 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="Structure name" type="Label" parent="."]
+layout_mode = 0
 offset_left = 144.0
 offset_top = 130.0
 offset_right = 279.0
@@ -345,6 +347,7 @@ NAME HERE]"
 horizontal_alignment = 1
 
 [node name="backButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 127.0
 offset_top = 438.0
 offset_right = 291.0
@@ -368,6 +371,7 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="manualDepositButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 128.0
 offset_top = 272.0
 offset_right = 292.0
@@ -392,6 +396,7 @@ autowrap_mode = 3
 uppercase = true
 
 [node name="collectFromLocalStorageButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 213.0
 offset_right = 290.0
@@ -416,6 +421,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="clearInputStorageButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 320.0
 offset_right = 290.0
@@ -439,6 +445,7 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="workerInfoButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 376.0
 offset_right = 290.0

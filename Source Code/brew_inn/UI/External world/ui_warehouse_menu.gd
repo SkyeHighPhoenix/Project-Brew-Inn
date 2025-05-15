@@ -1,8 +1,13 @@
 extends Control
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#for i in GlobalInventory.resourceCount:
+	#var inventoryItem = load("res://inventory_item.tscn")
+	#print(inventoryItem)
+	#var instance = inventoryItem.get
+	#var myinstance = instance.instantiate()
+	#print(myinstance)
+	
 	pass # Replace with function body.
 
 

@@ -16,6 +16,7 @@ func _on_timer_timeout() -> void:
 	#print("tick ", tick)
 	tickIncreased.emit()
 	if tick % (20*60) == 0:
+		
 		time+=1
 		if time >= 24:
 			time = 0

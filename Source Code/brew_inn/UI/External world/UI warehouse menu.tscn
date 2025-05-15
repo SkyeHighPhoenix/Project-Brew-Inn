@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://5cpyqi47gvvv" path="res://UI/UI assets/Modular seperater vertical.png" id="7_5gi1a"]
 [ext_resource type="Texture2D" uid="uid://cv0i7vsbcm2c6" path="res://UI/UI assets/Modular seperater horizontal.png" id="8_6214p"]
 [ext_resource type="Texture2D" uid="uid://m1348m0q4pdl" path="res://UI/UI assets/Coin.png" id="9_m7b6h"]
+[ext_resource type="PackedScene" uid="uid://cvg1ixxyp0gv6" path="res://inventory_item.tscn" id="10_eekfv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b77vu"]
 texture = ExtResource("1_uxu52")
@@ -25,20 +26,20 @@ content_margin_bottom = 29.0
 texture = ExtResource("4_6unbm")
 region_rect = Rect2(105, 378, 165, 190)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_jhm37"]
-
 [node name="UiWarehouse" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_4g15y")
 
 [node name="backgroundGreyOut" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.372549, 0.345098, 0.333333, 0.811765)
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
+layout_mode = 0
 offset_left = 32.0
 offset_top = 17.0
 offset_right = 1118.0
@@ -47,6 +48,7 @@ texture = ExtResource("5_pawdp")
 expand_mode = 5
 
 [node name="backButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 438.0
 offset_right = 290.0
@@ -70,6 +72,7 @@ uppercase = true
 
 [node name="Vertical divider" type="TextureRect" parent="."]
 modulate = Color(0.707967, 0.707966, 0.707967, 1)
+layout_mode = 0
 offset_left = 278.0
 offset_top = 84.0
 offset_right = 367.0
@@ -80,6 +83,7 @@ expand_mode = 3
 
 [node name="Horizontal divider" type="TextureRect" parent="."]
 modulate = Color(0.709804, 0.709804, 0.709804, 1)
+layout_mode = 0
 offset_left = 121.0
 offset_top = 183.0
 offset_right = 306.0
@@ -89,6 +93,7 @@ texture = ExtResource("8_6214p")
 expand_mode = 5
 
 [node name="Structure name" type="Label" parent="."]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 134.0
 offset_right = 288.0
@@ -132,52 +137,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Inventory item" type="Control" parent="inventory/inventoryView/inventoryContainer"]
-custom_minimum_size = Vector2(80, 100)
+[node name="Inventory item" parent="inventory/inventoryView/inventoryContainer" instance=ExtResource("10_eekfv")]
 layout_mode = 2
 
-[node name="inventorySlot" type="TextureButton" parent="inventory/inventoryView/inventoryContainer/Inventory item"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 2.0
-offset_right = 72.0
-offset_bottom = 66.0
-texture_normal = ExtResource("5_pawdp")
-texture_pressed = ExtResource("5_pawdp")
-texture_hover = ExtResource("6_ml26i")
-texture_disabled = SubResource("ViewportTexture_jhm37")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="inventoryItemIcon" type="TextureRect" parent="inventory/inventoryView/inventoryContainer/Inventory item"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 15.0
-offset_right = 65.0
-offset_bottom = 55.0
-mouse_filter = 2
-expand_mode = 1
-
-[node name="inventoryItemName" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item"]
-layout_mode = 0
-offset_top = 61.0
-offset_right = 80.0
-offset_bottom = 84.0
-theme_override_font_sizes/font_size = 13
-text = "Item name"
-horizontal_alignment = 1
-
-[node name="inventoryItemAmount" type="Label" parent="inventory/inventoryView/inventoryContainer/Inventory item"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 72.0
-offset_right = 72.0
-offset_bottom = 95.0
-theme_override_font_sizes/font_size = 13
-text = "Quantity"
-horizontal_alignment = 1
-
 [node name="inventoryTabButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 219.0
 offset_right = 290.0
@@ -202,6 +166,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="workersTabButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 127.0
 offset_top = 271.0
 offset_right = 291.0

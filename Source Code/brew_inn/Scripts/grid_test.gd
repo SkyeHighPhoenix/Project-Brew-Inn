@@ -181,6 +181,7 @@ func placeTile(coordinates):
 				var tileToPlace = load("res://TileScenes/production_machine.tscn")
 				var tileInstance = tileToPlace.instantiate()
 				var tileSize = $PlacingObject.getTileSize(tileTypeDict[placingTile][0])
+				print(tileInstance.name)
 				tileInstance.setTileAt.connect(setTileAt.bind())
 				for i in range(tileSize.x):
 					for j in range(tileSize.y):

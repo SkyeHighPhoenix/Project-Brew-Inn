@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvg1ixxyp0gv6"]
+
+[ext_resource type="Texture2D" uid="uid://qmd7ngwoprcf" path="res://UI/UI assets/General button.png" id="1_1eqau"]
+[ext_resource type="Texture2D" uid="uid://nl7m6s2rqdmt" path="res://UI/UI assets/Button highlighted.png" id="2_io6gn"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jhm37"]
+
+[node name="Inventory item" type="Control"]
+visible = false
+custom_minimum_size = Vector2(80, 100)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="inventorySlot" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 72.0
+offset_bottom = 66.0
+texture_normal = ExtResource("1_1eqau")
+texture_pressed = ExtResource("1_1eqau")
+texture_hover = ExtResource("2_io6gn")
+texture_disabled = SubResource("ViewportTexture_jhm37")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="inventoryItemIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 65.0
+offset_bottom = 55.0
+mouse_filter = 2
+expand_mode = 1
+
+[node name="inventoryItemName" type="Label" parent="."]
+layout_mode = 0
+offset_top = 61.0
+offset_right = 80.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 13
+text = "Item name"
+horizontal_alignment = 1
+
+[node name="inventoryItemAmount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 72.0
+offset_right = 72.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 13
+text = "Quantity"
+horizontal_alignment = 1
