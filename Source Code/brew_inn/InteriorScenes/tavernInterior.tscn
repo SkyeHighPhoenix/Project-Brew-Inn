@@ -1,15 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfix66ksjvwt0"]
+[gd_scene load_steps=11 format=3 uid="uid://dfix66ksjvwt0"]
 
 [ext_resource type="PackedScene" uid="uid://j8q5lwf17ylv" path="res://bar.tscn" id="1_a8qpa"]
 [ext_resource type="PackedScene" uid="uid://yx6knh7fwti7" path="res://UI/Tavern interior/UI overlay tavern interior.tscn" id="1_ycoge"]
 [ext_resource type="PackedScene" uid="uid://da7cye1gfd64u" path="res://InteriorScenes/player.tscn" id="1_yoomx"]
 [ext_resource type="Script" path="res://InteriorScenes/tavern_interior.gd" id="1_yu3lc"]
+[ext_resource type="PackedScene" uid="uid://bgjetcsgyvbhg" path="res://Assets/Grey Mug.glb" id="5_r1b4d"]
+[ext_resource type="PackedScene" uid="uid://b8hgjet6krit0" path="res://Assets/Green Bottle.glb" id="6_x751v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k2h1g"]
 size = Vector3(3, 3, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pipof"]
 size = Vector3(3, 3, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vqx8m"]
+size = Vector3(4, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h240u"]
+size = Vector3(4, 1, 1)
 
 [node name="TavernInterior" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0737634, -0.0156236, -0.0108824)
@@ -32,3 +40,60 @@ shape = SubResource("BoxShape3D_k2h1g")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Exit"]
 visible = false
 mesh = SubResource("BoxMesh_pipof")
+
+[node name="ServeSpace" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.0151663, 0, 0.999885, 0, 1, 0, -0.999885, 0, -0.0151663, 4.31314, 1.78181, -1.99471)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ServeSpace"]
+shape = SubResource("BoxShape3D_k2h1g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ServeSpace"]
+visible = false
+mesh = SubResource("BoxMesh_pipof")
+
+[node name="Cups" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.0151663, 0, 0.999885, 0, 1, 0, -0.999885, 0, -0.0151663, 6.88236, 1.78181, -8.20552)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cups"]
+shape = SubResource("BoxShape3D_k2h1g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cups"]
+visible = false
+mesh = SubResource("BoxMesh_pipof")
+
+[node name="Bottles" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.0151663, 0, 0.999885, 0, 1, 0, -0.999885, 0, -0.0151663, -0.87422, 1.78181, -8.32059)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bottles"]
+shape = SubResource("BoxShape3D_k2h1g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bottles"]
+visible = false
+mesh = SubResource("BoxMesh_pipof")
+
+[node name="Taps" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.727138, 2.90609, -3.99811)
+collision_layer = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Taps"]
+visible = false
+mesh = SubResource("BoxMesh_vqx8m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Taps"]
+shape = SubResource("BoxShape3D_h240u")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="servedMug" parent="." instance=ExtResource("5_r1b4d")]
+transform = Transform3D(0.015, 0, 0, 0, -6.55671e-10, 0.015, 0, -0.015, -6.55671e-10, 2.93157, 2.98368, -1.2201)
+visible = false
+
+[node name="servedBottle" parent="." instance=ExtResource("6_x751v")]
+transform = Transform3D(0.015, 0, 0, 0, -6.55671e-10, 0.015, 0, -0.015, -6.55671e-10, 4.76454, 2.97733, -1.32321)
+visible = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

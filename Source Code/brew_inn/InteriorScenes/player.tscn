@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://da7cye1gfd64u"]
+[gd_scene load_steps=7 format=3 uid="uid://da7cye1gfd64u"]
 
 [ext_resource type="Script" path="res://Scripts/playerController.gd" id="1_i5hvf"]
+[ext_resource type="PackedScene" uid="uid://b8hgjet6krit0" path="res://Assets/Green Bottle.glb" id="2_j5r75"]
+[ext_resource type="PackedScene" uid="uid://bgjetcsgyvbhg" path="res://Assets/Grey Mug.glb" id="3_6623y"]
+[ext_resource type="PackedScene" uid="uid://dqgvdpq1v3lja" path="res://Scripts/Empty Mug.glb" id="4_2htvb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0e5y3"]
 
@@ -37,3 +40,15 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Bottle" parent="." instance=ExtResource("2_j5r75")]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 1.25098, -1.19209e-07, 0.370198)
+visible = false
+
+[node name="FullMug" parent="." instance=ExtResource("3_6623y")]
+transform = Transform3D(-0.00818561, 0.0057442, 2.51087e-10, 9.92557e-18, -4.37114e-10, 0.01, 0.0057442, 0.00818561, 3.57805e-10, 0.343073, -1.19209e-07, -1.82177)
+visible = false
+
+[node name="EmptyMug" parent="." instance=ExtResource("4_2htvb")]
+transform = Transform3D(-0.0076061, -0.00649209, -2.83778e-10, -2.07313e-17, -4.37114e-10, 0.01, -0.00649209, 0.0076061, 3.32473e-10, 1.39866, 0, -1.6379)
+visible = false

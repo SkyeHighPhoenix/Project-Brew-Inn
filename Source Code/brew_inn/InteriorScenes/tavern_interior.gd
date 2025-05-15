@@ -1,11 +1,17 @@
 extends Node3D
 var camera
+var emptyCup
+var fullCup
+var bottle
+var servedRecently
 signal exit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	camera = $Player/Camera3D
-
+	emptyCup = $Player/EmptyMug
+	fullCup = $Player/FullMug
+	bottle = $Player/Bottle
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -35,3 +41,36 @@ func clickedArea(area):
 	match area:
 		"Exit":
 			exit.emit()
+		"ServeSpace":
+			if !servedRecently:
+				servedRecently = true
+				if emptyCup.visible:
+					emptyCup.hide()
+				elif fullCup.visible:
+					fullCup.hide()
+					GlobalInventory.currency+=5
+					GlobalInventory.addEXP(10)
+					$servedMug.show()
+					$Timer.start()
+				elif bottle.visible:
+					bottle.hide()
+					GlobalInventory.currency+=10
+					GlobalInventory.addEXP(15)
+					$servedBottle.show()
+					$Timer.start()
+		"Cups":
+			if !emptyCup.visible &&!fullCup.visible&&!bottle.visible:
+				emptyCup.show()
+		"Bottles":
+			if !emptyCup.visible &&!fullCup.visible&&!bottle.visible:
+				bottle.show()
+		"Taps":
+			if emptyCup.visible:
+				emptyCup.hide()
+				fullCup.show()
+
+
+func _on_timer_timeout() -> void:
+	$servedMug.hide()
+	$servedBottle.hide()
+	servedRecently = false

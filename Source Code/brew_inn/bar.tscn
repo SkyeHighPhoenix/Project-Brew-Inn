@@ -16,44 +16,61 @@ script = ExtResource("2_e21vt")
 [node name="Cube_014" parent="." index="0"]
 transform = Transform3D(-0.493848, 1.28883e-07, 0.707107, -9.00128e-08, -1, 5.33851e-08, 0.493849, -5.33851e-08, 0.707107, -110.481, 16.457, 10.4458)
 
-[node name="walls" type="Node" parent="." index="1"]
+[node name="Walls" type="Node" parent="." index="1"]
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="walls" index="0"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Walls" index="0"]
 transform = Transform3D(-0.237389, -0.175133, 0, -7.65534e-09, 1.03766e-08, 0.295, -0.175133, 0.237389, -1.28949e-08, 9.02407, 0.687288, -3.96675)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="walls/StaticBody3D2" index="0"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/StaticBody3D2" index="0"]
 visible = false
 mesh = SubResource("BoxMesh_l80kv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/StaticBody3D2" index="1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D2" index="1"]
 shape = SubResource("BoxShape3D_2tfs5")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="walls" index="1"]
+[node name="StaticBody3D3" type="StaticBody3D" parent="Walls" index="1"]
 transform = Transform3D(7.72505e-05, 0.295, 0, 1.28949e-08, -3.37674e-12, 0.295, 0.295, -7.72505e-05, -1.28949e-08, 1.14908, 0.590994, -2.96298)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="walls/StaticBody3D3" index="0"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/StaticBody3D3" index="0"]
 visible = false
 mesh = SubResource("BoxMesh_l80kv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/StaticBody3D3" index="1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D3" index="1"]
 shape = SubResource("BoxShape3D_2tfs5")
 
-[node name="StaticBody3D5" type="StaticBody3D" parent="walls" index="2"]
+[node name="StaticBody3D5" type="StaticBody3D" parent="Walls" index="2"]
 transform = Transform3D(0.000813524, 0.294999, 0, 1.28948e-08, -3.55604e-11, 0.295, 0.294999, -0.000813524, -1.28949e-08, 0.403021, 0.687288, -8.29566)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="walls/StaticBody3D5" index="0"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/StaticBody3D5" index="0"]
 visible = false
 mesh = SubResource("BoxMesh_l80kv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/StaticBody3D5" index="1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D5" index="1"]
 shape = SubResource("BoxShape3D_2tfs5")
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="walls" index="3"]
+[node name="StaticBody3D4" type="StaticBody3D" parent="Walls" index="3"]
 transform = Transform3D(-0.234352, 0.179176, 0, 7.83205e-09, 1.02439e-08, 0.295, 0.179176, 0.234352, -1.28949e-08, -6.85427, 0.687288, -8.39086)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="walls/StaticBody3D4" index="0"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/StaticBody3D4" index="0"]
 visible = false
 mesh = SubResource("BoxMesh_l80kv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/StaticBody3D4" index="1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D4" index="1"]
 shape = SubResource("BoxShape3D_2tfs5")
+
+[node name="Lights" type="Node" parent="." index="2"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights" index="0"]
+transform = Transform3D(1, 0, 0, 0, -0.438967, 0.898503, 0, -0.898503, -0.438967, -1.26428, 7.7562, -7.59879)
+light_energy = 2.224
+spot_range = 14.1478
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights" index="1"]
+transform = Transform3D(1, 0, 0, 0, -0.438967, 0.898503, 0, -0.898503, -0.438967, 1.97285, 7.7562, -7.59879)
+light_energy = 2.224
+spot_range = 14.1478
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lights" index="2"]
+transform = Transform3D(1, 0, 0, 0, -0.438967, 0.898503, 0, -0.898503, -0.438967, 5.4142, 7.7562, -7.59879)
+light_energy = 2.224
+spot_range = 14.1478
