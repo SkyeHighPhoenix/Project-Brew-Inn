@@ -3,6 +3,7 @@ extends "res://Scripts/farm_tile.gd"
 var secondResourceCount = 0
 
 func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, irrigationStatus:bool, connectedTiles:Array):
+	category = "herbgarden"
 	GlobalTick.tickIncreased.connect(tickIncrease)
 	Irrigated = irrigationStatus
 	tileType = "hGL"

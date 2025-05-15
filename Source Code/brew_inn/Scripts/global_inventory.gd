@@ -2,7 +2,7 @@ extends Node2D
 
 var categories = {"wood":["oak", "cherry", "beech", "willow", "hazel"], "cake":["chocolate guinness cake", "carrot cake"]}
 var workerCredits = 0
-var currency = 0
+var currency:int = 5000
 var resourceCount = {"Orange":0, "Apple":0,"Lemon":0,"Lime":0,"Pear":0,"Strawberry":0,"Raspberry":0}
 # Called when the node enters the scene tree for the first time.
 
