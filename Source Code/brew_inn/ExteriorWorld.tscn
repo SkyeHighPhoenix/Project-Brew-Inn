@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://betj6e7c7ogv5"]
+[gd_scene load_steps=6 format=3 uid="uid://betj6e7c7ogv5"]
 
 [ext_resource type="PackedScene" uid="uid://citkugy70ljus" path="res://UI/External world/UI overlay external world.tscn" id="1_umlrn"]
 [ext_resource type="PackedScene" uid="uid://bh3ksvxjojdyn" path="res://grid_test.tscn" id="2_wobri"]
-[ext_resource type="PackedScene" uid="uid://yoa5oepyvuae" path="res://UI/External world/UI farming structure.tscn" id="3_1jh3p"]
 [ext_resource type="PackedScene" uid="uid://c2oq28vnyql2m" path="res://UI/UI pause menu.tscn" id="3_w47gm"]
-[ext_resource type="PackedScene" uid="uid://c2v00pptc38iq" path="res://UI/External world/UI machines.tscn" id="4_okrr2"]
 [ext_resource type="PackedScene" uid="uid://lh2iktcf4mmj" path="res://UI/External world/UI shop menu.tscn" id="5_afram"]
 [ext_resource type="PackedScene" uid="uid://b7bj7yxkrgdqf" path="res://UI/External world/UI warehouse menu.tscn" id="6_rlhmi"]
 
@@ -14,14 +12,9 @@
 process_mode = 3
 
 [node name="UiOverlay" parent="CanvasLayer" instance=ExtResource("1_umlrn")]
+mouse_filter = 1
 
 [node name="UiPauseMenu" parent="CanvasLayer" instance=ExtResource("3_w47gm")]
-
-[node name="UiFarmingStructures" parent="CanvasLayer" instance=ExtResource("3_1jh3p")]
-visible = false
-
-[node name="UiProductionMachines" parent="CanvasLayer" instance=ExtResource("4_okrr2")]
-visible = false
 
 [node name="UiShop" parent="CanvasLayer" instance=ExtResource("5_afram")]
 visible = false

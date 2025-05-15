@@ -10,16 +10,20 @@
 [ext_resource type="Texture2D" uid="uid://f7s1ds0klfpg" path="res://UI/UI assets/XP bar.png" id="5_38qnv"]
 [ext_resource type="Texture2D" uid="uid://dekonq233vq01" path="res://UI/UI assets/Quick veiw progress 1.png" id="8_8fjku"]
 
-[node name="UiFarmingStructures" type="Node2D"]
+[node name="UiFarmingStructures" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_g6eiy")
 
 [node name="backgroundGreyOut" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.372549, 0.345098, 0.333333, 0.811765)
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
+layout_mode = 0
 offset_left = 32.0
 offset_top = 17.0
 offset_right = 1118.0
@@ -28,6 +32,7 @@ texture = ExtResource("1_ag6c4")
 expand_mode = 5
 
 [node name="Structure name" type="Label" parent="."]
+layout_mode = 0
 offset_left = 144.0
 offset_top = 130.0
 offset_right = 279.0
@@ -37,6 +42,7 @@ NAME HERE]"
 horizontal_alignment = 1
 
 [node name="manualHarvestButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 219.0
 offset_right = 290.0
@@ -61,6 +67,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="collectFromLocalStorageButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 127.0
 offset_top = 271.0
 offset_right = 291.0
@@ -85,6 +92,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="setCropButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 128.0
 offset_top = 328.0
 offset_right = 292.0
@@ -109,6 +117,7 @@ autowrap_mode = 3
 uppercase = true
 
 [node name="setCropButton2" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 128.0
 offset_top = 381.0
 offset_right = 292.0
@@ -133,6 +142,7 @@ autowrap_mode = 3
 uppercase = true
 
 [node name="backButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 128.0
 offset_top = 440.0
 offset_right = 292.0
@@ -156,6 +166,7 @@ uppercase = true
 
 [node name="Vertical divider" type="TextureRect" parent="."]
 modulate = Color(0.707967, 0.707966, 0.707967, 1)
+layout_mode = 0
 offset_left = 278.0
 offset_top = 84.0
 offset_right = 367.0
@@ -166,6 +177,7 @@ expand_mode = 3
 
 [node name="Horizontal divider" type="TextureRect" parent="."]
 modulate = Color(0.709804, 0.709804, 0.709804, 1)
+layout_mode = 0
 offset_left = 121.0
 offset_top = 183.0
 offset_right = 306.0

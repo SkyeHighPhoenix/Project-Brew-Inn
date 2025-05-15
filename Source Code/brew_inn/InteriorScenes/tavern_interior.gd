@@ -43,16 +43,15 @@ func clickedArea(area):
 			exit.emit()
 		"ServeSpace":
 			if !servedRecently:
-				servedRecently = true
-				if emptyCup.visible:
-					emptyCup.hide()
-				elif fullCup.visible:
+				if fullCup.visible:
+					servedRecently = true
 					fullCup.hide()
 					GlobalInventory.currency+=5
 					GlobalInventory.addEXP(10)
 					$servedMug.show()
 					$Timer.start()
 				elif bottle.visible:
+					servedRecently = true
 					bottle.hide()
 					GlobalInventory.currency+=10
 					GlobalInventory.addEXP(15)

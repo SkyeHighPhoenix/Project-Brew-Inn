@@ -28,7 +28,9 @@ region_rect = Rect2(105, 378, 165, 190)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6ky2t"]
 
-[node name="UiProductionMachines" type="Node2D"]
+[node name="UiProductionMachines" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="backgroundGreyOut" type="ColorRect" parent="."]
 offset_right = 1152.0

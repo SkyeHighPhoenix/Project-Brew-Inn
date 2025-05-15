@@ -12,7 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cp3h4yci8p60a" path="res://UI/UI assets/Pause highlighted.png" id="9_5uwde"]
 [ext_resource type="Texture2D" uid="uid://b8dxv6qi0ilx1" path="res://UI/UI assets/Morning icon.png" id="10_fhlpn"]
 
-[node name="UiOverlay" type="Node2D"]
+[node name="UiOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_3ox0i")
 
 [node name="HUDFraming" type="TextureRect" parent="."]

@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 signal setTile
 ## put the starting prices list as a dictionary {placeholder:£placeholder price}

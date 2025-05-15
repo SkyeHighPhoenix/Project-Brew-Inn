@@ -25,7 +25,9 @@ content_margin_bottom = 29.0
 texture = ExtResource("4_p5651")
 region_rect = Rect2(105, 378, 165, 190)
 
-[node name="UiShop" type="Node2D"]
+[node name="UiShop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_n5kmo")
 
 [node name="backgroundGreyOut" type="ColorRect" parent="."]

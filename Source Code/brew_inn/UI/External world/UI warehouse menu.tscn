@@ -27,7 +27,9 @@ region_rect = Rect2(105, 378, 165, 190)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_jhm37"]
 
-[node name="UiWarehouse" type="Node2D"]
+[node name="UiWarehouse" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_4g15y")
 
 [node name="backgroundGreyOut" type="ColorRect" parent="."]
