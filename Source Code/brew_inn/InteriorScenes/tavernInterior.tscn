@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfix66ksjvwt0"]
+[gd_scene load_steps=7 format=3 uid="uid://dfix66ksjvwt0"]
 
 [ext_resource type="PackedScene" uid="uid://j8q5lwf17ylv" path="res://bar.tscn" id="1_a8qpa"]
 [ext_resource type="PackedScene" uid="uid://yx6knh7fwti7" path="res://UI/Tavern interior/UI overlay tavern interior.tscn" id="1_ycoge"]
 [ext_resource type="PackedScene" uid="uid://da7cye1gfd64u" path="res://InteriorScenes/player.tscn" id="1_yoomx"]
+[ext_resource type="Script" path="res://InteriorScenes/tavern_interior.gd" id="1_yu3lc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k2h1g"]
+size = Vector3(3, 3, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pipof"]
+size = Vector3(3, 3, 5)
 
 [node name="TavernInterior" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0737634, -0.0156236, -0.0108824)
+script = ExtResource("1_yu3lc")
 
 [node name="Empty Bar NO LIGHT2" parent="." instance=ExtResource("1_a8qpa")]
 
@@ -12,3 +21,14 @@
 
 [node name="Player" parent="." instance=ExtResource("1_yoomx")]
 transform = Transform3D(-1.48, 0, -2.23474e-07, 0, 1.48, 0, 2.23474e-07, 0, -1.48, 2.57023, 2.74883, -5.35)
+
+[node name="Exit" type="StaticBody3D" parent="."]
+transform = Transform3D(0.828315, 0, 0.560263, 0, 1, 0, -0.560263, 0, 0.828315, -4.33419, 1.78181, -5.34736)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit"]
+shape = SubResource("BoxShape3D_k2h1g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Exit"]
+visible = false
+mesh = SubResource("BoxMesh_pipof")
