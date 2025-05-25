@@ -47,13 +47,13 @@ func _process(delta: float) -> void:
 func exportResources(manual = false):
 	if tick % workerSpeed == 0 and plantGrowing[0] != null:
 		if storedResources > workerExportCount:
-			GlobalInventory.addResource(plantGrowing[0], workerExportCount)
+			GlobalInventory.addResource(typeToResource[plantGrowing[0]], workerExportCount)
 			storedResources -= workerExportCount
 		else:
-			GlobalInventory.addResource(plantGrowing[0], storedResources)
+			GlobalInventory.addResource(typeToResource[plantGrowing[0]], storedResources)
 			storedResources = 0
 	if manual:
-		GlobalInventory.addResource(plantGrowing[0], storedResources)
+		GlobalInventory.addResource(typeToResource[plantGrowing[0]], storedResources)
 		storedResources = 0
 
 func increaseResources():

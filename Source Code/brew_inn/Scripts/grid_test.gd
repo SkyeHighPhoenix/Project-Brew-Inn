@@ -73,7 +73,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func getMouseToCoords(eventCoords): #something appears to be off with where the tilemap thinks the mouse is
+func getMouseToCoords(eventCoords):
 	var newcoords = Vector2(eventCoords)-Vector2(viewportSize/2)
 	newcoords *= Vector2(NodeScale/$Camera2D.zoom.x,NodeScale/$Camera2D.zoom.y)
 	newcoords += Vector2($Camera2D.position*NodeScale)

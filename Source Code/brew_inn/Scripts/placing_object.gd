@@ -20,7 +20,8 @@ func getRotation(rotation):
 			test |= $PlacingLayer.tile_set.get_source(0).TRANSFORM_FLIP_V
 			test |= $PlacingLayer.tile_set.get_source(0).TRANSFORM_FLIP_H
 		3: 
-			test |= $PlacingLayer.tile_set.get_source(0).TRANSFORM_FLIP_H
+			test |= $PlacingLayer.tile_set.get_source(0).TRANSFORM_TRANSPOSE
+			test |= $PlacingLayer.tile_set.get_source(0).TRANSFORM_FLIP_V
 	return test
 	
 

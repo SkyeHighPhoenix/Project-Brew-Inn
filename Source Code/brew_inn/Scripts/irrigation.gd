@@ -46,7 +46,6 @@ func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, co
 func setFill(fillNumber):
 	if not isWell:
 		fillLevel = fillNumber
-		print(placeRot, "thisRotation")
 		setTile.emit(tilemapLocations[tileType][valueToTexture[fillLevel]], tilePosition, placeRot)
 		if fillLevel > 0:
 			var Irrigated = []
@@ -57,7 +56,6 @@ func setFill(fillNumber):
 	
 
 func checkInOut(visited = []):
-	print(tileType, " this is me and visited is ", visited)
 	visited.append(self)
 	checkNeigbors.emit(self)
 	var highestFill = 0
@@ -73,5 +71,5 @@ func checkInOut(visited = []):
 					if i.fillLevel > highestFill:
 						highestFill == i.fillLevel
 	for i in connected:
-		if len(visited)<11 and i not in visited and i.fillLevel < fillLevel-1:
+		if i.fillLevel < fillLevel-1 and fillLevel != 0:
 			i.checkInOut(visited)

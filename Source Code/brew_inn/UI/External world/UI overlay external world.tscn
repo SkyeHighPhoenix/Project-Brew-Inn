@@ -19,6 +19,7 @@ script = ExtResource("1_3ox0i")
 
 [node name="HUDFraming" type="TextureRect" parent="."]
 z_index = -10
+layout_mode = 0
 offset_right = 1194.0
 offset_bottom = 582.0
 texture = ExtResource("1_fnry5")
@@ -86,6 +87,7 @@ offset_bottom = 58.0
 text = "[LEVEL NO HERE]"
 
 [node name="originButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 124.0
 offset_right = 141.0
@@ -106,6 +108,7 @@ text = "ORIGIN"
 horizontal_alignment = 1
 
 [node name="pauseButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 1053.0
 offset_top = 10.0
 offset_right = 1135.0
@@ -117,6 +120,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="timeIndicator" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 8.0
 offset_right = 104.0

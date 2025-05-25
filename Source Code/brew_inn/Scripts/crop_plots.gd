@@ -23,13 +23,15 @@ func checkConnections(tiles):
 	var tempStorage = null
 	for i in tiles:
 		print(i.tileType, " CheckConnections")
-		if i.tileType == "cropPlot":
+		if i.category == "cropPlots":
+			print("found")
 			connections.append(i)
 			i.addConnection(self)
-		elif i.tileType == "storage" and storageBox == null and tempStorage == null:
+		elif i.tileType == "Storage" and storageBox == null and tempStorage == null:
 			tempStorage = i
 	if tempStorage != null:
-		newStorage(0,tempStorage)
+		if tempStorage.getAvailable() > 0:
+			newStorage(0,tempStorage)
 			
 
 
@@ -37,7 +39,7 @@ func checkForStorage():
 	# checks for any available storage boxes to connect to when a crop plot
 	var currentSelection = null
 	for i in connections:
-		print(i, " checkForStorage")
+		print(i, " checkForStorage, plotsToStorage = ", plotsToStorage)
 		if i.plotsToStorage != null:
 			if currentSelection == null:
 				currentSelection = i
@@ -62,8 +64,9 @@ func setStorage(settingStorage, checkedTiles = []):
 		if i.storageBox == null and settingStorage.getAvailable() > 0:
 			settingStorage.addNode(i)
 			i.storageBox = settingStorage
+			i.plotsToStorage = plotsToStorage+1
 			if settingStorage.cropActive != null:
-				i.updateCropType(settingStorage.cropActive)
+				updateCropType(settingStorage.cropActive)
 	for i in connections:
 		if i.storageBox == settingStorage and settingStorage.getAvailable() > 0 and i not in checkedTiles:
 			checkedTiles.append(self)
@@ -72,6 +75,7 @@ func setStorage(settingStorage, checkedTiles = []):
 	pass
 
 func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, irrigationStatus:bool, connectedTiles:Array):
+	print("")
 	category = "cropPlots"
 	GlobalTick.tickIncreased.connect(tickIncrease)
 	Irrigated = irrigationStatus
@@ -83,7 +87,10 @@ func createBuilding(buildingType:String, coordinates:Vector2i, size:Vector2i, ir
 	checkConnections(connectedTiles)
 	checkForStorage()
 	tileType = buildingType
-
+	if storageBox != null:
+		if storageBox.cropActive != null:
+			updateCropType(storageBox.cropActive)
+			pass
 func addConnection(toConnect):
 	connections.append(toConnect)
 	pass
