@@ -16,10 +16,10 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	if Input.is_action_just_pressed("enter")&&!inside:
-		EnteredTavern()
+		#EnteredTavern()
 		print("enter")
 	elif Input.is_action_just_pressed("exit")&&inside:
-		ExitedTavern()
+		#ExitedTavern()
 		print("exit")
 
 func uiToggled():

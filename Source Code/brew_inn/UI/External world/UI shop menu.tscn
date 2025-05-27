@@ -1267,11 +1267,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="fermentor" type="Control" parent="machinesTab/shopScrollableMachinesTab/machinesItemList"]
+[node name="fermenter" type="Control" parent="machinesTab/shopScrollableMachinesTab/machinesItemList"]
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 
-[node name="entryBackground" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+[node name="entryBackground" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermenter"]
 modulate = Color(0.813258, 0.813258, 0.813258, 1)
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
@@ -1280,7 +1280,7 @@ offset_bottom = 150.0
 texture = ExtResource("1_wlmrt")
 expand_mode = 1
 
-[node name="iconHighlight" type="ColorRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+[node name="iconHighlight" type="ColorRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermenter"]
 layout_mode = 0
 offset_left = 70.0
 offset_top = 34.0
@@ -1288,7 +1288,7 @@ offset_right = 158.0
 offset_bottom = 114.0
 color = Color(0.527967, 0.419829, 0.320141, 1)
 
-[node name="coinPriceIcon" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+[node name="coinPriceIcon" type="TextureRect" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermenter"]
 layout_mode = 0
 offset_left = -26.0
 offset_top = 51.0
@@ -1298,7 +1298,7 @@ mouse_filter = 2
 texture = ExtResource("4_3dpcs")
 expand_mode = 1
 
-[node name="shopItemName" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+[node name="shopItemName" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermenter"]
 layout_mode = 0
 offset_left = 166.0
 offset_top = 34.0
@@ -1307,7 +1307,7 @@ offset_bottom = 57.0
 text = "Fermenter"
 uppercase = true
 
-[node name="currentlyOwnedLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+[node name="currentlyOwnedLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermenter"]
 layout_mode = 0
 offset_left = 166.0
 offset_top = 92.0
@@ -1315,7 +1315,7 @@ offset_right = 302.0
 offset_bottom = 115.0
 text = "Currently owned:"
 
-[node name="currentlyOwnedAmountLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+[node name="currentlyOwnedAmountLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermenter"]
 layout_mode = 0
 offset_left = 301.0
 offset_top = 92.0
@@ -1323,7 +1323,7 @@ offset_right = 437.0
 offset_bottom = 115.0
 text = "[number here]"
 
-[node name="shopItemCost" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+[node name="shopItemCost" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermenter"]
 layout_mode = 0
 offset_left = 186.0
 offset_top = 53.0
@@ -1332,7 +1332,7 @@ offset_bottom = 76.0
 text = "[Price number here]"
 uppercase = true
 
-[node name="purchaseButtonM1" type="TextureButton" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor"]
+[node name="purchaseButtonM1" type="TextureButton" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermenter"]
 layout_mode = 0
 offset_left = 446.0
 offset_top = 50.0
@@ -1344,7 +1344,7 @@ texture_hover = ExtResource("8_yn2nk")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="buyLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermentor/purchaseButtonM1"]
+[node name="buyLabel" type="Label" parent="machinesTab/shopScrollableMachinesTab/machinesItemList/fermenter/purchaseButtonM1"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0

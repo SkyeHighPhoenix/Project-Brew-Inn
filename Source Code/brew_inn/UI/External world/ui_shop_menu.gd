@@ -4,12 +4,12 @@ signal setTile
 const structPriceMultipliers = {"Null":1, "orchard":1.05, "berryBushes":1.05, "storage":1.05, 
 "cropPlot":1.05, "herbGarden":1.05, "greenhouse":1.05, "irwell":1.05, 
 "irstraight":1.05, "irjunction":1.05, "irbend":1.05, "juicer":1.1, 
-"fermentor":1.1, "washer":1.1, "dehydrator":1.1, "carbonator":1.1, 
+"fermenter":1.1, "washer":1.1, "dehydrator":1.1, "carbonator":1.1, 
 "waterProcessingUnit":1.1, "industrialMixer":1.1, "bottlingUnit":1.1}
 var tabs = ["farmingTab", "machinesTab", "licensesTab", "workersTab"]
 ## put the starting prices list as a dictionary {placeholder:£placeholder price}
 const structCategories = {"irrigation":["irbend", "irjunction", "irstraight", "irwell"],
-"productionMachine":["fermentor", "juicer", "washer", "dehydrator", "carbonator", 
+"productionMachine":["fermenter", "juicer", "washer", "dehydrator", "carbonator", 
 "waterProcessingUnit", "industrialMixer", "bottlingUnit"], 
 "herbGarden":["herbGarden"], 
 "cropPlot":["cropPlot"], "standardFarm":["orchard", "berryBushes", "greenhouse"],
@@ -17,7 +17,7 @@ const structCategories = {"irrigation":["irbend", "irjunction", "irstraight", "i
 var numberOfStruct = {"Null":0, "orchard":0, "berryBushes":0, "storage":0, 
 "cropPlot":0, "herbGarden":0, "greenhouse":0, "irwell":0, 
 "irstraight":0, "irjunction":0, "irbend":0, "juicer":0, 
-"fermentor":0, "washer":0, "dehydrator":0, "carbonator":0, 
+"fermenter":0, "washer":0, "dehydrator":0, "carbonator":0, 
 "waterProcessingUnit":0, "industrialMixer":0, "bottlingUnit":0}
 var numberOfWorkers = {"standardWorker":0, "specialistWorker":0}
 var licensesShopCostDict = {"Juices":0, "Concentrates":150, "Ciders":400, "Beers":1175, "Soft Drinks":850, "Hot Drinks":1450}
